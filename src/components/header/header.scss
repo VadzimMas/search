@@ -1,0 +1,38 @@
+.header {
+  width: 100vw;
+  background-image: linear-gradient(to right top, #d16ba5, #ee768f, #fb8b7a, #faa66b, #edc36a, #dbd372, #c7e283, #b0ef9c, #9af4b0, #84f7c6, #6ffadc, #5ffbf1);
+
+
+  .header-nav {
+    width: 100vw;
+    padding: 1%;
+    background-color: rgba(128, 128, 128, 0.38);
+
+
+    .menu {
+
+    }
+
+    .avatar {
+      .avatar-invisible {
+        display: none;
+      }
+
+      .avatar-visible {
+        font-size: clamp(18px, 5vw, 150px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: clamp(50px, 8vw, 150px);
+        aspect-ratio: 1/1;
+        background-color: rgba(44, 37, 37, 0.48);
+        border-radius: 50%;
+        border: rgb(70, 65, 65) solid clamp(1px, 0.2vw, 8px);
+        color: wheat;
+      }
+    }
+
+  }
+
+
+}

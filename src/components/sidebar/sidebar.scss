@@ -1,0 +1,124 @@
+.sidebar {
+  width: 8vw;
+  height: 100vh;
+  display: flex;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  left: 0;
+
+  .menu {
+    display: none;
+  }
+
+  .nav {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1vw;
+    background: var(--sidebar-bg-color);
+    cursor: pointer;
+    transition: .2s;
+    margin: 0;
+    border: 0;
+
+    .link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      padding: 1vw;
+      border: clamp(0.5px, 0.1vw, 5px) solid transparent;
+      color: var(--sidebar-text-color);
+      margin: clamp(5px, 0.5vw, 20px) 0 0 0;
+
+      &:hover {
+        border-radius: 5px;
+        border: clamp(0.5px, 0.1vw, 5px) solid var(--sidebar-border-color);
+      }
+
+      &.active {
+        background-color: var(--sidebar-active-bg-color);
+        color: var(--sidebar-active-text-color);
+        border-radius: 5px;
+        border: clamp(0.5px, 0.1vw, 5px) solid var(--sidebar-border-color);
+      }
+
+      .link-icon {
+        width: clamp(30px, 4vw, 140px);
+        font-size: clamp(30px, 4vw, 140px);
+        transition: .2s;
+      }
+
+      .link-title {
+        transition: .1s;
+        white-space: nowrap;
+        font-size: 0;
+      }
+    }
+
+    @media all and (min-width: 768px) {
+      &:hover {
+        .link {
+          .link-icon {
+            width: clamp(40px, 5vw, 150px);
+            font-size: clamp(40px, 5vw, 150px);
+            margin-right: 1.5vw;
+          }
+
+          .link-title {
+            font-size: clamp(30px, 3vw, 50px);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: sticky;
+    width: 100%;
+    height: unset;
+    background: var(--sidebar-bg-color);
+
+
+    .menu {
+      display: block;
+      font-size: clamp(40px, 5vw, 150px);
+      transition: .2s;
+      cursor: pointer;
+      color: var(--sidebar-active-bg-color);
+      margin: 1vw;
+
+      &.active {
+        transform: rotate(90deg);
+      }
+    }
+
+    .nav {
+      position: absolute;
+      top: 100%;
+      left: -100%;
+      // height = 100vh - .menu margin - .menu font-size
+      height: calc(100vh - 2vw - clamp(40px, 5vw, 150px));
+
+      &.active {
+        left: 0;
+      }
+
+      .link {
+        .link-icon {
+          width: clamp(30px, 4vw, 140px);
+          font-size: clamp(30px, 4vw, 140px);
+          margin-right: 1.5vw;
+        }
+
+        .link-title {
+          transition: .1s;
+          white-space: nowrap;
+          font-size: clamp(25px, 3vw, 40px);
+        }
+      }
+    }
+  }
+}

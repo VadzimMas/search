@@ -1,0 +1,33 @@
+.userList {
+  display: flex;
+  gap: clamp(10px, 1vw, 20px);
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+
+
+}
+
+.userListLoading {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  .loading {
+    font-size: clamp(50px, 8vw, 150px);
+    animation: loading infinite linear;
+    animation-duration: 2s;
+  }
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

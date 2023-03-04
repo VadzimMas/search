@@ -1,0 +1,13 @@
+.searchUsers {
+  padding: 1%;
+
+  .backgraund {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: linear-gradient(to right top, #d16ba5, #ee768f, #fb8b7a, #faa66b, #edc36a, #dbd372, #c7e283, #b0ef9c, #9af4b0, #84f7c6, #6ffadc, #5ffbf1);
+  }
+}

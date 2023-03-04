@@ -1,0 +1,159 @@
+.userCard {
+  position: relative;
+  width: clamp(300px, 30vw, 500px);
+  padding: clamp(10px, 2vw, 30px);
+  color: wheat;
+  background: linear-gradient(174.81deg, #111017 32.33%, #090320 107.39%);
+  box-shadow: 0 46.7562px 150.532px rgba(0, 54, 66, 0.15), 0 17.9688px 62.8887px rgba(0, 0, 0, 0.0646969), 0 8.71086px 33.6233px rgba(0, 0, 0, 0.0536497), 0 4.34168px 18.8489px rgba(0, 0, 0, 0.045), 0 1.98728px 10.0105px rgba(0, 0, 0, 0.0363503), 0 0.683065px 4.16561px rgba(0, 0, 0, 0.0253031);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+
+  .avatar-invisible {
+    display: none;
+  }
+
+  .avatar-visible {
+    font-size: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    aspect-ratio: 1/1;
+    position: absolute;
+    border-radius: 50%;
+    border: rgba(255, 255, 255, 0.1) solid 5px;
+  }
+
+  .fieldset {
+    width: 100%;
+    margin: 30% 0 10% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 35% 5% 5% 5%;
+    box-sizing: border-box;
+    transition: 300ms;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.29);
+    }
+
+
+    .firstName {
+      font-size: clamp(30px, 3vw, 50px);
+    }
+
+    .lastName {
+      font-size: clamp(25px, 3vw, 40px);
+      margin-bottom: 5%;
+    }
+
+    .email {
+      font-size: clamp(15px, 2vw, 30px);
+      margin-bottom: 5%;
+    }
+
+    .rating {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      font-size: clamp(30px, 3vw, 50px);
+      -webkit-user-select: none; /* Safari */
+      user-select: none; /* Standard syntax */
+
+      .like {
+        width: 50%;
+        padding-right: 10%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+        .likeImg {
+          padding-right: 5%;
+          cursor: pointer;
+          transition: .2s;
+
+          &:hover {
+            scale: 1.2;
+          }
+
+          &:active {
+            scale: .8;
+          }
+        }
+
+        .likeCount {
+
+        }
+      }
+
+      .separator {
+      }
+
+      .dislike {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 10%;
+
+
+        .dislikeImg {
+          order: 1;
+          cursor: pointer;
+          padding-right: 5%;
+          transition: .2s;
+
+          &:hover {
+            scale: 1.2;
+          }
+
+          &:active {
+            scale: .8;
+          }
+        }
+
+        .dislikeCount {
+          order: 0;
+        }
+      }
+    }
+  }
+
+  .btn {
+    background: linear-gradient(264.82deg, #179AC3 -40.21%, #FFDA15 111.11%);
+    border-radius: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(10px, 2vw, 20px) 0;
+    font-size: clamp(15px, 2vw, 30px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    transition: .2s;
+
+    &:hover {
+      scale: 1.05;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.29);
+    }
+
+    &:active {
+      scale: 0.95;
+      box-shadow: inset 0 0 20px rgb(70, 65, 65);
+    }
+
+    & span {
+      margin-left: 5%;
+    }
+
+
+  }
+}

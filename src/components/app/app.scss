@@ -1,0 +1,28 @@
+.app {
+  display: flex;
+  width: 100vw;
+
+  .sidebar {
+    //look to sidebar component styles
+  }
+
+  #detail {
+    width: 92vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .app {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+
+    .sidebar {
+      //look to sidebar component styles
+    }
+
+    #detail {
+      width: 100%;
+    }
+  }
+}

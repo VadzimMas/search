@@ -1,0 +1,105 @@
+.addUserCard {
+  position: relative;
+  width: clamp(300px, 30vw, 500px);
+  padding: clamp(10px, 2vw, 30px);
+  color: wheat;
+  background: linear-gradient(174.81deg, #111017 32.33%, #090320 107.39%);
+  box-shadow: 0px 46.7562px 150.532px rgba(0, 54, 66, 0.15), 0px 17.9688px 62.8887px rgba(0, 0, 0, 0.0646969), 0px 8.71086px 33.6233px rgba(0, 0, 0, 0.0536497), 0px 4.34168px 18.8489px rgba(0, 0, 0, 0.045), 0px 1.98728px 10.0105px rgba(0, 0, 0, 0.0363503), 0px 0.683065px 4.16561px rgba(0, 0, 0, 0.0253031);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+
+
+  .fieldset {
+    position: absolute;
+    inset: clamp(10px, 2vw, 30px);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    transition: 300ms;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.29);
+    }
+  }
+
+  .btn {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .img {
+      font-size: 100px;
+    }
+  }
+
+  &:hover {
+    background-color: rgb(255, 140, 0);
+  }
+}
+
+// Modal styles
+.modal {
+  position: absolute;
+  width: clamp(300px, 50vw, 800px);
+  box-sizing: border-box;
+  background: linear-gradient(174.81deg, #111017 32.33%, #090320 107.39%);
+  box-shadow: 0px 46.7562px 150.532px rgba(0, 54, 66, 0.15), 0px 17.9688px 62.8887px rgba(0, 0, 0, 0.0646969), 0px 8.71086px 33.6233px rgba(0, 0, 0, 0.0536497), 0px 4.34168px 18.8489px rgba(0, 0, 0, 0.045), 0px 1.98728px 10.0105px rgba(0, 0, 0, 0.0363503), 0px 0.683065px 4.16561px rgba(0, 0, 0, 0.0253031);
+  border-radius: 20px;
+  padding: 20px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  outline: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(44, 37, 37, 0.8);
+  box-sizing: border-box;
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+.close {
+  background: linear-gradient(264.82deg, #179AC3 -40.21%, #FFDA15 111.11%);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(10px, 2vw, 20px) 0;
+  font-size: clamp(15px, 2vw, 30px);
+}
+
+
+
+

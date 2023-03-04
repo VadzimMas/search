@@ -1,0 +1,67 @@
+.userForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(5px, 3vw, 100px);
+  box-sizing: border-box;
+  margin-bottom: 5%;
+  border-radius: 15px;
+  width: 100%;
+  color: wheat;
+  background: rgba(255, 255, 255, 0.1);
+
+
+  .title {
+    margin: 0 0 1vw 0;
+    padding: 0;
+    font-size: clamp(20px, 3vw, 40px);
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: center;
+
+    label {
+      font-size: clamp(18px, 3vw, 30px);
+      margin: 1vw 0;
+    }
+
+    input {
+      box-sizing: border-box;
+      width: 100%;
+      font-size: clamp(16px, 3vw, 25px);
+      height: clamp(40px, 5vw, 60px);
+      border-radius: 20px;
+    }
+  }
+
+  .firstName {
+  }
+
+  .lastName {
+  }
+
+  .email {
+  }
+
+  .subtitle {
+    font-size: clamp(18px, 3vw, 25px);
+    font-weight: normal;
+  }
+
+  .btn {
+    background: linear-gradient(264.82deg, #179AC3 -40.21%, #FFDA15 111.11%);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(10px, 2vw, 20px) 0;
+    font-size: clamp(15px, 2vw, 30px);
+  }
+}
