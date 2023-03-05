@@ -32,11 +32,11 @@ function Sidebar() {
             <IoLogoReact className="link-icon"/>
             <span className="link-title">Home</span>
           </NavLink>
-          <NavLink to={'/searchUsers'} className="link">
+          <NavLink to={'searchUsers'} className="link">
             <BsSearch className="link-icon"/>
             <span className="link-title">Search Users</span>
           </NavLink>
-          <NavLink to={'/crownClothing'} className="link">
+          <NavLink to={'crownClothing'} className="link">
             <FaCrown className="link-icon"/>
             <span className="link-title">Crown Clothing</span>
           </NavLink>
