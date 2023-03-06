@@ -14,4 +14,3 @@ function CrownClothing() {
 }
 
 export default CrownClothing
-rc

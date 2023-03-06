@@ -1,15 +1,12 @@
 import {createBrowserRouter} from 'react-router-dom'
 import App from '../components/app/App'
 import Error from '../components/error/Error'
-import Sidebar from '../components/sidebar/Sidebar'
 import SearchUsers from '../components/searchUsers/SearchUsers'
-import React from 'react'
 import Home from '../components/home/Home'
 import CrownClothing from '../components/crownClosing/CrownClothing'
-import SomeComponent from '../components/crownClosing/SomeComponent'
 import CategoryList from '../components/crownClosing/categoryList/CategoryList'
-import Navbar from '../components/crownClosing/navbar/Navbar'
 import Shop from '../components/crownClosing/shop/Shop'
+import SignIn from '../components/crownClosing/signIn/SignIn'
 
 const router = createBrowserRouter([
   {
@@ -36,6 +33,10 @@ const router = createBrowserRouter([
           {
             path: 'shop',
             element: <Shop/>,
+          },
+          {
+            path: 'sign-in',
+            element: <SignIn/>,
           },
         ],
       },
