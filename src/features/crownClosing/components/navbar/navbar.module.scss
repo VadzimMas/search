@@ -1,0 +1,37 @@
+@import "src/mixins";
+
+.navbar {
+  //height: adaptiveSize(100, 70);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  border: #090320 1px solid;
+  padding: adaptiveSize(30, 10);
+
+  .logoContainer {
+    width: adaptiveSize(200, 50);
+    height: adaptiveSize(200, 39);
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .navLinkContainer {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .navLink {
+      padding: 10px 15px;
+      cursor: pointer;
+      color: #090320;
+      text-decoration: none;
+    }
+  }
+}

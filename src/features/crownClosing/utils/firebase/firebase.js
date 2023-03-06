@@ -2,9 +2,11 @@
 import {initializeApp} from 'firebase/app'
 import {
   getAuth,
-  signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
+  getRedirectResult,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from 'firebase/auth'
 import {getFirestore, doc, getDoc, setDoc} from 'firebase/firestore'
 // Your web app's Firebase configuration
@@ -19,19 +21,22 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig)
 
-const provider = new GoogleAuthProvider()
+const googleProvider = new GoogleAuthProvider()
 
-provider.setCustomParameters({
+googleProvider.setCustomParameters({
   prompt: 'select_account',
 })
 
 export const auth = getAuth()
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider)
+
+export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider)
+// export const signInWithGooglePopup = () => createUserWithEmailAndPassword(auth, googleProvider)
 
 export const db = getFirestore()
 
 //getting user data from sign in google
-export const createUserDocumentFromAuth = async (userAuth) => {
+export const createUserDocumentFromAuth = async (userAuth, rest) => {
+  if (!userAuth) return
   
   //getting user data from db
   const userDocRef = doc(db, 'users', userAuth.uid)
@@ -47,7 +52,7 @@ export const createUserDocumentFromAuth = async (userAuth) => {
     
     try {
       // write user data to db
-      await setDoc(userDocRef, {displayName, email, createdAt})
+      await setDoc(userDocRef, {displayName, email, createdAt, ...rest})
     } catch (error) {
       console.log('error creating user', error)
     }
@@ -55,5 +60,16 @@ export const createUserDocumentFromAuth = async (userAuth) => {
     // else user exist in db return user data
     return userDocRef
   }
-  
 }
+
+export const createAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return
+  return await createUserWithEmailAndPassword(auth, email, password)
+}
+
+export const signInAuthWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return
+  return await signInWithEmailAndPassword(auth, email, password)
+}
+
+export {getRedirectResult}

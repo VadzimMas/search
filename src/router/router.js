@@ -1,12 +1,12 @@
 import {createBrowserRouter} from 'react-router-dom'
-import App from '../components/app/App'
-import Error from '../components/error/Error'
-import SearchUsers from '../components/searchUsers/SearchUsers'
-import Home from '../components/home/Home'
-import CrownClothing from '../components/crownClosing/CrownClothing'
-import CategoryList from '../components/crownClosing/categoryList/CategoryList'
-import Shop from '../components/crownClosing/shop/Shop'
-import SignIn from '../components/crownClosing/signIn/SignIn'
+import App from '../app/App'
+import Error from '../app/components/error/Error'
+import SearchUsers from '../features/searchUsers/SearchUsers'
+import Home from '../features/home/Home'
+import CrownClothing from '../features/crownClosing/CrownClothing'
+import CategoryList from '../features/crownClosing/components/categoryList/CategoryList'
+import Shop from '../features/crownClosing/components/shop/Shop'
+import Authentication from '../features/crownClosing/components/authentication/Authentication'
 
 const router = createBrowserRouter([
   {
@@ -35,8 +35,8 @@ const router = createBrowserRouter([
             element: <Shop/>,
           },
           {
-            path: 'sign-in',
-            element: <SignIn/>,
+            path: 'auth',
+            element: <Authentication/>,
           },
         ],
       },

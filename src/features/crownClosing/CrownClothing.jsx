@@ -1,7 +1,7 @@
 import './crownClothing.scss'
 import {Outlet} from 'react-router-dom'
 import {Fragment} from 'react'
-import Navbar from './navbar/Navbar'
+import Navbar from './components/navbar/Navbar'
 
 function CrownClothing() {
   
@@ -12,5 +12,6 @@ function CrownClothing() {
     </Fragment>
   )
 }
+
 
 export default CrownClothing

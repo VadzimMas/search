@@ -1,4 +1,5 @@
 @import "reset.css";
+@import "mixins";
 
 * {
   box-sizing: border-box;
@@ -35,6 +36,9 @@ body {
   font-family: 'Ubuntu Condensed', sans-serif;
 
   #root {
+    max-width: 1920px;
+
+    margin: 0 auto;
 
   }
 }

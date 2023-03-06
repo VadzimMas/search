@@ -1,0 +1,266 @@
+//width from macket
+$modelWidth: 1920;
+$phoneWidth: 320;
+//fonts from macket
+$xx-large: adaptiveSize(105, 65);
+$x-large: adaptiveSize(90, 60);
+$large: adaptiveSize(75, 50);
+$medium: adaptiveSize(60, 45);
+$small: adaptiveSize(45, 30);
+$x-small: adaptiveSize(30, 15);
+$xx-small: adaptiveSize(15, 10);
+
+
+// delete styles in lists
+@mixin list {
+
+  ul,
+  ol {
+    list-style: none;
+  }
+}
+
+
+//UNIVERSAL ADAPTIVE SIZE TO ANY DEVICE
+@function adaptiveSize($modelSize, $phoneSize) {
+  $result: 0;
+
+  @if $modelSize < 0 {
+    $positiveModelSize: $modelSize * (-1);
+    $result: clamp(#{$modelSize}px,
+    calc((((#{-($positiveModelSize - $phoneSize)}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+    #{$phoneSize}px);
+  } @else {
+    $result: clamp(#{$phoneSize}px,
+    calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+    #{$modelSize}px);
+    @return $result;
+  }
+
+  @return $result;
+
+}
+
+
+// adaptive sizes for fonts padding margin width height fixed positions wherever you want
+
+@mixin adaptiveBoxShadow($mx, $my, $ms, $mr, $px, $py, $ps, $pr, $color) {
+  $mx: calc((((#{$mx - $px}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$px}px);
+
+  $my: calc((((#{$my - $py}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$py}px);
+
+  $ms: calc((((#{$ms - $ps}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$ps}px);
+
+  $mr: calc((((#{$mr - $pr}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$pr}px);
+
+  box-shadow: $mx $my $ms $mr $color;
+}
+
+@mixin adaptiveTop($modelSize, $phoneSize) {
+  top: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+}
+
+@function adaptiveTop($modelSize, $phoneSize) {
+  $result: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+  @return $result;
+}
+
+@mixin adaptiveLeft($modelSize, $phoneSize) {
+  left: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+}
+
+@function adaptiveLeft($modelSize, $phoneSize) {
+  $result: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+  @return $result;
+}
+
+@mixin adaptiveRight($modelSize, $phoneSize) {
+  right: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+}
+
+@function adaptiveRight($modelSize, $phoneSize) {
+  $result: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+  @return $result;
+}
+
+@mixin adaptiveBottom($modelSize, $phoneSize) {
+  bottom: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+}
+
+@function adaptiveBottom($modelSize, $phoneSize) {
+  $result: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+  @return $result;
+}
+
+@mixin adaptiveWidth($modelSize, $phoneSize) {
+  width: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+}
+
+@function adaptiveWidth($modelSize, $phoneSize) {
+  $result: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+  @return $result;
+}
+
+@mixin adaptiveMax-Width($modelSize, $phoneSize) {
+  max-width: calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px);
+}
+
+@mixin adaptiveHeight($modelSize, $phoneSize) {
+  height: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+}
+
+@function adaptiveHeight($modelSize, $phoneSize) {
+  $result: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+  @return $result;
+}
+
+@mixin adaptiveFontSize($modelSize, $phoneSize) {
+  font-size: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+}
+
+@mixin adaptiveLineHeight($modelSize, $phoneSize) {
+  line-height: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+}
+
+
+// MARGIN
+@mixin adaptiveMarginBottom($modelSize, $phoneSize) {
+  margin-bottom: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+}
+
+@mixin adaptiveMarginTop($modelSize, $phoneSize) {
+  margin-top: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+}
+
+@mixin adaptiveMarginLeft($modelSize, $phoneSize) {
+  margin-left: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+}
+
+@function adaptiveMarginLeft($modelSize, $phoneSize) {
+  $result: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+  @return $result;
+}
+
+@mixin adaptiveMarginRight($modelSize, $phoneSize) {
+  margin-right: clamp(#{$phoneSize}px,
+  calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+  #{$modelSize}px);
+}
+
+@mixin adaptiveMargin($top, $right, $bottom, $left, $phoneSize) {
+  @if $top !=0 {
+    margin-top: clamp(#{$phoneSize}px,
+    calc((((#{$top - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+    #{$top}px);
+  }
+
+  @if $right !=0 {
+    margin-right: clamp(#{$phoneSize}px,
+    calc((((#{$right - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+    #{$right}px);
+  }
+
+  @if $bottom !=0 {
+    margin-bottom: clamp(#{$phoneSize}px,
+    calc((((#{$bottom - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+    #{$bottom}px);
+  }
+
+
+  @if $left !=0 {
+    margin-left: clamp(#{$phoneSize}px,
+    calc((((#{$left - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+    #{$left}px);
+  }
+}
+
+
+// PADDING
+@mixin adaptivePadding($top, $right, $bottom, $left, $phoneSize) {
+  @if $top !=0 {
+    padding-top: clamp(#{$phoneSize}px,
+    calc((((#{$top - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+    #{$top}px);
+  }
+
+  @if $right !=0 {
+    padding-right: clamp(#{$phoneSize}px,
+    calc((((#{$right - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+    #{$right}px);
+  }
+
+  @if $bottom !=0 {
+    padding-bottom: clamp(#{$phoneSize}px,
+    calc((((#{$bottom - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+    #{$bottom}px);
+  }
+
+  @if $left !=0 {
+    padding-left: clamp(#{$phoneSize}px,
+    calc((((#{$left - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px),
+    #{$left}px);
+  }
+}
+
+@mixin adaptivePaddingBottom($modelSize, $phoneSize) {
+  padding-bottom: calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px);
+}
+
+@mixin adaptivePaddingTop($modelSize, $phoneSize) {
+  padding-top: calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px);
+}
+
+@mixin adaptivePaddingLeft($modelSize, $phoneSize) {
+  padding-left: calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px);
+}
+
+@mixin adaptivePaddingRight($modelSize, $phoneSize) {
+  padding-right: calc((((#{$modelSize - $phoneSize}) * ((100vw - #{$phoneWidth}px) * 100) / (#{$modelWidth - $phoneWidth})) / 100) + #{$phoneSize}px);
+}
+
+
+// IMG BACKGROUND
+@mixin ibg() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

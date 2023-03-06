@@ -1,4 +1,5 @@
-import './index.scss'
+import s from './index.scss'
+import './mixins.scss'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {Provider} from 'react-redux'

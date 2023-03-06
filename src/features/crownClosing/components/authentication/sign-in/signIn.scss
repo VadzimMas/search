@@ -1,0 +1,31 @@
+.sign-in {
+
+  .title {
+  }
+
+  .subtitle {
+  }
+
+  .form-fields-group {
+
+  }
+
+  .buttons-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    & button {
+      width: 49%;
+
+    }
+
+    @media (max-width: 768px) {
+      justify-content: unset;
+      & button {
+        width: 100%;
+        margin: 1vw 0;
+      }
+    }
+  }
+}

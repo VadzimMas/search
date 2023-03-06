@@ -1,13 +1,14 @@
 .app {
   display: flex;
-  width: 100vw;
+  width: 100%;
 
   .sidebar {
     //look to sidebar component styles
+
   }
 
-  #detail {
-    width: 92vw;
+  .detail {
+    width: 92%;
   }
 }
 
@@ -21,7 +22,7 @@
       //look to sidebar component styles
     }
 
-    #detail {
+    .detail {
       width: 100%;
     }
   }
