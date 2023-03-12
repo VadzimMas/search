@@ -1,4 +1,4 @@
-import s from './index.scss'
+import './index.scss'
 import './mixins.scss'
 import React from 'react'
 import ReactDOM from 'react-dom/client'

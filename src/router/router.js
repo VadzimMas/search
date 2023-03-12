@@ -7,6 +7,7 @@ import CrownClothing from '../features/crownClosing/CrownClothing'
 import CategoryList from '../features/crownClosing/components/categoryList/CategoryList'
 import Shop from '../features/crownClosing/components/shop/Shop'
 import Authentication from '../features/crownClosing/components/authentication/Authentication'
+import Checkout from '../features/crownClosing/components/checkout/Checkout'
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
           {
             path: 'auth',
             element: <Authentication/>,
+          },
+          {
+            path: 'checkout',
+            element: <Checkout/>,
           },
         ],
       },

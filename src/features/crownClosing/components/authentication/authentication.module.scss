@@ -1,0 +1,15 @@
+.authentication {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 1vw;
+}
+
+@media (max-width: 768px) {
+  .authentication {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}

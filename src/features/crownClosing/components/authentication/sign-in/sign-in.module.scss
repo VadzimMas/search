@@ -1,23 +1,27 @@
-.sign-in {
+@import "src/mixins";
+
+.signIn {
+  width: 100%;
+  padding: adaptiveSize(50, 10);
 
   .title {
+    font-size: adaptiveSize(40, 25);
   }
 
   .subtitle {
+    font-size: adaptiveSize(30, 20);
   }
 
-  .form-fields-group {
-
+  .forms {
   }
 
-  .buttons-group {
+  .buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 
     & button {
       width: 49%;
-
     }
 
     @media (max-width: 768px) {

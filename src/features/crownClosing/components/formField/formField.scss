@@ -1,9 +1,11 @@
+@import "src/mixins";
+
 $sub-color: grey;
 $main-color: black;
 
 @mixin shrinkLabel {
   top: -14px;
-  font-size: 12px;
+  font-size: adaptiveSize(20, 12);
   color: $main-color;
 }
 
@@ -39,7 +41,7 @@ $main-color: black;
 
   .form-input-label {
     color: $sub-color;
-    font-size: 16px;
+    font-size: adaptiveSize(25, 15);
     font-weight: normal;
     position: absolute;
     pointer-events: none;

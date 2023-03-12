@@ -1,9 +1,10 @@
+import s from './sign-up.module.scss'
 import {useState} from 'react'
 import FormField from '../../formField/FormField'
 import {createAuthUserWithEmailAndPassword, createUserDocumentFromAuth} from '../../../utils/firebase/firebase'
-import './signUp.scss'
+import Button from '../../button/Button'
 
-function SignUp({className}) {
+function SignUp() {
   
   const defaultFormFields = {
     displayName: '',
@@ -20,7 +21,7 @@ function SignUp({className}) {
     setFormFields({...formFields, [name]: value})
   }
   
-  const resetFormfields = () => {
+  const resetFormFields = () => {
     setFormFields(defaultFormFields)
   }
   
@@ -34,11 +35,12 @@ function SignUp({className}) {
     try {
       const {user} = await createAuthUserWithEmailAndPassword(email, password)
       const userRef = await createUserDocumentFromAuth(user, {displayName})
-      resetFormfields()
+      resetFormFields()
     } catch (error) {
       switch (error.code) {
         case ('auth/email-already-in-use'): {
-          alert(`sign in instead... ${error}`)
+          alert(`you already have an account, sign in instead...`)
+          resetFormFields()
           break
         }
         default: {
@@ -49,9 +51,9 @@ function SignUp({className}) {
   }
   
   return (
-    <form className={`sign-up ${className}`} onSubmit={handleSubmit}>
-      <h2 className="title">Don't have an account?</h2>
-      <h2 className="subtitle">Sign up with your credentials.</h2>
+    <form className={s.signUp} onSubmit={handleSubmit}>
+      <h2 className={s.title}>Don't have an account?</h2>
+      <h2 className={s.subtitle}>Sign up with your credentials.</h2>
       <FormField
         labelOptions={{
           options: {
@@ -116,7 +118,7 @@ function SignUp({className}) {
           required: true,
         }}
       />
-      <button type="submit">Sign Up</button>
+      <Button type="submit">Sign Up</Button>
     </form>
   )
 }

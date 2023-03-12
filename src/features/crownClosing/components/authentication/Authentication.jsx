@@ -1,12 +1,12 @@
-import './authentication.scss'
-import SignIn from './sign-in/SignIn'
-import SignUp from './sign-up/SignUp'
+import s from './authentication.module.scss'
+import SignIn from './sign-in/Sign-in'
+import SignUp from './sign-up/Sign-up'
 
 function Authentication() {
   return (
-    <div className="authentication">
-      <SignIn className={'form'}/>
-      <SignUp className={'form'}/>
+    <div className={s.authentication}>
+      <SignIn/>
+      <SignUp/>
     </div>
   )
 }

@@ -1,0 +1,56 @@
+@import "src/mixins";
+
+.productCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: black 1px solid;
+
+  .img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title {
+      font-size: adaptiveSize(35, 25);
+    }
+
+    .price {
+      font-size: adaptiveSize(35, 20);
+    }
+
+
+  }
+
+  .btn {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: .2s;
+
+    button {
+      position: absolute;
+      inset: 70% 5% auto 5%;
+      width: auto;
+      opacity: 0;
+      transition: .2s;
+    }
+
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+
+      button {
+        opacity: 1;
+      }
+    }
+
+  }
+
+}
