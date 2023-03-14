@@ -1,4 +1,4 @@
-import s from './crownClothing.module.scss'
+import s from './Crown-clothing.styled'
 import {Outlet} from 'react-router-dom'
 import {Fragment} from 'react'
 import Navbar from './components/navbar/Navbar'

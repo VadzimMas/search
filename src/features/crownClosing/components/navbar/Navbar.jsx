@@ -1,7 +1,5 @@
 import {NavLink} from 'react-router-dom'
-import './navbar.module.scss'
 import {ReactComponent as CrownLogo} from '../../assets/crown.svg'
-import s from './navbar.module.scss'
 import {useContext} from 'react'
 import {UserContext} from '../../context/user.context'
 import {signOutUser} from '../../utils/firebase/firebase'
@@ -9,22 +7,27 @@ import {ReactComponent as CartImg} from '../../assets/cart.svg'
 import CartPopup from '../cart-popup/Cart-popup'
 import useClickOutside from '../../../../app/hooks/useClickOutside'
 import {CartContext} from '../../context/CartContext'
+import {NavbarStyled} from './Navbar.styled'
 
 function Navbar() {
   const {cartProducts} = useContext(CartContext)
   const [ref, isCartShow, setIsCartShow] = useClickOutside()
   const {currentUser} = useContext(UserContext)
-  const isActive = ({isActive}) => isActive ? `${s.link} ${s.active}` : s.link
+  const isActive = ({isActive}) => isActive ? 'link active' : 'link'
   const showCart = () => {
     setIsCartShow(!isCartShow)
   }
   
+  
   return (
-    <div className={s.navbar}>
-      <NavLink className={s.logoContainer} to="/crownClothing">
+    <NavbarStyled>
+      
+      <NavLink className="logo-container" to="/crownClothing">
         <CrownLogo/>
       </NavLink>
-      <div className={s.links}>
+      
+      <div className="links-container">
+        
         <NavLink className={isActive} to="shop">Shop</NavLink>
         {
           currentUser
@@ -33,21 +36,24 @@ function Navbar() {
             :
             <NavLink className={isActive} to="auth">Sign in</NavLink>
         }
-        <div className={s.cartContainer} ref={ref}>
-          <div className={s.imgContainer} onClick={showCart}>
-            <CartImg className={s.img}/>
-            <span className={s.count}>{cartProducts.length}</span>
+        
+        <div className="cart-container" ref={ref}>
+          <div className="img-container" onClick={showCart}>
+            <CartImg/>
+            <span className="count">{cartProducts.length}</span>
           </div>
           {
             isCartShow
             &&
-            <div className={s.cartPopup}>
+            <div className="cart-popup">
               <CartPopup/>
             </div>
           }
         </div>
+      
       </div>
-    </div>
+    
+    </NavbarStyled>
   )
 }
 
