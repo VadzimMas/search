@@ -4,11 +4,10 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  border: black 1px solid;
 
   .img {
     width: 100%;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1/1.5;
     object-fit: cover;
   }
 
@@ -16,16 +15,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    overflow: hidden;
 
     .title {
-      font-size: adaptiveSize(35, 25);
+      white-space: nowrap;
+      font-size: adaptiveSize(32, 20);
+      font-weight: lighter;
     }
 
     .price {
-      font-size: adaptiveSize(35, 20);
+      font-size: adaptiveSize(32, 20);
+      white-space: nowrap;
+      font-weight: lighter;
     }
-
-
   }
 
   .btn {
@@ -38,19 +41,19 @@
       position: absolute;
       inset: 70% 5% auto 5%;
       width: auto;
+      font-size: adaptiveSize(30, 20);
+      font-weight: normal;
       opacity: 0;
       transition: .2s;
     }
 
-
     &:hover {
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.1);
 
       button {
         opacity: 1;
       }
     }
-
   }
 
 }
