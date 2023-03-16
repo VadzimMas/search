@@ -1,8 +1,7 @@
-import {ButtonContainer, Footer, Img, Price, Title} from './Product-card-styled'
+import ProductCardStyled, {ButtonContainer, Footer, Img, Price, Title} from './Product-card-styled'
 import {useContext} from 'react'
 import {CartContext} from '../../context/Cart-context'
-import ButtonStyled from '../button/Button-styled'
-import ProductCardStyled from './Product-card-styled'
+import {BaseButton} from '../button/Button.styled'
 
 function ProductCard({product}) {
   const {name, imageUrl, price} = product
@@ -20,7 +19,7 @@ function ProductCard({product}) {
         <Price>{`$ ${price}`}</Price>
       </Footer>
       <ButtonContainer>
-        <ButtonStyled type="button" className="inverted" onClick={addToCart}>Add to cart</ButtonStyled>
+        <BaseButton type="button" className="inverted" onClick={addToCart}>Add to cart</BaseButton>
       </ButtonContainer>
     </ProductCardStyled>
   

@@ -2,7 +2,7 @@ import {useContext, useEffect, useState} from 'react'
 import {CartContext} from '../../context/Cart-context'
 import CartItem from './cart-item/Cart-item'
 import {useNavigate} from 'react-router-dom'
-import ButtonStyled from '../button/Button-styled'
+import {BaseButton} from '../button/Button.styled'
 import CartPopupStyled from './Cart-popup-styled'
 
 function CartPopup(props) {
@@ -39,7 +39,7 @@ function CartPopup(props) {
           <span>Total overall :</span>
           <span>{`$ ${total}`}</span>
         </div>
-        <ButtonStyled onClick={goToCheckout}>Go to checkout</ButtonStyled>
+        <BaseButton onClick={goToCheckout}>Go to checkout</BaseButton>
       </div>
     </CartPopupStyled>
   )

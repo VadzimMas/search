@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {adaptiveSize} from '../../../../../mixins'
+import {adaptiveSize} from '../../../../../styled/mixins'
 
 const CheckoutItemStyled = styled.div`
   color: rgba(0, 0, 0, 0.76);

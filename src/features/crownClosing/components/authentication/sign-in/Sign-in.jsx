@@ -1,16 +1,13 @@
-import {
-  createUserDocumentFromAuth, signInAuthWithEmailAndPassword,
-  signInWithGooglePopup,
-} from '../../../utils/firebase/firebase'
+import {createUserDocumentFromAuth, signInAuthWithEmailAndPassword, signInWithGooglePopup} from '../../../utils/firebase/firebase'
 import FormField from '../../formField/Form-field'
 import {useState} from 'react'
-import ButtonStyled from '../../button/Button-styled'
+import {BaseButton, GoogleButton} from '../../button/Button.styled'
 import SignInStyled from './Sign-in-styled'
 
 const SignIn = () => {
   const defaultFormFields = {
     email: '',
-    password: '',
+    password: ''
   }
   
   const [formFields, setFormFields] = useState(defaultFormFields)
@@ -61,9 +58,9 @@ const SignIn = () => {
         <FormField
           labelOptions={{
             options: {
-              htmlFor: 'sign-in-email',
+              htmlFor: 'sign-in-email'
             },
-            label: 'Email',
+            label: 'Email'
           }}
           inputOptions={{
             id: 'sign-in-email',
@@ -71,15 +68,15 @@ const SignIn = () => {
             value: email,
             onChange: handleChange,
             name: 'email',
-            required: true,
+            required: true
           }}
         />
         <FormField
           labelOptions={{
             options: {
-              htmlFor: 'sign-in-password',
+              htmlFor: 'sign-in-password'
             },
-            label: 'Password',
+            label: 'Password'
           }}
           inputOptions={{
             type: 'password',
@@ -87,13 +84,13 @@ const SignIn = () => {
             name: 'password',
             value: password,
             onChange: handleChange,
-            required: true,
+            required: true
           }}
         />
       </div>
       <div className="buttons">
-        <ButtonStyled type="submit">Sign in</ButtonStyled>
-        <ButtonStyled className="google" type="button" onClick={logGoogleUser}>Google Sign In</ButtonStyled>
+        <BaseButton type="submit">Sign in</BaseButton>
+        <GoogleButton type="button" onClick={logGoogleUser}>Google Sign In</GoogleButton>
       </div>
     </SignInStyled>
   )

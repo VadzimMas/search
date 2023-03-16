@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import FormField from '../../formField/Form-field'
 import {createAuthUserWithEmailAndPassword, createUserDocumentFromAuth} from '../../../utils/firebase/firebase'
-import ButtonStyled from '../../button/Button-styled'
+import {BaseButton} from '../../button/Button.styled'
 import SignUpStyled from './Sign-up-styled'
 
 function SignUp() {
@@ -10,7 +10,7 @@ function SignUp() {
     displayName: '',
     email: '',
     password: '',
-    confirmPassword: '',
+    confirmPassword: ''
   }
   
   const [formFields, setFormFields] = useState(defaultFormFields)
@@ -57,9 +57,9 @@ function SignUp() {
       <FormField
         labelOptions={{
           options: {
-            htmlFor: 'sign-up-name',
+            htmlFor: 'sign-up-name'
           },
-          label: 'Name',
+          label: 'Name'
         }}
         inputOptions={{
           type: 'text',
@@ -67,15 +67,15 @@ function SignUp() {
           onChange: handleChange,
           name: 'displayName',
           value: displayName,
-          required: true,
+          required: true
         }}
       />
       <FormField
         labelOptions={{
           options: {
-            htmlFor: 'sign-up-email',
+            htmlFor: 'sign-up-email'
           },
-          label: 'Email',
+          label: 'Email'
         }}
         inputOptions={{
           type: 'email',
@@ -83,15 +83,15 @@ function SignUp() {
           onChange: handleChange,
           name: 'email',
           value: email,
-          required: true,
+          required: true
         }}
       />
       <FormField
         labelOptions={{
           options: {
-            htmlFor: 'sign-up-password',
+            htmlFor: 'sign-up-password'
           },
-          label: 'Password',
+          label: 'Password'
         }}
         inputOptions={{
           type: 'password',
@@ -99,15 +99,15 @@ function SignUp() {
           onChange: handleChange,
           name: 'password',
           value: password,
-          required: true,
+          required: true
         }}
       />
       <FormField
         labelOptions={{
           options: {
-            htmlFor: 'sign-up-confirm-password',
+            htmlFor: 'sign-up-confirm-password'
           },
-          label: 'Password',
+          label: 'Password'
         }}
         inputOptions={{
           type: 'password',
@@ -115,10 +115,10 @@ function SignUp() {
           onChange: handleChange,
           name: 'confirmPassword',
           value: confirmPassword,
-          required: true,
+          required: true
         }}
       />
-      <ButtonStyled type="submit">Sign Up</ButtonStyled>
+      <BaseButton type="submit">Sign Up</BaseButton>
     </SignUpStyled>
   )
 }

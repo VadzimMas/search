@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {adaptiveSize} from '../../../../mixins'
+import {adaptiveSize} from '../../../../styled/mixins'
 
 const ProductCardStyled = styled.div`
   position: relative;
@@ -54,6 +54,18 @@ export const ButtonContainer = styled.div`
 
     button {
       opacity: 1;
+    }
+  }
+
+  @media (hover: none) {
+    button {
+      position: absolute;
+      inset: 70% 5% auto 5%;
+      width: auto;
+      font-size: ${adaptiveSize(30, 20)};
+      font-weight: normal;
+      opacity: 1;
+      transition: .2s;
     }
   }
 `
