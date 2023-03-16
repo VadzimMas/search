@@ -1,8 +1,8 @@
-import s from './sign-up.module.scss'
 import {useState} from 'react'
-import FormField from '../../formField/FormField'
+import FormField from '../../formField/Form-field'
 import {createAuthUserWithEmailAndPassword, createUserDocumentFromAuth} from '../../../utils/firebase/firebase'
-import Button from '../../button/Button'
+import ButtonStyled from '../../button/Button-styled'
+import SignUpStyled from './Sign-up-styled'
 
 function SignUp() {
   
@@ -51,9 +51,9 @@ function SignUp() {
   }
   
   return (
-    <form className={s.signUp} onSubmit={handleSubmit}>
-      <h2 className={s.title}>Don't have an account?</h2>
-      <h2 className={s.subtitle}>Sign up with your credentials.</h2>
+    <SignUpStyled onSubmit={handleSubmit}>
+      <h2 className="title">Don't have an account?</h2>
+      <h2 className="subtitle">Sign up with your credentials.</h2>
       <FormField
         labelOptions={{
           options: {
@@ -118,8 +118,8 @@ function SignUp() {
           required: true,
         }}
       />
-      <Button type="submit">Sign Up</Button>
-    </form>
+      <ButtonStyled type="submit">Sign Up</ButtonStyled>
+    </SignUpStyled>
   )
 }
 

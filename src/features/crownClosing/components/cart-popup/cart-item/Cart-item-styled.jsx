@@ -1,10 +1,12 @@
-@import "src/mixins";
+import styled from 'styled-components'
+import {adaptiveSize} from '../../../../../mixins'
 
-.product {
+const CartItemStyled = styled.div`
+
   color: rgba(0, 0, 0, 0.76);
   border: 1px solid black;
   margin: 0 0 1% 0;
-  font-size: adaptiveSize(35, 15);
+  font-size: ${adaptiveSize(35, 15)};
   padding: 1%;
   width: 100%;
 
@@ -60,7 +62,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: adaptiveSize(50, 15);
+    font-size: ${adaptiveSize(50, 15)};
 
     .delete {
       &:hover {
@@ -68,4 +70,9 @@
       }
     }
   }
-}
+
+
+`
+
+export default CartItemStyled
+

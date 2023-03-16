@@ -1,41 +1,22 @@
-@import "src/mixins";
+import styled from 'styled-components'
+import {adaptiveSize} from '../../../../mixins'
 
-
-.checkout {
+const CheckoutStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-size: adaptiveSize(40, 15);
+  font-size: ${adaptiveSize(40, 15)};
   padding: 1%;
 
   .header {
     display: flex;
     justify-content: space-between;
 
-    :nth-child(n) {
+    > * {
       width: 25%;
       text-align: center;
     }
 
-    .product {
-
-    }
-
-    .description {
-
-    }
-
-    .quantity {
-
-    }
-
-    .price {
-
-    }
-
-    .remove {
-
-    }
   }
 
   .renderedProducts {
@@ -48,15 +29,16 @@
     justify-content: flex-end;
     border-top: 1px solid black;
     padding: 1%;
-    font-size: adaptiveSize(50, 20);
-
+    font-size: ${adaptiveSize(50, 20)};
 
     span:nth-child(1) {
       margin-right: 1%;
     }
-
   }
-}
+`
+
+export default CheckoutStyled
+
 
 
 

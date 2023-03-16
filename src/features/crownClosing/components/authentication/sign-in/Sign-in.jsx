@@ -1,11 +1,11 @@
-import s from './sign-in.module.scss'
 import {
   createUserDocumentFromAuth, signInAuthWithEmailAndPassword,
   signInWithGooglePopup,
 } from '../../../utils/firebase/firebase'
-import Button from '../../button/Button'
-import FormField from '../../formField/FormField'
+import FormField from '../../formField/Form-field'
 import {useState} from 'react'
+import ButtonStyled from '../../button/Button-styled'
+import SignInStyled from './Sign-in-styled'
 
 const SignIn = () => {
   const defaultFormFields = {
@@ -54,10 +54,10 @@ const SignIn = () => {
   }
   
   return (
-    <form className={s.signIn} onSubmit={handleSubmit}>
-      <h2 className={s.title}>I already have an account.</h2>
-      <h2 className={s.subtitle}>Sign in with your credentials.</h2>
-      <div className={s.forms}>
+    <SignInStyled onSubmit={handleSubmit}>
+      <h2 className="title">I already have an account.</h2>
+      <h2 className="subtitle">Sign in with your credentials.</h2>
+      <div className="forms">
         <FormField
           labelOptions={{
             options: {
@@ -91,11 +91,11 @@ const SignIn = () => {
           }}
         />
       </div>
-      <div className={s.buttons}>
-        <Button type="submit" buttonType="">Sign in</Button>
-        <Button type="button" buttonType="google" onClick={logGoogleUser}>Google Sign In</Button>
+      <div className="buttons">
+        <ButtonStyled type="submit">Sign in</ButtonStyled>
+        <ButtonStyled className="google" type="button" onClick={logGoogleUser}>Google Sign In</ButtonStyled>
       </div>
-    </form>
+    </SignInStyled>
   )
 }
 

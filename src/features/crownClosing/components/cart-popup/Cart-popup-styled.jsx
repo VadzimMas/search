@@ -1,11 +1,13 @@
-@import "src/mixins";
+import styled from 'styled-components'
+import {adaptiveSize} from '../../../../mixins'
 
-.cart {
+const CartPopupStyled = styled.div`
+
   position: relative;
   z-index: 2;
   width: 100%;
   min-height: 10vh;
-  max-height: 80vh;
+  max-height: 70vh;
   border: 1px solid black;
   background-color: rgba(255, 255, 255, 0.90);
   display: flex;
@@ -22,7 +24,7 @@
     align-items: center;
 
     .empty {
-      font-size: adaptiveSize(40, 30);
+      font-size: ${adaptiveSize(40, 30)};
     }
   }
 
@@ -34,14 +36,16 @@
     .total {
       display: flex;
       justify-content: space-between;
-      font-size: adaptiveSize(50, 20);
+      font-size: ${adaptiveSize(50, 20)};
       font-weight: 900;
       padding: 1%;
     }
 
     button {
-      font-size: adaptiveSize(30, 15);
+      font-size: ${adaptiveSize(30, 15)};
     }
 
   }
-}
+`
+
+export default CartPopupStyled

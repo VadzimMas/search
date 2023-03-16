@@ -1,7 +1,7 @@
-import s from './checkout.module.scss'
-import {useContext, useEffect, useState} from 'react'
-import {CartContext} from '../../context/CartContext'
+import {useContext} from 'react'
+import {CartContext} from '../../context/Cart-context'
 import CheckoutItem from './checkout-item/Checkout-item'
+import CheckoutStyled from './Checkout-styled'
 
 function Checkout() {
   
@@ -13,22 +13,22 @@ function Checkout() {
   
   
   return (
-    <div className={s.checkout}>
-      <div className={s.header}>
-        <span className={s.product}>Product</span>
-        <span className={s.description}>Description</span>
-        <span className={s.quantity}>Quantity</span>
-        <span className={s.price}>Price</span>
-        <span className={s.remove}>Remove</span>
+    <CheckoutStyled>
+      <div className="header">
+        <span>Product</span>
+        <span>Description</span>
+        <span>Quantity</span>
+        <span>Price</span>
+        <span>Remove</span>
       </div>
-      <div className={s.renderedProducts}>
+      <div className="renderedProducts">
         {renderedProducts}
       </div>
-      <div className={s.total}>
+      <div className="total">
         <span>Total over all :</span>
         <span>{`$ ${totalOverAllPrice}`}</span>
       </div>
-    </div>
+    </CheckoutStyled>
   )
 }
 

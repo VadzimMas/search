@@ -1,10 +1,11 @@
-@import "src/mixins";
+import styled from 'styled-components'
+import {adaptiveSize} from '../../../../../mixins'
 
-.checkoutItem {
+const CheckoutItemStyled = styled.div`
   color: rgba(0, 0, 0, 0.76);
   border-top: 1px solid black;
   padding: 1% 0;
-  font-size: adaptiveSize(35, 15);
+  font-size: ${adaptiveSize(35, 15)};
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -29,8 +30,7 @@
   }
 
   .description {
-    //white-space: nowrap;
-    font-size: adaptiveSize(50, 15);
+    font-size: ${adaptiveSize(50, 15)};
   }
 
   .quantity {
@@ -40,8 +40,8 @@
     align-items: center;
 
     .up {
-      width: adaptiveSize(60, 20);
-      height: adaptiveSize(60, 20);
+      width: ${adaptiveSize(60, 20)};
+      height: ${adaptiveSize(60, 20)};
 
       &:hover {
         color: red;
@@ -49,12 +49,12 @@
     }
 
     span {
-      font-size: adaptiveSize(50, 15);
+      font-size: ${adaptiveSize(50, 15)};
     }
 
     .down {
-      width: adaptiveSize(60, 20);
-      height: adaptiveSize(60, 20);
+      width: ${adaptiveSize(60, 20)};
+      height: ${adaptiveSize(60, 20)};
 
       &:hover {
         color: red;
@@ -62,22 +62,19 @@
 
     }
   }
-
 
   .price {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    font-size: adaptiveSize(50, 15);
+    font-size: ${adaptiveSize(50, 15)};
 
   }
 
-
   .remove {
-
     svg {
-      width: adaptiveSize(100, 30);
-      height: adaptiveSize(100, 30);
+      width: ${adaptiveSize(100, 30)};
+      height: ${adaptiveSize(100, 30)};
 
       &:hover {
         color: red;
@@ -85,4 +82,7 @@
     }
 
   }
-}
+
+`
+
+export default CheckoutItemStyled

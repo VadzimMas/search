@@ -1,19 +1,12 @@
-.categories-container {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
+import styled from 'styled-components'
+import {adaptiveSize} from '../../../../../mixins'
 
-.category-container {
-  min-width: 30%;
-  height: 240px;
-  flex: 1 1 auto;
+const DirectoryItemStyled = styled.div`
+  aspect-ratio: 1/1;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid black;
-  margin: 0 7.5px 15px;
   overflow: hidden;
 
   &:hover {
@@ -24,33 +17,22 @@
       transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
 
-    & .category-body-container {
+    & .title-container {
       opacity: 0.9;
     }
-  }
-
-  &.large {
-    height: 380px;
-  }
-
-  &:first-child {
-    margin-right: 7.5px;
-  }
-
-  &:last-child {
-    margin-left: 7.5px;
   }
 
   .background-image {
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
   }
 
-  .category-body-container {
-    height: 90px;
-    padding: 0 25px;
+  .title-container {
+    padding-top: ${adaptiveSize(20, 5)};
+    padding-bottom: ${adaptiveSize(20, 5)};
+    padding-left: ${adaptiveSize(30, 10)};
+    padding-right: ${adaptiveSize(30, 10)};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,17 +41,20 @@
     background-color: white;
     opacity: 0.7;
     position: absolute;
+    font-size: ${adaptiveSize(30, 13)};
+    color: #4a4a4a;
+    text-transform: capitalize;
 
-    h2 {
+
+    .title {
       font-weight: bold;
-      margin: 0 6px 0;
-      font-size: 22px;
-      color: #4a4a4a;
     }
 
-    p {
+    .shop-now {
       font-weight: lighter;
-      font-size: 16px;
     }
   }
-}
+
+`
+
+export default DirectoryItemStyled

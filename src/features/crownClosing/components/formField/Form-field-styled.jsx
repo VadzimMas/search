@@ -1,29 +1,20 @@
-@import "src/mixins";
+import styled from 'styled-components'
+import {adaptiveSize} from '../../../../mixins'
 
-$sub-color: grey;
-$main-color: black;
-
-@mixin shrinkLabel {
-  top: -14px;
-  font-size: adaptiveSize(20, 12);
-  color: $main-color;
-}
-
-.group {
+const FormFieldStyled = styled.div`
   position: relative;
   margin: 45px 0;
 
   .form-input {
-    background: none;
     background-color: white;
-    color: $sub-color;
+    color: grey;
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
     width: 100%;
     border: none;
     border-radius: 0;
-    border-bottom: 1px solid $sub-color;
+    border-bottom: 1px solid grey;
     margin: 25px 0;
 
     &:focus {
@@ -31,7 +22,9 @@ $main-color: black;
     }
 
     &:focus ~ .form-input-label {
-      @include shrinkLabel();
+      top: -14px;,
+    fontSize: ${adaptiveSize(20, 12)},
+    color: mainColor,
     }
   }
 
@@ -40,8 +33,8 @@ $main-color: black;
   }
 
   .form-input-label {
-    color: $sub-color;
-    font-size: adaptiveSize(25, 15);
+    color: grey;
+    font-size: ${adaptiveSize(25, 15)};
     font-weight: normal;
     position: absolute;
     pointer-events: none;
@@ -50,7 +43,9 @@ $main-color: black;
     transition: 300ms ease all;
 
     &.shrink {
-      @include shrinkLabel();
+    @include shrinkLabel();
     }
   }
-}
+`
+
+export default FormFieldStyled

@@ -1,9 +1,9 @@
-import s from './cart-popup.module.scss'
-import Button from '../button/Button'
 import {useContext, useEffect, useState} from 'react'
-import {CartContext} from '../../context/CartContext'
+import {CartContext} from '../../context/Cart-context'
 import CartItem from './cart-item/Cart-item'
-import {NavLink, useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
+import ButtonStyled from '../button/Button-styled'
+import CartPopupStyled from './Cart-popup-styled'
 
 function CartPopup() {
   const {cartProducts} = useContext(CartContext)
@@ -27,21 +27,21 @@ function CartPopup() {
   }
   
   return (
-    <div className={s.cart}>
-      <div className={s.products}>
+    <CartPopupStyled>
+      <div className="products">
         {
-          renderedProducts.length > 0 ? renderedProducts : <h2 className={s.empty}>Empty</h2>
+          renderedProducts.length > 0 ? renderedProducts : <h2 className="empty">Empty</h2>
         }
       
       </div>
-      <div className={s.btn}>
-        <div className={s.total}>
+      <div className="btn">
+        <div className="total">
           <span>Total overall :</span>
           <span>{`$ ${total}`}</span>
         </div>
-        <Button onClick={goToCheckout}>Go to checkout</Button>
+        <ButtonStyled onClick={goToCheckout}>Go to checkout</ButtonStyled>
       </div>
-    </div>
+    </CartPopupStyled>
   )
 }
 

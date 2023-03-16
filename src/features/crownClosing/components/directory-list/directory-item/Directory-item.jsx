@@ -1,4 +1,6 @@
 import {useNavigate} from 'react-router-dom'
+import './Directory-item-styled'
+import DirectoryItemStyled from './Directory-item-styled'
 
 function DirectoryItem({category}) {
   const {title, imageUrl} = category
@@ -9,13 +11,13 @@ function DirectoryItem({category}) {
   }
   
   return (
-    <div className="category-container" onClick={navigateToCategory}>
-      <div className="background-image" style={{backgroundImage: `url(${imageUrl})`}}/>
-      <div className="category-body-container">
-        <h2>{title}</h2>
-        <p>Shop Now</p>
+    <DirectoryItemStyled onClick={navigateToCategory}>
+      <img className="background-image" src={imageUrl} alt=""/>
+      <div className="title-container">
+        <h2 className="title">{title}</h2>
+        <h2 className="shop-now">Shop Now</h2>
       </div>
-    </div>
+    </DirectoryItemStyled>
   )
 }
 

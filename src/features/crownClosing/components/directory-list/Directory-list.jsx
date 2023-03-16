@@ -1,7 +1,8 @@
-import './directory-list.scss'
+import './Directory-list-styled'
 import DirectoryItem from './directory-item/Directory-item'
 import {useContext} from 'react'
-import {DirectoriesContext} from '../../context/Directories.context'
+import {DirectoriesContext} from '../../context/Directories-context'
+import DirectoryListStyled from './Directory-list-styled'
 
 function DirectoryList() {
   const {directoriesMap, isDirectoriesMapLoading} = useContext(DirectoriesContext)
@@ -17,9 +18,9 @@ function DirectoryList() {
   }
   
   return (
-    <div className="categories-container">
+    <DirectoryListStyled>
       {!isDirectoriesMapLoading && renderedDirectories}
-    </div>
+    </DirectoryListStyled>
   )
 }
 

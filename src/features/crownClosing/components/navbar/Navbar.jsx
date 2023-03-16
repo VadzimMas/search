@@ -1,33 +1,28 @@
 import {NavLink} from 'react-router-dom'
 import {ReactComponent as CrownLogo} from '../../assets/crown.svg'
-import {useContext} from 'react'
-import {UserContext} from '../../context/user.context'
+import React, {useContext} from 'react'
+import {UserContext} from '../../context/User-context'
 import {signOutUser} from '../../utils/firebase/firebase'
 import {ReactComponent as CartImg} from '../../assets/cart.svg'
 import CartPopup from '../cart-popup/Cart-popup'
 import useClickOutside from '../../../../app/hooks/useClickOutside'
-import {CartContext} from '../../context/CartContext'
-import {NavbarStyled} from './Navbar.styled'
+import {CartContext} from '../../context/Cart-context'
+import {NavbarStyled} from './Navbar-styled'
 
 function Navbar() {
   const {cartProducts} = useContext(CartContext)
   const [ref, isCartShow, setIsCartShow] = useClickOutside()
   const {currentUser} = useContext(UserContext)
   const isActive = ({isActive}) => isActive ? 'link active' : 'link'
-  const showCart = () => {
-    setIsCartShow(!isCartShow)
-  }
+  const showCart = () => setIsCartShow(!isCartShow)
   
   
   return (
     <NavbarStyled>
-      
       <NavLink className="logo-container" to="/crownClothing">
         <CrownLogo/>
       </NavLink>
-      
       <div className="links-container">
-        
         <NavLink className={isActive} to="shop">Shop</NavLink>
         {
           currentUser
@@ -36,7 +31,6 @@ function Navbar() {
             :
             <NavLink className={isActive} to="auth">Sign in</NavLink>
         }
-        
         <div className="cart-container" ref={ref}>
           <div className="img-container" onClick={showCart}>
             <CartImg/>
@@ -50,9 +44,7 @@ function Navbar() {
             </div>
           }
         </div>
-      
       </div>
-    
     </NavbarStyled>
   )
 }

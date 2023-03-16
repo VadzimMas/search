@@ -1,9 +1,9 @@
-import s from './category-preview.module.scss'
-import ProductCard from '../product-card/Product-card'
+import ProductCard from '../../../product-card/Product-card'
 import {useNavigate} from 'react-router-dom'
+import ProductsItemStyled from './Products-item-styled'
 
 
-function CategoryPreview({title, products}) {
+function ProductsItem({title, products}) {
   const navigate = useNavigate()
   
   const navigateToCategory = () => {
@@ -11,11 +11,11 @@ function CategoryPreview({title, products}) {
   }
   
   return (
-    <div className={s.categoryPreview}>
-      <h2 className={s.title} onClick={navigateToCategory}>
+    <ProductsItemStyled>
+      <h2 className="title" onClick={navigateToCategory}>
         {title.toUpperCase()}
       </h2>
-      <div className={s.category}>
+      <div className="category">
         {
           products.filter((_, index) => index < 4)
             .map((product) => {
@@ -23,8 +23,8 @@ function CategoryPreview({title, products}) {
             })
         }
       </div>
-    </div>
+    </ProductsItemStyled>
   )
 }
 
-export default CategoryPreview
+export default ProductsItem

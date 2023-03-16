@@ -8,8 +8,7 @@ import DirectoryList from '../features/crownClosing/components/directory-list/Di
 import Shop from '../features/crownClosing/components/shop/Shop'
 import Authentication from '../features/crownClosing/components/authentication/Authentication'
 import Checkout from '../features/crownClosing/components/checkout/Checkout'
-import Hats from '../features/crownClosing/components/hats/Hats'
-import CategoryPreviewList from '../features/crownClosing/components/category-preview-list/Category-preview-list'
+import ProductsList from '../features/crownClosing/components/shop/products-list/Products-list'
 import Category from '../features/crownClosing/components/category/Category'
 
 const router = createBrowserRouter([
@@ -41,7 +40,7 @@ const router = createBrowserRouter([
             children: [
               {
                 index: true,
-                element: <CategoryPreviewList/>,
+                element: <ProductsList/>,
               },
               {
                 path: ':id',

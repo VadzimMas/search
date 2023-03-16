@@ -1,8 +1,10 @@
-@import "src/mixins";
+import styled from 'styled-components'
+import {adaptiveSize} from '../../../../../../mixins'
 
-.categoryPreview {
+const ProductsItemStyled = styled.div`
+
   .title {
-    font-size: adaptiveSize(70, 30);
+    font-size: ${adaptiveSize(70, 30)};
     border-bottom: 1px solid black;
     border-top: 1px solid black;
     margin: 2% 0;
@@ -24,6 +26,6 @@
       margin-top: unset;
     }
   }
+`
 
-}
-
+export default ProductsItemStyled

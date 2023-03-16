@@ -1,13 +1,13 @@
-import s from './authentication.module.scss'
 import SignIn from './sign-in/Sign-in'
 import SignUp from './sign-up/Sign-up'
+import AuthenticationStyled from './Authentication-styled'
 
 function Authentication() {
   return (
-    <div className={s.authentication}>
+    <AuthenticationStyled>
       <SignIn/>
       <SignUp/>
-    </div>
+    </AuthenticationStyled>
   )
 }
 

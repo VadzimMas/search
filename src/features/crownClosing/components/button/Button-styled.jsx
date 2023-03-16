@@ -1,4 +1,7 @@
-.button-container {
+import styled from 'styled-components'
+
+const ButtonStyled = styled.button`
+
   width: 100%;
   padding: 0.5rem 1rem;
   font-size: 15px;
@@ -12,14 +15,13 @@
   justify-content: center;
   border: 1px solid black;
 
-
   &:hover {
     background-color: white;
     color: black;
     border: 1px solid black;
   }
 
-  &.google-sign-in {
+  &.google {
     background-color: #4285f4;
     color: white;
 
@@ -40,4 +42,10 @@
       border: none;
     }
   }
-}
+`
+
+export default ButtonStyled
+
+
+
+
