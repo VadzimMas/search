@@ -1,13 +1,11 @@
-import IndexStyled from './Index.styled'
+import IndexStyled from './styled/Index.styled'
 import React, {Fragment} from 'react'
 import ReactDOM from 'react-dom/client'
 import {Provider} from 'react-redux'
 import store from './store'
 import router from './router/router'
-import ResetStyled from './Reset.styled'
+import ResetStyled from './styled/Reset.styled'
 import {RouterProvider} from 'react-router-dom'
-import ScrollToTop from './hooks/ScrollToTop'
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 

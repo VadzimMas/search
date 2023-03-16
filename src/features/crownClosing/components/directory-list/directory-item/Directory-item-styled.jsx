@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {adaptiveSize} from '../../../../../mixins'
+import {adaptiveSize} from '../../../../../styled/mixins'
 
 const DirectoryItemStyled = styled.div`
   aspect-ratio: 1/1;

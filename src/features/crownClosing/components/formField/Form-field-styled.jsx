@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {adaptiveSize} from '../../../../mixins'
+import {adaptiveSize} from '../../../../styled/mixins'
 
 const FormFieldStyled = styled.div`
   position: relative;

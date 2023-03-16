@@ -8,12 +8,19 @@ import useClickOutside from '../../../hooks/useClickOutside'
 
 function Sidebar() {
   const [ref, isMenuOpen, setIsMenuOpen] = useClickOutside('sidebar')
-  const toggleClass = () => setIsMenuOpen(!isMenuOpen)
+  const toggleClass = () => {
+    if (isMenuOpen) {
+      setIsMenuOpen(!isMenuOpen)
+    }
+  }
   const isActive = ({isActive}) => isActive ? `${s.link} ${s.active}` : s.link
+  const openMenu = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
   return (
     <div className={s.sidebar}>
       <div className={s.container} ref={ref}>
-        <TiThMenu className={`${s.menu}  ${isMenuOpen ? s.active : ''}`} onClick={toggleClass}/>
+        <TiThMenu className={`${s.menu}  ${isMenuOpen ? s.active : ''}`} onClick={openMenu}/>
         <nav className={`${s.nav}  ${isMenuOpen ? s.active : ''}`}>
           <NavLink className={isActive} to={'/'} onClick={toggleClass}>
             <span className={s.linkIcon}><IoLogoReact/></span>

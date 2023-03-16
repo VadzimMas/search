@@ -1,15 +1,20 @@
-import s from './app.module.scss'
+import AppStyled from './App.styled'
 import Sidebar from './components/sidebar/Sidebar'
 import {Outlet} from 'react-router-dom'
 import ScrollToTop from '../hooks/ScrollToTop'
+import {Fragment} from 'react'
 
 function App() {
   return (
-    <div className={s.app}>
+    <Fragment>
       <ScrollToTop/>
-      <Sidebar className={s.sidebar}/>
-      <div className={s.detail} id="detail"><Outlet/></div>
-    </div>
+      <AppStyled>
+        <Sidebar/>
+        <div className="detail" id="detail">
+          <Outlet/>
+        </div>
+      </AppStyled>
+    </Fragment>
   )
 }
 

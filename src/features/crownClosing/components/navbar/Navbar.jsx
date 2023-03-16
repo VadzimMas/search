@@ -8,7 +8,6 @@ import CartPopup from '../cart-popup/Cart-popup'
 import useClickOutside from '../../../../hooks/useClickOutside'
 import {CartContext} from '../../context/Cart-context'
 import {NavbarStyled} from './Navbar-styled'
-import ButtonStyled from '../button/Button-styled'
 
 function Navbar() {
   const {cartProducts} = useContext(CartContext)
@@ -28,7 +27,7 @@ function Navbar() {
         {
           currentUser
             ?
-            <a className="link" onClick={signOutUser}>Sign out</a>
+            <div className="link" onClick={signOutUser}>Sign out</div>
             :
             <NavLink className={isActive} to="auth">Sign in</NavLink>
         }
