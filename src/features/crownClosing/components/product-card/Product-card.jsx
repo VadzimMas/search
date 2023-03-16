@@ -5,7 +5,7 @@ import ButtonStyled from '../button/Button-styled'
 import ProductCardStyled from './Product-card-styled'
 
 function ProductCard({product}) {
-  const {name, imageUrl, price, id} = product
+  const {name, imageUrl, price} = product
   const {addProductToCart} = useContext(CartContext)
   
   const addToCart = () => {
@@ -22,9 +22,10 @@ function ProductCard({product}) {
       <ButtonContainer>
         <ButtonStyled type="button" className="inverted" onClick={addToCart}>Add to cart</ButtonStyled>
       </ButtonContainer>
-    
     </ProductCardStyled>
+  
   )
 }
 
 export default ProductCard
+

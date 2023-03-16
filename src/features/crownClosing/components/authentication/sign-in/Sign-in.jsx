@@ -32,7 +32,7 @@ const SignIn = () => {
     event.preventDefault()
     try {
       const {user} = await signInAuthWithEmailAndPassword(email, password)
-      const result = await createUserDocumentFromAuth(user)
+      await createUserDocumentFromAuth(user)
       resetFormFields()
     } catch (error) {
       

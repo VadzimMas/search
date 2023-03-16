@@ -14,10 +14,13 @@ function CrownClothing() {
         <CategoriesProvider>
           <CartProvider>
             <DirectoriesProvider>
+              
               <Navbar/>
               <div id="detail">
                 <Outlet/>
               </div>
+            
+            
             </DirectoriesProvider>
           </CartProvider>
         </CategoriesProvider>

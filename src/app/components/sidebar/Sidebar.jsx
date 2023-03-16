@@ -4,7 +4,7 @@ import {IoLogoReact} from 'react-icons/io5'
 import {BsSearch} from 'react-icons/bs'
 import {TiThMenu} from 'react-icons/ti'
 import {FaCrown} from 'react-icons/fa'
-import useClickOutside from '../../hooks/useClickOutside'
+import useClickOutside from '../../../hooks/useClickOutside'
 
 function Sidebar() {
   const [ref, isMenuOpen, setIsMenuOpen] = useClickOutside()

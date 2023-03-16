@@ -5,7 +5,7 @@ import {UserContext} from '../../context/User-context'
 import {signOutUser} from '../../utils/firebase/firebase'
 import {ReactComponent as CartImg} from '../../assets/cart.svg'
 import CartPopup from '../cart-popup/Cart-popup'
-import useClickOutside from '../../../../app/hooks/useClickOutside'
+import useClickOutside from '../../../../hooks/useClickOutside'
 import {CartContext} from '../../context/Cart-context'
 import {NavbarStyled} from './Navbar-styled'
 
