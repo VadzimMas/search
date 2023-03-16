@@ -10,9 +10,7 @@ function App() {
       <ScrollToTop/>
       <AppStyled>
         <Sidebar/>
-        <div className="detail" id="detail">
-          <Outlet/>
-        </div>
+        <div className="detail" id="detail"><Outlet/></div>
       </AppStyled>
     </Fragment>
   )

@@ -34,3 +34,13 @@ function MyComponent() {
 
  //-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
 
+ working only on devices supports hover
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }
+
+ //-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-

@@ -8,6 +8,7 @@ import CartPopup from '../cart-popup/Cart-popup'
 import useClickOutside from '../../../../hooks/useClickOutside'
 import {CartContext} from '../../context/Cart-context'
 import {NavbarStyled} from './Navbar-styled'
+import useScroll from '../../../../hooks/useScroll'
 
 function Navbar() {
   const {cartProducts} = useContext(CartContext)
@@ -15,10 +16,10 @@ function Navbar() {
   const {currentUser} = useContext(UserContext)
   const isActive = ({isActive}) => isActive ? 'link active' : 'link'
   const showCart = () => setIsMenuOpen(!isMenuOpen)
-  
+  const [isScroll] = useScroll(1)
   
   return (
-    <NavbarStyled>
+    <NavbarStyled isScroll={isScroll}>
       <NavLink className="logo-container" to="/crownClothing">
         <CrownLogo/>
       </NavLink>

@@ -5,6 +5,8 @@ import {UserProvider} from './context/User-context'
 import {CategoriesProvider} from './context/Categories-context'
 import {CartProvider} from './context/Cart-context'
 import {DirectoriesProvider} from './context/Directories-context'
+import CrownClothingStyled from './Crown-clothing.styled'
+import BackgroundStyled from './components/background/Background.styled'
 
 function CrownClothing() {
   
@@ -14,13 +16,11 @@ function CrownClothing() {
         <CategoriesProvider>
           <CartProvider>
             <DirectoriesProvider>
-              
-              <Navbar/>
-              <div id="detail">
-                <Outlet/>
-              </div>
-            
-            
+              <CrownClothingStyled>
+                <Navbar/>
+                <div id="detail"><Outlet/></div>
+                <BackgroundStyled/>
+              </CrownClothingStyled>
             </DirectoriesProvider>
           </CartProvider>
         </CategoriesProvider>

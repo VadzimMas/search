@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 import {adaptiveSize} from '../../../../styled/mixins'
 
+
 export const NavbarStyled = styled.div`
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: white;
+  transition: .3s;
+  background-color: ${({isScroll}) => isScroll ? 'white' : 'rgba(255, 255, 255, 0.7)'};
   @media (max-width: 768px) {
     top: ${adaptiveSize(90, 35)};
     &:before {
@@ -24,7 +26,7 @@ export const NavbarStyled = styled.div`
   justify-content: space-between;
   margin-bottom: 10px;
   padding: ${adaptiveSize(20, 5)};
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: ${({isScroll}) => isScroll ? '0 10px 10px rgba(0, 0, 0, 0.3)' : 'none'};
 
   .logo-container {
     width: ${adaptiveSize(100, 40)};
