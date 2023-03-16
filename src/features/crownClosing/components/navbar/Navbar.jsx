@@ -8,13 +8,14 @@ import CartPopup from '../cart-popup/Cart-popup'
 import useClickOutside from '../../../../hooks/useClickOutside'
 import {CartContext} from '../../context/Cart-context'
 import {NavbarStyled} from './Navbar-styled'
+import ButtonStyled from '../button/Button-styled'
 
 function Navbar() {
   const {cartProducts} = useContext(CartContext)
-  const [ref, isCartShow, setIsCartShow] = useClickOutside()
+  const [ref, isMenuOpen, setIsMenuOpen] = useClickOutside('navbar')
   const {currentUser} = useContext(UserContext)
   const isActive = ({isActive}) => isActive ? 'link active' : 'link'
-  const showCart = () => setIsCartShow(!isCartShow)
+  const showCart = () => setIsMenuOpen(!isMenuOpen)
   
   
   return (
@@ -27,7 +28,7 @@ function Navbar() {
         {
           currentUser
             ?
-            <NavLink className={isActive} onClick={signOutUser}>Sign out</NavLink>
+            <a className="link" onClick={signOutUser}>Sign out</a>
             :
             <NavLink className={isActive} to="auth">Sign in</NavLink>
         }
@@ -37,10 +38,10 @@ function Navbar() {
             <span className="count">{cartProducts.length}</span>
           </div>
           {
-            isCartShow
+            isMenuOpen
             &&
             <div className="cart-popup">
-              <CartPopup/>
+              <CartPopup showCart={showCart}/>
             </div>
           }
         </div>

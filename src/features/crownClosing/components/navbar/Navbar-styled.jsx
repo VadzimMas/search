@@ -7,7 +7,7 @@ export const NavbarStyled = styled.div`
   z-index: 1;
   background-color: white;
   @media (max-width: 768px) {
-    top: ${adaptiveSize(120, 50)};
+    top: ${adaptiveSize(90, 35)};
     &:before {
       content: '';
       position: absolute;
@@ -23,12 +23,12 @@ export const NavbarStyled = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
-  padding: ${adaptiveSize(30, 10)};
+  padding: ${adaptiveSize(20, 5)};
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
 
   .logo-container {
-    width: ${adaptiveSize(120, 50)};
-    height: ${adaptiveSize(120, 39)};
+    width: ${adaptiveSize(100, 40)};
+    height: ${adaptiveSize(100, 29)};
 
     svg {
       width: 100%;
@@ -43,7 +43,6 @@ export const NavbarStyled = styled.div`
     justify-content: flex-end;
 
     .link {
-      border: 1px black solid;
       font-size: ${adaptiveSize(30, 15)};
       padding: 0.4rem 0.9rem;
       margin: 0 0 0 0.5rem;
@@ -59,7 +58,7 @@ export const NavbarStyled = styled.div`
 
     .cart-container {
       position: relative;
-      width: ${adaptiveSize(80, 40)};
+      width: ${adaptiveSize(60, 30)};
       aspect-ratio: 1/1;
       margin: 0 0 0 0.5rem;
       cursor: pointer;
@@ -78,7 +77,7 @@ export const NavbarStyled = styled.div`
 
         .count {
           position: absolute;
-          top: 45%;
+          top: 30%;
           font-size: ${adaptiveSize(30, 15)};
         }
       }

@@ -5,7 +5,7 @@ import {useNavigate} from 'react-router-dom'
 import ButtonStyled from '../button/Button-styled'
 import CartPopupStyled from './Cart-popup-styled'
 
-function CartPopup() {
+function CartPopup(props) {
   const {cartProducts} = useContext(CartContext)
   const [total, setTotal] = useState(0)
   const navigate = useNavigate()
@@ -23,6 +23,7 @@ function CartPopup() {
   }, [cartProducts])
   
   const goToCheckout = () => {
+    props.showCart()
     navigate('checkout')
   }
   
@@ -32,7 +33,6 @@ function CartPopup() {
         {
           renderedProducts.length > 0 ? renderedProducts : <h2 className="empty">Empty</h2>
         }
-      
       </div>
       <div className="btn">
         <div className="total">
