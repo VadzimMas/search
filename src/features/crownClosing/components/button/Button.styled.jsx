@@ -41,7 +41,6 @@ export const GoogleButton = styled(BaseButton)`
     color: black;
   }
 `
-
 export const InvertedButton = styled(BaseButton)`
   background-color: white;
   color: black;
