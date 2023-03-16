@@ -1,4 +1,4 @@
-import {createBrowserRouter} from 'react-router-dom'
+import {createRoutesFromElements, createBrowserRouter, Route} from 'react-router-dom'
 import App from '../app/App'
 import Error from '../app/components/error/Error'
 import SearchUsers from '../features/searchUsers/SearchUsers'
@@ -11,55 +11,74 @@ import Checkout from '../features/crownClosing/components/checkout/Checkout'
 import ProductsList from '../features/crownClosing/components/shop/products-list/Products-list'
 import Category from '../features/crownClosing/components/category/Category'
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App/>,
-    errorElement: <Error/>,
-    children: [
-      {
-        index: true,
-        element: <Home/>,
-      },
-      {
-        path: 'searchUsers',
-        element: <SearchUsers/>,
-      },
-      // Crown Clothing
-      {
-        path: 'crownClothing',
-        element: <CrownClothing/>,
-        children: [
-          {
-            index: true,
-            element: <DirectoryList/>,
-          },
-          {
-            path: 'shop',
-            element: <Shop/>,
-            children: [
-              {
-                index: true,
-                element: <ProductsList/>,
-              },
-              {
-                path: ':id',
-                element: <Category/>,
-              },
-            ],
-          },
-          {
-            path: 'auth',
-            element: <Authentication/>,
-          },
-          {
-            path: 'checkout',
-            element: <Checkout/>,
-          },
-        ],
-      },
-    ],
-  },
-])
+
+// const router = createBrowserRouter([
+//   {
+//     path: '/',
+//     element: <App/>,
+//     errorElement: <Error/>,
+//     children: [
+//       {
+//         index: true,
+//         element: <Home/>,
+//       },
+//       {
+//         path: 'searchUsers',
+//         element: <SearchUsers/>,
+//       },
+//       // Crown Clothing
+//       {
+//         path: 'crownClothing',
+//         element: <CrownClothing/>,
+//         children: [
+//           {
+//             index: true,
+//             element: <DirectoryList/>,
+//           },
+//           {
+//             path: 'shop',
+//             element: <Shop/>,
+//             children: [
+//               {
+//                 index: true,
+//                 element: <ProductsList/>,
+//               },
+//               {
+//                 path: ':id',
+//                 element: <Category/>,
+//               },
+//             ],
+//           },
+//           {
+//             path: 'auth',
+//             element: <Authentication/>,
+//           },
+//           {
+//             path: 'checkout',
+//             element: <Checkout/>,
+//           },
+//         ],
+//       },
+//     ],
+//   },
+// ])
+
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<App/>} errorElement={<Error/>}>
+      <Route index element={<Home/>}/>
+      <Route path="searchUsers" element={<SearchUsers/>}/>
+      <Route path="crownClothing" element={<CrownClothing/>}>
+        <Route index element={<DirectoryList/>}/>
+        <Route path="shop" element={<Shop/>}>
+          <Route index element={<ProductsList/>}/>
+          <Route path=":id" element={<Category/>}/>
+        </Route>
+        <Route path="auth" element={<Authentication/>}/>
+        <Route path="checkout" element={<Checkout/>}/>
+      </Route>
+    </Route>,
+  ))
 
 export default router

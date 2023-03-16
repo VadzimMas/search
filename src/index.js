@@ -1,12 +1,12 @@
-// import './index.scss'
 import IndexStyled from './Index.styled'
 import React, {Fragment} from 'react'
 import ReactDOM from 'react-dom/client'
 import {Provider} from 'react-redux'
 import store from './store'
-import {RouterProvider} from 'react-router-dom'
 import router from './router/router'
 import ResetStyled from './Reset.styled'
+import {RouterProvider} from 'react-router-dom'
+import ScrollToTop from './hooks/ScrollToTop'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -18,8 +18,8 @@ root.render(
     <React.StrictMode>
       <Provider store={store}>
         <RouterProvider router={router}/>
-      </Provider>,
+      </Provider>
     </React.StrictMode>
-  </Fragment>,
+  </Fragment>
 )
 
