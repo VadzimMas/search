@@ -31,9 +31,9 @@ const useClickOutside = (props) => {
         background-color: rgba(0, 0, 0, 0.6);
       `
       document.getElementsByTagName('body')[0].append(newDiv)
-      document.getElementsByTagName('body')[0].style.overflow = 'hidden'
+      document.getElementsByTagName('html')[0].style.overflow = 'hidden'
     } else {
-      document.getElementsByTagName('body')[0].style.overflow = 'unset'
+      document.getElementsByTagName('html')[0].style.overflow = 'scroll'
       const newDiv = document.getElementsByClassName('useClickOutside')[0]
       if (newDiv) {
         newDiv.remove()

@@ -4,6 +4,13 @@ const IndexStyled = createGlobalStyle`
 
 
   html {
+    // prevents drain screen when scroll
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+    overscroll-behavior: none;
+
+
     //main page theme
     @media (prefers-color-scheme: dark) {
       --sidebar-bg-color: rgba(17, 16, 23, 0.90);
@@ -25,18 +32,15 @@ const IndexStyled = createGlobalStyle`
 
 
   body {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     margin: 0;
     padding: 0;
     font-family: 'Ubuntu Condensed', sans-serif;
-    overscroll-behavior: none;
 
     #root {
       max-width: 1920px;
-
       margin: 0 auto;
-
     }
   }
 

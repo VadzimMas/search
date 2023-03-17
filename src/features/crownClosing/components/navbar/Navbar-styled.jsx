@@ -10,18 +10,18 @@ export const NavbarStyled = styled.div`
   color: var(--sidebar-active-bg-color);
   background-color: var(--sidebar-bg-color);
   backdrop-filter: blur(20px);
-  @media (max-width: 768px) {
-    top: ${adaptiveSize(90, 35)};
-    &:before {
-      content: '';
-      position: absolute;
-      top: -100%;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: inherit;
-    }
-  }
+  // @media (max-width: 768px) {
+    //   top: ${adaptiveSize(100, 35)};
+  //   &:before {
+  //     content: '';
+  //     position: absolute;
+  //     top: -100%;
+  //     left: 0;
+  //     width: 100%;
+  //     height: 100%;
+  //     //background-color: inherit;
+  //   }
+  // }
   width: 100%;
   display: flex;
   align-items: center;
