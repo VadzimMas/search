@@ -44,3 +44,10 @@ function MyComponent() {
   }
 
  //-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-
+
+  spetial sintax for style component
+
+  background-image: ${props => `url(   ${props.backgroundImage}   )`};
+
+
+ //-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-//-

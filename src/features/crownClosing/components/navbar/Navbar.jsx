@@ -1,14 +1,14 @@
 import {NavLink} from 'react-router-dom'
-import {ReactComponent as CrownLogo} from '../../assets/crown.svg'
 import React, {useContext} from 'react'
 import {UserContext} from '../../context/User-context'
 import {signOutUser} from '../../utils/firebase/firebase'
-import {ReactComponent as CartImg} from '../../assets/cart.svg'
 import CartPopup from '../cart-popup/Cart-popup'
 import useClickOutside from '../../../../hooks/useClickOutside'
 import {CartContext} from '../../context/Cart-context'
 import {NavbarStyled} from './Navbar-styled'
 import useScroll from '../../../../hooks/useScroll'
+import {FaCrown} from 'react-icons/fa'
+import {BsBag} from 'react-icons/bs'
 
 function Navbar() {
   const {cartProducts} = useContext(CartContext)
@@ -21,7 +21,7 @@ function Navbar() {
   return (
     <NavbarStyled isScroll={isScroll}>
       <NavLink className="logo-container" to="/crownClothing">
-        <CrownLogo/>
+        <FaCrown className="svg"/>
       </NavLink>
       <div className="links-container">
         <NavLink className={isActive} to="shop">Shop</NavLink>
@@ -34,7 +34,7 @@ function Navbar() {
         }
         <div className="cart-container" ref={ref}>
           <div className="img-container" onClick={showCart}>
-            <CartImg/>
+            <BsBag/>
             <span className="count">{cartProducts.length}</span>
           </div>
           {
