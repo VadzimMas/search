@@ -8,7 +8,7 @@ const IndexStyled = createGlobalStyle`
     width: 100vw;
     height: 100vh;
     overflow: scroll;
-    overscroll-behavior: none;
+    overscroll-behavior: contain;
 
 
     //main page theme
