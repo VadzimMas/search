@@ -26,7 +26,6 @@ export const NavbarStyled = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
   padding: ${adaptiveSize(20, 5)};
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
 

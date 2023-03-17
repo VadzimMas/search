@@ -8,7 +8,7 @@ const DirectoryListStyled = styled.div`
          "a a b b c c"
          "d d d f f f";
   gap: 1vw;
-  padding: 1vw;
+  padding: 1.2vw 1vw;
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(4, 1fr);
