@@ -7,13 +7,12 @@ const IndexStyled = createGlobalStyle`
     //main page theme
     @media (prefers-color-scheme: dark) {
       --sidebar-bg-color: rgba(17, 16, 23, 0.90);
+      --sidebar-bg-color-active: rgb(17, 16, 23);
       --sidebar-active-bg-color: rgba(245, 222, 179, 0.80);
       --sidebar-text-color: wheat;
       --sidebar-active-text-color: rgba(17, 16, 23, 0.90);
       --sidebar-border-color: wheat;
-      //search user theme
     }
-
 
     @media (prefers-color-scheme: light) {
       --sidebar-bg-color: rgba(245, 222, 179, 0.90);

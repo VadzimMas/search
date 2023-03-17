@@ -7,7 +7,8 @@ export const NavbarStyled = styled.div`
   top: 0;
   z-index: 1;
   transition: .3s;
-  background-color: ${({isScroll}) => isScroll ? 'white' : 'rgba(255, 255, 255, 0.7)'};
+  color: var(--sidebar-active-bg-color);
+  background-color: ${({isScroll}) => isScroll ? 'var(--sidebar-bg-color-active)' : 'var(--sidebar-bg-color)'};
   @media (max-width: 768px) {
     top: ${adaptiveSize(90, 35)};
     &:before {
@@ -29,10 +30,11 @@ export const NavbarStyled = styled.div`
   box-shadow: ${({isScroll}) => isScroll ? '0 10px 10px rgba(0, 0, 0, 0.3)' : 'none'};
 
   .logo-container {
+    color: inherit;
     width: ${adaptiveSize(100, 40)};
     height: ${adaptiveSize(100, 29)};
 
-    svg {
+    .svg {
       width: 100%;
       height: 100%;
     }
@@ -45,16 +47,29 @@ export const NavbarStyled = styled.div`
     justify-content: flex-end;
 
     .link {
+      color: inherit;
+      border: clamp(0.5px, 0.1vw, 5px) solid transparent;
+      border-radius: 10%;
       font-size: ${adaptiveSize(30, 15)};
       padding: 0.4rem 0.9rem;
       margin: 0 0 0 0.5rem;
       cursor: pointer;
-      color: #090320;
       text-decoration: none;
       white-space: nowrap;
 
+      &:hover {
+        border-radius: 5px;
+        border: clamp(0.5px, 0.1vw, 5px) solid var(--sidebar-active-bg-color);
+      }
+
       &.active {
-        color: red;
+        background-color: var(--sidebar-active-bg-color);
+        color: var(--sidebar-active-text-color);
+
+        &:hover {
+          border-radius: 5px;
+          border: clamp(0.5px, 0.1vw, 5px) solid transparent;
+        }
       }
     }
 
@@ -64,6 +79,7 @@ export const NavbarStyled = styled.div`
       aspect-ratio: 1/1;
       margin: 0 0 0 0.5rem;
       cursor: pointer;
+      color: inherit;
 
       .img-container {
         position: relative;
@@ -79,7 +95,7 @@ export const NavbarStyled = styled.div`
 
         .count {
           position: absolute;
-          top: 30%;
+          top: 25%;
           font-size: ${adaptiveSize(30, 15)};
         }
       }

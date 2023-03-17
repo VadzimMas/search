@@ -1,6 +1,6 @@
-import {createRoutesFromElements, createBrowserRouter, Route} from 'react-router-dom'
+import {createBrowserRouter, createRoutesFromElements, Route} from 'react-router-dom'
 import App from '../app/App'
-import Error from '../app/components/error/Error'
+import ErrorPage from '../app/components/error/Error-page'
 import SearchUsers from '../features/searchUsers/SearchUsers'
 import Home from '../features/home/Home'
 import CrownClothing from '../features/crownClosing/Crown-clothing'
@@ -16,7 +16,7 @@ import Category from '../features/crownClosing/components/category/Category'
 //   {
 //     path: '/',
 //     element: <App/>,
-//     errorElement: <Error/>,
+//     errorElement: <ErrorPage/>,
 //     children: [
 //       {
 //         index: true,
@@ -66,7 +66,7 @@ import Category from '../features/crownClosing/components/category/Category'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App/>} errorElement={<Error/>}>
+    <Route path="/" element={<App/>} errorElement={<ErrorPage/>}>
       <Route index element={<Home/>}/>
       <Route path="searchUsers" element={<SearchUsers/>}/>
       <Route path="crownClothing" element={<CrownClothing/>}>
@@ -78,7 +78,7 @@ const router = createBrowserRouter(
         <Route path="auth" element={<Authentication/>}/>
         <Route path="checkout" element={<Checkout/>}/>
       </Route>
-    </Route>,
+    </Route>
   ))
 
 export default router
