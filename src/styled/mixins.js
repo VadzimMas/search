@@ -9,7 +9,7 @@ export const adaptiveSize = (modelSize, phoneSize) => {
     const positiveModelSize = modelSize * (-1)
     result = `clamp(${modelSize}px,calc((((${-(positiveModelSize - phoneSize)}) * ((100vw - ${phoneWidth}px) * 100) / (${modelWidth - phoneWidth})) / 100) + ${phoneSize}px),${phoneSize}px)`
   } else {
-    result = `clamp(${phoneSize}px,calc((((${modelSize - phoneSize}) * ((100vw - ${phoneWidth}px) * 100) / (${modelWidth - phoneWidth})) / 100) + ${phoneSize}px),${modelSize}px);`
+    result = `clamp(${phoneSize}px,calc((((${modelSize - phoneSize}) * ((100vw - ${phoneWidth}px) * 100) / (${modelWidth - phoneWidth})) / 100) + ${phoneSize}px),${modelSize}px)`
     return result
   }
   return result

@@ -19,14 +19,16 @@ const IndexStyled = createGlobalStyle`
       --sidebar-text-color: wheat;
       --sidebar-active-text-color: rgba(17, 16, 23, 0.90);
       --sidebar-border-color: wheat;
+      --body-background: rgba(17, 16, 23, 0.90);
     }
 
     @media (prefers-color-scheme: light) {
-      --sidebar-bg-color: rgba(245, 222, 179, 0.90);
+      --sidebar-bg-color: rgba(245, 222, 179);
       --sidebar-active-bg-color: rgba(17, 16, 23, 0.90);
       --sidebar-text-color: rgba(17, 16, 23, 0.90);
       --sidebar-active-text-color: rgba(245, 222, 179, 0.90);
       --sidebar-border-color: rgba(17, 16, 23, 0.90);
+      --body-background: rgba(245, 222, 179);
     }
   }
 
@@ -37,6 +39,7 @@ const IndexStyled = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'Ubuntu Condensed', sans-serif;
+    background-color: var(--body-background);
 
     #root {
       max-width: 1920px;

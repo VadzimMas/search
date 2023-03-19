@@ -6,7 +6,6 @@ import {CategoriesProvider} from './context/Categories-context'
 import {CartProvider} from './context/Cart-context'
 import {DirectoriesProvider} from './context/Directories-context'
 import CrownClothingStyled from './Crown-clothing.styled'
-import {BackgroundGradient} from './components/background/Background.styled'
 
 function CrownClothing() {
   
@@ -19,7 +18,7 @@ function CrownClothing() {
               <CrownClothingStyled>
                 <Navbar/>
                 <div id="detail"><Outlet/></div>
-                <BackgroundGradient gradient="linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%)"/>
+                {/*<BackgroundColor color=""/>*/}
               </CrownClothingStyled>
             </DirectoriesProvider>
           </CartProvider>
