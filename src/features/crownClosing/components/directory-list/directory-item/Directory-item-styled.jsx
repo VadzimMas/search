@@ -6,8 +6,10 @@ const DirectoryItemStyled = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
   overflow: hidden;
+  border: 1px solid var(--sidebar-text-color);
+  border-radius: 5px;
+  padding: 2px;
 
   &:hover {
     cursor: pointer;
@@ -33,16 +35,17 @@ const DirectoryItemStyled = styled.div`
     padding-bottom: ${adaptiveSize(20, 5)};
     padding-left: ${adaptiveSize(30, 10)};
     padding-right: ${adaptiveSize(30, 10)};
+    border: 1px solid var(--sidebar-text-color);
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
-    background-color: white;
+    background-color: var(--body-background);
     opacity: 0.7;
     position: absolute;
     font-size: ${adaptiveSize(30, 13)};
-    color: #4a4a4a;
+    color: var(--sidebar-text-color);
     text-transform: capitalize;
 
 

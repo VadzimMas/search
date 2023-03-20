@@ -1,7 +1,7 @@
 import {createGlobalStyle} from 'styled-components'
 
-const IndexStyled = createGlobalStyle`
 
+const IndexStyled = createGlobalStyle`
 
   html {
     // prevents drain screen when scroll
@@ -23,12 +23,12 @@ const IndexStyled = createGlobalStyle`
     }
 
     @media (prefers-color-scheme: light) {
-      --sidebar-bg-color: rgba(245, 222, 179);
+      --sidebar-bg-color: rgba(245, 222, 179, 0.90);
       --sidebar-active-bg-color: rgba(17, 16, 23, 0.90);
       --sidebar-text-color: rgba(17, 16, 23, 0.90);
       --sidebar-active-text-color: rgba(245, 222, 179, 0.90);
       --sidebar-border-color: rgba(17, 16, 23, 0.90);
-      --body-background: rgba(245, 222, 179);
+      --body-background: rgba(245, 222, 179, 0.90);
     }
   }
 

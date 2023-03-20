@@ -8,8 +8,10 @@ const CartPopupStyled = styled.div`
   width: 100%;
   min-height: 10vh;
   max-height: 70vh;
-  border: 1px solid black;
-  background-color: rgba(255, 255, 255, 0.90);
+  border: 1px solid var(--sidebar-text-color);
+  background-color: var(--body-background);
+  color: var(--sidebar-text-color);
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

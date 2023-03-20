@@ -4,14 +4,15 @@ export const BaseButton = styled.button`
   width: 100%;
   padding: 0.5rem 1rem;
   font-size: 15px;
-  background-color: black;
-  color: white;
+  background-color: var(--body-background);
+  color: var(--sidebar-text-color);
+  border: 1px solid var(--sidebar-text-color);
+  border-radius: 5px;
   text-transform: uppercase;
   font-weight: bolder;
   cursor: pointer;
   display: flex;
   justify-content: center;
-  border: 1px solid black;
   user-select: none;
 
   @media (hover: hover) {

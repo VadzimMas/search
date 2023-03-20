@@ -5,8 +5,9 @@ const ProductsItemStyled = styled.div`
 
   .title {
     font-size: ${adaptiveSize(70, 30)};
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
+    border-bottom: 1px solid var(--sidebar-text-color);
+    border-top: 1px solid var(--sidebar-text-color);
+    color: var(--sidebar-text-color);
     margin: 2% 0;
     cursor: pointer;
 

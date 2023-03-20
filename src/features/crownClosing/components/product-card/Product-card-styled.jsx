@@ -5,6 +5,10 @@ const ProductCardStyled = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  color: var(--sidebar-text-color);
+  border: 1px solid var(--sidebar-text-color);
+  border-radius: 5px;
+  padding: 3px;
 `
 
 export const Footer = styled.div`

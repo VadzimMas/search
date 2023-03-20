@@ -11,6 +11,9 @@ const CheckoutStyled = styled.div`
   .header {
     display: flex;
     justify-content: space-between;
+    color: var(--sidebar-text-color);
+    //border-bottom: 1px solid var(--sidebar-text-color);
+
 
     > * {
       width: 25%;
@@ -27,9 +30,10 @@ const CheckoutStyled = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    border-top: 1px solid black;
+    border-top: 1px solid var(--sidebar-text-color);
     padding: 1%;
     font-size: ${adaptiveSize(50, 20)};
+    color: var(--sidebar-text-color);
 
     span:nth-child(1) {
       margin-right: 1%;

@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import {adaptiveSize} from '../../../../../styled/mixins'
 
 const CheckoutItemStyled = styled.div`
-  color: rgba(0, 0, 0, 0.76);
-  border-top: 1px solid black;
+  color: var(--sidebar-text-color);
+  border-top: 1px solid var(--sidebar-text-color);
   padding: 1% 0;
   font-size: ${adaptiveSize(35, 15)};
   width: 100%;

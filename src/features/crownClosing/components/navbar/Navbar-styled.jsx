@@ -10,10 +10,9 @@ export const NavbarStyled = styled.div`
   color: var(--sidebar-active-bg-color);
   background-color: var(--sidebar-bg-color);
   backdrop-filter: blur(20px);
-    //top: ${adaptiveSize(85, 35)};
 
   @media (max-width: 768px) {
-    top: ${adaptiveSize(85, 35)};
+    top: ${adaptiveSize(90, 35)};
     &:before {
       content: '';
       position: absolute;

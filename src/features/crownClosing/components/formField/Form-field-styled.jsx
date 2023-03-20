@@ -6,15 +6,15 @@ const FormFieldStyled = styled.div`
   margin: 45px 0;
 
   .form-input {
-    background-color: white;
-    color: grey;
+    background-color: var(--body-background);
+    color: var(--sidebar-text-color);
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
     width: 100%;
     border: none;
-    border-radius: 0;
-    border-bottom: 1px solid grey;
+    border-radius: 5px;
+    border-bottom: 1px solid var(--sidebar-text-color);
     margin: 25px 0;
 
     &:focus {
@@ -22,9 +22,9 @@ const FormFieldStyled = styled.div`
     }
 
     &:focus ~ .form-input-label {
-      top: -14px;,
-    fontSize: ${adaptiveSize(20, 12)},
-    color: mainColor,
+      top: -14px;
+      font-size: ${adaptiveSize(20, 12)};
+      color: var(--sidebar-text-color);
     }
   }
 
@@ -33,7 +33,7 @@ const FormFieldStyled = styled.div`
   }
 
   .form-input-label {
-    color: grey;
+    color: var(--sidebar-text-color);
     font-size: ${adaptiveSize(25, 15)};
     font-weight: normal;
     position: absolute;
@@ -41,10 +41,6 @@ const FormFieldStyled = styled.div`
     left: 5px;
     top: 10px;
     transition: 300ms ease all;
-
-    &.shrink {
-    @include shrinkLabel();
-    }
   }
 `
 

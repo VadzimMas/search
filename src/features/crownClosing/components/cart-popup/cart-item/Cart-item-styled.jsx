@@ -3,8 +3,10 @@ import {adaptiveSize} from '../../../../../styled/mixins'
 
 const CartItemStyled = styled.div`
 
-  color: rgba(0, 0, 0, 0.76);
-  border: 1px solid black;
+  border: 1px solid var(--sidebar-text-color);
+  background-color: var(--body-background);
+  color: var(--sidebar-text-color);
+  border-radius: 5px;
   margin: 0 0 1% 0;
   font-size: ${adaptiveSize(35, 15)};
   padding: 1%;
@@ -42,16 +44,27 @@ const CartItemStyled = styled.div`
         align-items: center;
 
         .up {
-          &:hover {
+          @media (hover: hover) {
+            &:hover {
+              color: greenyellow;
+            }
+          }
+
+          &:active {
             color: red;
           }
         }
 
         .down {
-          &:hover {
-            color: red;
+          @media (hover: hover) {
+            &:hover {
+              color: greenyellow;
+            }
           }
 
+          &:active {
+            color: red;
+          }
         }
       }
     }

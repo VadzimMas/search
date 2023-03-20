@@ -1,7 +1,7 @@
 import styled, {keyframes} from 'styled-components'
 import {adaptiveSize} from '../../../../styled/mixins'
 
-const s = adaptiveSize(400, 300)
+// const s = adaptiveSize(400, 300)
 
 const rotate = keyframes`
   from {
@@ -20,8 +20,9 @@ const CategoryStyled = styled.div`
   .title {
     font-size: ${adaptiveSize(70, 30)};
     text-transform: capitalize;
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
+    border-bottom: 1px solid var(--sidebar-text-color);
+    border-top: 1px solid var(--sidebar-text-color);
+    color: var(--sidebar-text-color);
     margin: 0 0 2% 0;
     display: flex;
     align-items: center;

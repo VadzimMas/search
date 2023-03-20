@@ -5,6 +5,7 @@ const SignUpStyled = styled.form`
 
   width: 100%;
   padding: ${adaptiveSize(50, 10)};
+  color: var(--sidebar-text-color);
 
   .title {
     font-size: adaptiveSize(40, 25);
