@@ -4,6 +4,8 @@ const UserStyled = styled.div`
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
+  height: 100%;
+
 
   img {
     object-fit: contain;
