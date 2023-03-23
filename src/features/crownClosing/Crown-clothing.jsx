@@ -6,6 +6,7 @@ import {setCurrentUser} from './redux/store'
 import {useDispatch} from 'react-redux'
 import {createUserDocumentFromAuth, onAuthStateChangeListener} from './utils/firebase/firebase'
 import {getCategories} from './redux/categories-slice'
+import {getDirectories} from './redux/directories-slice'
 
 function CrownClothing() {
   const dispatch = useDispatch()
@@ -19,6 +20,7 @@ function CrownClothing() {
           avatar: user.photoURL
         }))
       }
+      dispatch(getDirectories())
       dispatch(getCategories())
     })
     

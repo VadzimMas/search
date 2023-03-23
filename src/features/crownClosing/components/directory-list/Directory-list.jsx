@@ -1,25 +1,16 @@
-import './Directory-list-styled'
 import DirectoryItem from './directory-item/Directory-item'
-import {useEffect} from 'react'
-import DirectoryListStyled from './Directory-list-styled'
-import {useDispatch, useSelector} from 'react-redux'
-import {getDirectories} from '../../redux/directories-slice'
+import {useSelector} from 'react-redux'
+import LoadingSpinner from '../loading-spiner/Loading-spinner'
+import s from './directory-list.module.scss'
+import {Fragment} from 'react'
 
 function DirectoryList() {
   
-  const {
-    directoriesMap,
-    isLoading
-  } = useSelector(state => state.directories)
+  const {directoriesMap} = useSelector(state => state.directories)
   
-  const dispatch = useDispatch()
-  
-  useEffect(() => {
-    dispatch(getDirectories())
-  }, [dispatch])
   
   let renderedDirectories
-  if (!isLoading) {
+  if (directoriesMap) {
     const getDirectories = Object.keys(directoriesMap).map((key) => {
       return directoriesMap[key][0]
     })
@@ -29,13 +20,13 @@ function DirectoryList() {
   }
   
   return (
-    <DirectoryListStyled>
+    <Fragment>
       {
-        isLoading
-          ? '...loading'
-          : renderedDirectories
+        directoriesMap
+          ? <div className={s.directoryList}>{renderedDirectories}</div>
+          : <LoadingSpinner/>
       }
-    </DirectoryListStyled>
+    </Fragment>
   )
 }
 

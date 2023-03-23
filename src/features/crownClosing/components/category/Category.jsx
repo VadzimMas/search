@@ -1,8 +1,9 @@
 import {useParams} from 'react-router-dom'
 import ProductCard from '../product-card/Product-card'
-import {TbBrandReactNative} from 'react-icons/tb'
 import CategoryStyled from './Category-styled'
 import {useSelector} from 'react-redux'
+import LoadingSpinner from '../loading-spiner/Loading-spinner'
+import {Fragment} from 'react'
 
 function Category() {
   const {categoriesMap, isLoading} = useSelector(state => state.categories)
@@ -17,13 +18,15 @@ function Category() {
   
   return (
     <CategoryStyled>
-      <h2 className="title">
-        {id}
-        {isLoading && <TbBrandReactNative className="loading"/>}
-      </h2>
-      <div className="products">
-        {!isLoading && renderedCategories}
-      </div>
+      {
+        categoriesMap
+          ?
+          <Fragment>
+            <h2 className="title">{id}</h2>
+            <div className="products">{renderedCategories}</div>
+          </Fragment>
+          : <LoadingSpinner/>
+      }
     </CategoryStyled>
   )
 }

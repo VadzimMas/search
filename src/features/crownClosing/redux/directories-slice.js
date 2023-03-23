@@ -10,7 +10,7 @@ export const getDirectories = createAsyncThunk('directories/fetch',
 const directoriesSlice = createSlice({
   name: 'directories',
   initialState: {
-    directoriesMap: {},
+    directoriesMap: null,
     isLoading: false,
     error: null
   },
