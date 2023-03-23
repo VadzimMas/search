@@ -1,22 +1,22 @@
 import {NavLink} from 'react-router-dom'
-import React, {useContext} from 'react'
-import {UserContext} from '../../context/User-context'
-import {signOutUser} from '../../utils/firebase/firebase'
+import React from 'react'
 import CartPopup from '../cart-popup/Cart-popup'
 import useClickOutside from '../../../../hooks/useClickOutside'
-import {CartContext} from '../../context/Cart-context'
 import {NavbarStyled} from './Navbar-styled'
 import useScroll from '../../../../hooks/useScroll'
 import {FaCrown} from 'react-icons/fa'
 import {BsBag} from 'react-icons/bs'
+import {useSelector} from 'react-redux'
+import User from '../../user/User'
 
 function Navbar() {
-  const {cartProducts} = useContext(CartContext)
+  const cartProducts = useSelector(state => state.cart.cartProducts)
   const [ref, isMenuOpen, setIsMenuOpen] = useClickOutside('navbar')
-  const {currentUser} = useContext(UserContext)
   const isActive = ({isActive}) => isActive ? 'link active' : 'link'
   const showCart = () => setIsMenuOpen(!isMenuOpen)
   const [isScroll] = useScroll(1)
+  const {isUserExist} = useSelector(state => state.user)
+  
   
   return (
     <NavbarStyled isScroll={isScroll}>
@@ -26,11 +26,7 @@ function Navbar() {
       <div className="links-container">
         <NavLink className={isActive} to="shop">Shop</NavLink>
         {
-          currentUser
-            ?
-            <div className="link" onClick={signOutUser}>Sign out</div>
-            :
-            <NavLink className={isActive} to="auth">Sign in</NavLink>
+          !isUserExist && <NavLink className={isActive} to="auth">Sign in</NavLink>
         }
         <div className="cart-container" ref={ref}>
           <div className="img-container" onClick={showCart}>
@@ -45,6 +41,7 @@ function Navbar() {
             </div>
           }
         </div>
+        {isUserExist && <User/>}
       </div>
     </NavbarStyled>
   )

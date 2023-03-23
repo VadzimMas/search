@@ -1,11 +1,12 @@
-import {RiArrowUpSLine, RiArrowDownSLine, RiDeleteBin5Line} from 'react-icons/ri'
-import {useContext} from 'react'
-import {CartContext} from '../../../context/Cart-context'
+import {RiArrowDownSLine, RiArrowUpSLine, RiDeleteBin5Line} from 'react-icons/ri'
 import CartItemStyled from './Cart-item-styled'
+import {useDispatch} from 'react-redux'
+import {deleteProductFromCart, downQuantity, upQuantity} from '../../../redux/store'
+
 
 function CartItem({product}) {
+  const dispatch = useDispatch()
   const {id, name, price, imageUrl, quantity} = product
-  const {upQuantity, downQuantity, deleteProductFromCart} = useContext(CartContext)
   
   return (
     <CartItemStyled key={id}>
@@ -19,9 +20,9 @@ function CartItem({product}) {
           </div>
           <div className="count">
             <span>Pieces : </span>
-            <RiArrowUpSLine className="up" onClick={() => upQuantity(id)}/>
+            <RiArrowUpSLine className="up" onClick={() => dispatch(upQuantity(id))}/>
             <span>{quantity}</span>
-            <RiArrowDownSLine className="down" onClick={() => downQuantity(id)}/>
+            <RiArrowDownSLine className="down" onClick={() => dispatch(downQuantity(id))}/>
           </div>
         </div>
       </div>
@@ -30,7 +31,7 @@ function CartItem({product}) {
           <span>Total : </span>
           <span>{`$ ${price * quantity}`}</span>
         </div>
-        <RiDeleteBin5Line className="delete" onClick={() => deleteProductFromCart(id)}/>
+        <RiDeleteBin5Line className="delete" onClick={() => dispatch(deleteProductFromCart(id))}/>
       </div>
     </CartItemStyled>
   )

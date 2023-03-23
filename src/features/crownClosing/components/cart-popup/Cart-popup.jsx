@@ -1,26 +1,29 @@
-import {useContext, useEffect, useState} from 'react'
-import {CartContext} from '../../context/Cart-context'
 import CartItem from './cart-item/Cart-item'
 import {useNavigate} from 'react-router-dom'
 import {BaseButton} from '../button/Button.styled'
 import CartPopupStyled from './Cart-popup-styled'
+import {useDispatch, useSelector} from 'react-redux'
+import {setTotalOverAllPrice} from '../../redux/store'
+import {useEffect} from 'react'
 
 function CartPopup(props) {
-  const {cartProducts} = useContext(CartContext)
-  const [total, setTotal] = useState(0)
+  const dispatch = useDispatch()
+  const {cartProducts, totalOverAllPrice} = useSelector((state) => {
+    return {
+      cartProducts: state.cart.cartProducts,
+      totalOverAllPrice: state.cart.totalOverAllPrice
+    }
+  })
+  
+  useEffect(() => {
+    dispatch(setTotalOverAllPrice())
+  })
+  
   const navigate = useNavigate()
   
   const renderedProducts = cartProducts.map((product) => {
     return <CartItem product={product} key={product.id}/>
   })
-  
-  useEffect(() => {
-    let temp = 0
-    for (const product of cartProducts) {
-      temp += product.price * product.quantity
-    }
-    setTotal(temp)
-  }, [cartProducts])
   
   const goToCheckout = () => {
     props.showCart()
@@ -37,7 +40,7 @@ function CartPopup(props) {
       <div className="btn">
         <div className="total">
           <span>Total overall :</span>
-          <span>{`$ ${total}`}</span>
+          <span>{`$ ${totalOverAllPrice}`}</span>
         </div>
         <BaseButton onClick={goToCheckout}>Go to checkout</BaseButton>
       </div>

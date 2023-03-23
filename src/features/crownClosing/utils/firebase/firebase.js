@@ -1,25 +1,7 @@
 // Import the functions you need from the SDKs you need
 import {initializeApp} from 'firebase/app'
-import {
-  getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
-  getRedirectResult,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-} from 'firebase/auth'
-import {
-  getFirestore,
-  doc,
-  getDoc,
-  setDoc,
-  collection,
-  writeBatch,
-  query,
-  getDocs,
-} from 'firebase/firestore'
+import {createUserWithEmailAndPassword, getAuth, getRedirectResult, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut} from 'firebase/auth'
+import {collection, doc, getDoc, getDocs, getFirestore, query, setDoc, writeBatch} from 'firebase/firestore'
 
 
 // Your web app's Firebase configuration
@@ -29,7 +11,7 @@ const firebaseConfig = {
   projectId: 'crown-clothing-db-ef862',
   storageBucket: 'crown-clothing-db-ef862.appspot.com',
   messagingSenderId: '447708441524',
-  appId: '1:447708441524:web:00f5a5f0b5ce04de67e0e1',
+  appId: '1:447708441524:web:00f5a5f0b5ce04de67e0e1'
 }
 
 const firebaseApp = initializeApp(firebaseConfig)
@@ -37,7 +19,7 @@ const firebaseApp = initializeApp(firebaseConfig)
 const googleProvider = new GoogleAuthProvider()
 
 googleProvider.setCustomParameters({
-  prompt: 'select_account',
+  prompt: 'select_account'
 })
 
 export const auth = getAuth()
@@ -64,13 +46,13 @@ export const addCollectionAndDocument = async (collectionKey, objectToAdd) => {
 export const getCollectionAndDocument = async (collectionKey) => {
   const collectionRef = collection(db, collectionKey)
   const q = query(collectionRef)
-  
   const querySnapshot = await getDocs(q)
   const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
     const {title, items} = docSnapshot.data()
     acc[title.toLowerCase()] = items
     return acc
   }, {})
+  
   return categoryMap
 }
 

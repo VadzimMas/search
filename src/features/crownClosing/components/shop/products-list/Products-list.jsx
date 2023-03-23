@@ -1,15 +1,12 @@
-import {useContext} from 'react'
-import {CategoriesContext} from '../../../context/Categories-context'
-import s from './Products-list-styled'
 import ProductsItem from './products-item/Products-item'
 import ProductsListStyled from './Products-list-styled'
+import {useSelector} from 'react-redux'
 
 
 function ProductsList() {
-  const {categoriesMap} = useContext(CategoriesContext)
+  const {categoriesMap} = useSelector(state => state.categories)
   
   return (
-    
     <ProductsListStyled>
       {
         Object.keys(categoriesMap).map((title) => {
@@ -18,8 +15,6 @@ function ProductsList() {
         })
       }
     </ProductsListStyled>
-  
-  
   )
 }
 

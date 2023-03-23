@@ -3,13 +3,13 @@ import App from '../app/App'
 import ErrorPage from '../app/components/error/Error-page'
 import SearchUsers from '../features/searchUsers/SearchUsers'
 import Home from '../features/home/Home'
-import CrownClothing from '../features/crownClosing/Crown-clothing'
 import DirectoryList from '../features/crownClosing/components/directory-list/Directory-list'
 import Shop from '../features/crownClosing/components/shop/Shop'
 import Authentication from '../features/crownClosing/components/authentication/Authentication'
 import Checkout from '../features/crownClosing/components/checkout/Checkout'
 import ProductsList from '../features/crownClosing/components/shop/products-list/Products-list'
 import Category from '../features/crownClosing/components/category/Category'
+import Index from '../features/crownClosing/Index'
 
 
 // const router = createBrowserRouter([
@@ -69,7 +69,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<App/>} errorElement={<ErrorPage/>}>
       <Route index element={<Home/>}/>
       <Route path="searchUsers" element={<SearchUsers/>}/>
-      <Route path="crownClothing" element={<CrownClothing/>}>
+      <Route path="crownClothing" element={<Index/>}>
         <Route index element={<DirectoryList/>}/>
         <Route path="shop" element={<Shop/>}>
           <Route index element={<ProductsList/>}/>

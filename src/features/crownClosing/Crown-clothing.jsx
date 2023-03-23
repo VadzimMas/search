@@ -1,30 +1,37 @@
 import {Outlet} from 'react-router-dom'
-import {Fragment} from 'react'
+import {useEffect} from 'react'
 import Navbar from './components/navbar/Navbar'
-import {UserProvider} from './context/User-context'
-import {CategoriesProvider} from './context/Categories-context'
-import {CartProvider} from './context/Cart-context'
-import {DirectoriesProvider} from './context/Directories-context'
 import CrownClothingStyled from './Crown-clothing.styled'
+import {setCurrentUser} from './redux/store'
+import {useDispatch} from 'react-redux'
+import {createUserDocumentFromAuth, onAuthStateChangeListener} from './utils/firebase/firebase'
+import {getCategories} from './redux/categories-slice'
 
 function CrownClothing() {
+  const dispatch = useDispatch()
+  
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangeListener((user) => {
+      if (user) {
+        createUserDocumentFromAuth(user)
+        dispatch(setCurrentUser({
+          name: user.displayName,
+          avatar: user.photoURL
+        }))
+      }
+      dispatch(getCategories())
+    })
+    
+    return unsubscribe()
+  }, [dispatch])
   
   return (
-    <Fragment>
-      <UserProvider>
-        <CategoriesProvider>
-          <CartProvider>
-            <DirectoriesProvider>
-              <CrownClothingStyled>
-                <Navbar/>
-                <div id="detail"><Outlet/></div>
-                {/*<BackgroundColor color=""/>*/}
-              </CrownClothingStyled>
-            </DirectoriesProvider>
-          </CartProvider>
-        </CategoriesProvider>
-      </UserProvider>
-    </Fragment>
+    
+    <CrownClothingStyled>
+      <Navbar/>
+      <div id="detail"><Outlet/></div>
+    </CrownClothingStyled>
+  
   )
 }
 

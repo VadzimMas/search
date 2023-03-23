@@ -1,14 +1,25 @@
 import './Directory-list-styled'
 import DirectoryItem from './directory-item/Directory-item'
-import {useContext} from 'react'
-import {DirectoriesContext} from '../../context/Directories-context'
+import {useEffect} from 'react'
 import DirectoryListStyled from './Directory-list-styled'
+import {useDispatch, useSelector} from 'react-redux'
+import {getDirectories} from '../../redux/directories-slice'
 
 function DirectoryList() {
-  const {directoriesMap, isDirectoriesMapLoading} = useContext(DirectoriesContext)
+  
+  const {
+    directoriesMap,
+    isLoading
+  } = useSelector(state => state.directories)
+  
+  const dispatch = useDispatch()
+  
+  useEffect(() => {
+    dispatch(getDirectories())
+  }, [dispatch])
   
   let renderedDirectories
-  if (!isDirectoriesMapLoading) {
+  if (!isLoading) {
     const getDirectories = Object.keys(directoriesMap).map((key) => {
       return directoriesMap[key][0]
     })
@@ -19,7 +30,11 @@ function DirectoryList() {
   
   return (
     <DirectoryListStyled>
-      {!isDirectoriesMapLoading && renderedDirectories}
+      {
+        isLoading
+          ? '...loading'
+          : renderedDirectories
+      }
     </DirectoryListStyled>
   )
 }

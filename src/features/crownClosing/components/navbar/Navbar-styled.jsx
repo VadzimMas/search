@@ -42,35 +42,32 @@ export const NavbarStyled = styled.div`
   }
 
   .links-container {
-    height: 100%;
+    height: ${adaptiveSize(100, 50)};
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    gap: 1vw;
 
     .link {
       color: inherit;
-      border: clamp(0.5px, 0.1vw, 5px) solid transparent;
-      border-radius: 10%;
       font-size: ${adaptiveSize(30, 15)};
       padding: 0.4rem 0.9rem;
-      margin: 0 0 0 0.5rem;
       cursor: pointer;
       text-decoration: none;
       white-space: nowrap;
+      border-radius: 5px;
+      border: clamp(0.5px, 0.1vw, 5px) solid var(--sidebar-active-bg-color);
 
-      &:hover {
-        border-radius: 5px;
-        border: clamp(0.5px, 0.1vw, 5px) solid var(--sidebar-active-bg-color);
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--sidebar-active-bg-color);
+          color: var(--sidebar-active-text-color);
+        }
       }
 
       &.active {
         background-color: var(--sidebar-active-bg-color);
         color: var(--sidebar-active-text-color);
-
-        &:hover {
-          border-radius: 5px;
-          border: clamp(0.5px, 0.1vw, 5px) solid transparent;
-        }
       }
     }
 
@@ -78,7 +75,6 @@ export const NavbarStyled = styled.div`
       position: relative;
       width: ${adaptiveSize(60, 30)};
       aspect-ratio: 1/1;
-      margin: 0 0 0 0.5rem;
       cursor: pointer;
       color: inherit;
 

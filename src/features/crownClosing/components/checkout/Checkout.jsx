@@ -1,16 +1,26 @@
-import {useContext} from 'react'
-import {CartContext} from '../../context/Cart-context'
 import CheckoutItem from './checkout-item/Checkout-item'
 import CheckoutStyled from './Checkout-styled'
+import {useDispatch, useSelector} from 'react-redux'
+import {useEffect} from 'react'
+import {setTotalOverAllPrice} from '../../redux/store'
 
 function Checkout() {
   
-  const {cartProducts, totalOverAllPrice} = useContext(CartContext)
+  const dispatch = useDispatch()
+  const {cartProducts, totalOverAllPrice} = useSelector(({cart}) => {
+    return {
+      cartProducts: cart.cartProducts,
+      totalOverAllPrice: cart.totalOverAllPrice
+    }
+  })
+  
+  useEffect(() => {
+    dispatch(setTotalOverAllPrice())
+  })
   
   const renderedProducts = cartProducts.map((product) => {
     return <CheckoutItem product={product} key={product.id}/>
   })
-  
   
   return (
     <CheckoutStyled>
