@@ -1,10 +1,14 @@
 import {useState} from 'react'
 import FormField from '../../formField/Form-field'
-import {createAuthUserWithEmailAndPassword, createUserDocumentFromAuth} from '../../../utils/firebase/firebase'
+import {createUser, createUserInDB, updateUserProfile} from '../../../utils/firebase/firebase'
 import {BaseButton} from '../../button/Button.styled'
 import SignUpStyled from './Sign-up-styled'
+import {useDispatch} from 'react-redux'
+import {setCurrentUser} from '../../../redux/user-slice'
+
 
 function SignUp() {
+  
   
   const defaultFormFields = {
     displayName: '',
@@ -15,6 +19,7 @@ function SignUp() {
   
   const [formFields, setFormFields] = useState(defaultFormFields)
   const {displayName, email, password, confirmPassword} = formFields
+  const dispatch = useDispatch()
   
   const handleChange = (event) => {
     const {name, value} = event.target
@@ -25,16 +30,20 @@ function SignUp() {
     setFormFields(defaultFormFields)
   }
   
+  
   const handleSubmit = async (event) => {
     event.preventDefault()
     if (password !== confirmPassword) {
-      alert('password incorect')
+      alert('password incorrect')
       return
     }
     
     try {
-      const {user} = await createAuthUserWithEmailAndPassword(email, password)
-      const userRef = await createUserDocumentFromAuth(user, {displayName})
+      await createUser(email, password)
+      await updateUserProfile({displayName})
+      await createUserInDB()
+      console.log('4')
+      dispatch(setCurrentUser())
       resetFormFields()
     } catch (error) {
       switch (error.code) {
@@ -49,6 +58,7 @@ function SignUp() {
       }
     }
   }
+  
   
   return (
     <SignUpStyled onSubmit={handleSubmit}>

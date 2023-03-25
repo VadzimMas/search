@@ -6,26 +6,24 @@ import {Fragment} from 'react'
 
 function DirectoryList() {
   
-  const {directoriesMap} = useSelector(state => state.directories)
-  
-  
-  let renderedDirectories
-  if (directoriesMap) {
-    const getDirectories = Object.keys(directoriesMap).map((key) => {
-      return directoriesMap[key][0]
+  const {directoriesData} = useSelector(state => state.directories)
+  //future directoriesData but before fetching success show loading
+  let renderedDirectories = <LoadingSpinner/>
+  //when directoriesData fetched successful start rendering
+  if (directoriesData) {
+    // getting directoriesData list
+    const getDirectories = directoriesData.map((directory) => {
+      return directory.items[0]
     })
-    renderedDirectories = getDirectories.map((category) => {
-      return <DirectoryItem category={category} key={category.id}/>
+    //rendering each directory
+    renderedDirectories = getDirectories.map((directory) => {
+      return <DirectoryItem category={directory} key={directory.id}/>
     })
   }
   
   return (
     <Fragment>
-      {
-        directoriesMap
-          ? <div className={s.directoryList}>{renderedDirectories}</div>
-          : <LoadingSpinner/>
-      }
+      <div className={s.directoryList}>{renderedDirectories}</div>
     </Fragment>
   )
 }

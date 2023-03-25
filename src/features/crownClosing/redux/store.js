@@ -1,7 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit'
 import cartReducer, {addProductToCart, deleteProductFromCart, downQuantity, setTotalOverAllPrice, upQuantity} from './cart-slice'
-import directoriesReducer, {setDirectoriesMap, setIsDirectoriesMapLoading} from './directories-slice'
-import userReducer, {setCurrentUser} from './user-slice'
+import directoriesReducer from './directories-slice'
+import userReducer from './user-slice'
 import categoriesReducer from './categories-slice'
 
 
@@ -21,8 +21,5 @@ export {
   upQuantity,
   downQuantity,
   deleteProductFromCart,
-  setTotalOverAllPrice,
-  setCurrentUser,
-  setDirectoriesMap,
-  setIsDirectoriesMapLoading
+  setTotalOverAllPrice
 }

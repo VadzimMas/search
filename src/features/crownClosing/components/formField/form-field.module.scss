@@ -1,11 +1,10 @@
-import styled from 'styled-components'
-import {adaptiveSize} from '../../../../styled/mixins'
+@import "src/styled/mixins";
 
-const FormFieldStyled = styled.div`
+.formField {
   position: relative;
-  margin: 45px 0;
+  margin: adaptiveSize(30, 10) 0;
 
-  .form-input {
+  .formInput {
     background-color: var(--body-background);
     color: var(--sidebar-text-color);
     font-size: 18px;
@@ -21,9 +20,9 @@ const FormFieldStyled = styled.div`
       outline: none;
     }
 
-    &:focus ~ .form-input-label {
+    &:focus ~ .formInputLabel {
       top: -14px;
-      font-size: ${adaptiveSize(20, 12)};
+      font-size: adaptiveSize(20, 12);
       color: var(--sidebar-text-color);
     }
   }
@@ -32,9 +31,9 @@ const FormFieldStyled = styled.div`
     letter-spacing: 0.3em;
   }
 
-  .form-input-label {
+  .formInputLabel {
     color: var(--sidebar-text-color);
-    font-size: ${adaptiveSize(25, 15)};
+    font-size: adaptiveSize(25, 15);
     font-weight: normal;
     position: absolute;
     pointer-events: none;
@@ -42,6 +41,12 @@ const FormFieldStyled = styled.div`
     top: 10px;
     transition: 300ms ease all;
   }
-`
 
-export default FormFieldStyled
+  .shrink {
+    top: -14px;
+    font-size: adaptiveSize(20, 12);
+    color: var(--sidebar-text-color);
+  }
+}
+
+

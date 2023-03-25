@@ -1,7 +1,6 @@
 import styled, {keyframes} from 'styled-components'
 import {adaptiveSize} from '../../../../styled/mixins'
 
-// const s = adaptiveSize(400, 300)
 
 const rotate = keyframes`
   from {

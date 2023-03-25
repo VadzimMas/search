@@ -1,41 +1,24 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
-import {getCollectionAndDocument} from '../utils/firebase/firebase'
+import {getCollection} from '../utils/firebase/firebase'
 
 export const getDirectories = createAsyncThunk('directories/fetch',
   async () => {
-    return await getCollectionAndDocument('directories')
+    return await getCollection('directories')
   }
 )
 
 const directoriesSlice = createSlice({
   name: 'directories',
   initialState: {
-    directoriesMap: null,
-    isLoading: false,
-    error: null
+    directoriesData: null
   },
-  reducers: {
-    setIsDirectoriesMapLoading: (state, action) => {
-      state.isCategoriesMapLoading = action.payload
-    }
-  },
+  reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getDirectories.pending, (state, action) => {
-      state.isLoading = true
-    })
-    builder.addCase(getDirectories.rejected, (state, action) => {
-      state.error = action.error
-      state.isLoading = false
-    })
     builder.addCase(getDirectories.fulfilled, (state, action) => {
-      state.directoriesMap = {...action.payload}
-      state.isLoading = false
+      state.directoriesData = action.payload
     })
   }
 })
-export const {
-  setDirectoriesMap,
-  setIsDirectoriesMapLoading
-} = directoriesSlice.actions
+export const {} = directoriesSlice.actions
 
 export default directoriesSlice.reducer

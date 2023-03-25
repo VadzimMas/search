@@ -1,5 +1,17 @@
-import {createSlice} from '@reduxjs/toolkit'
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
+import {auth, getCurrentUser} from '../utils/firebase/firebase'
 
+export const setCurrentUser = createAsyncThunk('user/set',
+  async () => {
+    console.log('setCurrentUser thunk')
+    await getCurrentUser()
+    const user = auth.currentUser
+    if (user) {
+      const displayName = user.displayName
+      const photoURL = user.photoURL
+      return {displayName, photoURL}
+    }
+  })
 
 const userSlice = createSlice({
   name: 'user',
@@ -8,22 +20,23 @@ const userSlice = createSlice({
     avatar: '',
     isUserExist: false
   },
-  reducers: {
-    setCurrentUser: (state, action) => {
+  extraReducers: (builder) => {
+    builder.addCase(setCurrentUser.fulfilled, ((state, action) => {
       if (action.payload) {
-        const {name, avatar} = action.payload
-        state.name = name
-        state.avatar = avatar
+        const {displayName, photoURL} = action.payload
+        state.name = displayName
+        state.avatar = photoURL
         state.isUserExist = true
       } else {
         state.name = ''
         state.avatar = ''
         state.isUserExist = false
       }
-    }
+      console.log('current name : ', state.name)
+    }))
   }
 })
 
-export const {setCurrentUser} = userSlice.actions
+export const {} = userSlice.actions
 export default userSlice.reducer
 

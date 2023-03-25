@@ -1,13 +1,13 @@
-import './Form-field-styled'
-import FormFieldStyled from './Form-field-styled'
+import s from './form-field.module.scss'
 
 function FormField({labelOptions, inputOptions}) {
-  
+  const label = labelOptions &&
+    <label className={`${inputOptions.value.length ? s.shrink : ''} ${s.formInputLabel}`}{...labelOptions.options}>{labelOptions.label}</label>
   return (
-    <FormFieldStyled>
-      <input className="form-input" {...inputOptions}/>
-      {labelOptions && <label className={`${inputOptions.value.length ? 'shrink' : ''} form-input-label`}{...labelOptions.options}>{labelOptions.label}</label>}
-    </FormFieldStyled>
+    <div className={s.formField}>
+      <input className={s.formInput} {...inputOptions}/>
+      {label}
+    </div>
   )
 }
 

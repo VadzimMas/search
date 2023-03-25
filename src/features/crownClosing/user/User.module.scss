@@ -1,0 +1,27 @@
+@import 'src/styled/mixins';
+
+.user {
+  overflow: hidden;
+  cursor: pointer;
+  width: adaptiveSize(80, 35);
+  height: adaptiveSize(80, 35);
+  border-radius: 50%;
+
+  img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--sidebar-text-color) 1px solid;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    font-size: adaptiveSize(35, 15);
+  }
+}
+

@@ -1,8 +1,11 @@
-import {createUserDocumentFromAuth, signInAuthWithEmailAndPassword, signInWithGooglePopup} from '../../../utils/firebase/firebase'
+import {signInUserEmailPassword, signInWithGooglePopup} from '../../../utils/firebase/firebase'
 import FormField from '../../formField/Form-field'
 import {useState} from 'react'
 import {BaseButton, GoogleButton} from '../../button/Button.styled'
 import SignInStyled from './Sign-in-styled'
+import {useDispatch} from 'react-redux'
+import {setCurrentUser} from '../../../redux/user-slice'
+
 
 const SignIn = () => {
   const defaultFormFields = {
@@ -12,8 +15,12 @@ const SignIn = () => {
   
   const [formFields, setFormFields] = useState(defaultFormFields)
   const {email, password} = formFields
+  const dispatch = useDispatch()
   
-  const logGoogleUser = async () => await signInWithGooglePopup()
+  const logGoogleUser = async () => {
+    await signInWithGooglePopup()
+    dispatch(setCurrentUser())
+  }
   
   const handleChange = (event) => {
     const {name, value} = event.target
@@ -27,27 +34,9 @@ const SignIn = () => {
   
   const handleSubmit = async (event) => {
     event.preventDefault()
-    try {
-      const {user} = await signInAuthWithEmailAndPassword(email, password)
-      await createUserDocumentFromAuth(user)
-      resetFormFields()
-    } catch (error) {
-      
-      switch (error.code) {
-        case 'auth/wrong-password': {
-          alert('Password incorrect')
-          break
-        }
-        case 'auth/user-not-found': {
-          alert('Email incorrect')
-          break
-        }
-        default: {
-          alert(error.code)
-        }
-      }
-      
-    }
+    await signInUserEmailPassword(email, password)
+    resetFormFields()
+    dispatch(setCurrentUser())
   }
   
   return (
