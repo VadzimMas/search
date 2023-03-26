@@ -5,22 +5,21 @@ import LoadingSpinner from '../../loading-spiner/Loading-spinner'
 
 
 function ProductsList() {
-  const {categoriesMap} = useSelector(state => state.categories)
+  const {categoriesData} = useSelector(state => state.categories)
   
-  
-  let renderedProducts
-  
-  if (categoriesMap) {
-    renderedProducts = Object.keys(categoriesMap).map((title) => {
-      const category = categoriesMap[title]
-      return <ProductsItem key={title} title={title} products={category}/>
-    })
+  const renderedProducts = () => {
+    if (categoriesData) {
+      return categoriesData.map((category) => {
+        return <ProductsItem key={category.title} title={category.title} products={category}/>
+      })
+    } else {
+      return <LoadingSpinner/>
+    }
   }
-  
   
   return (
     <ProductsListStyled>
-      {categoriesMap ? renderedProducts : <LoadingSpinner/>}
+      {renderedProducts()}
     </ProductsListStyled>
   )
 }

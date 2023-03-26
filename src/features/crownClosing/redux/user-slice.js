@@ -34,7 +34,6 @@ const userSlice = createSlice({
         state.avatar = ''
         state.isUserExist = false
       }
-      console.log('current name : ', state.name)
     }))
   }
 })

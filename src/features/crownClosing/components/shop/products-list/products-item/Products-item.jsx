@@ -5,9 +5,15 @@ import ProductsItemStyled from './Products-item-styled'
 
 function ProductsItem({title, products}) {
   const navigate = useNavigate()
-  
-  const navigateToCategory = () => {
-    navigate(title)
+  const navigateToCategory = () => navigate(title)
+  const renderedItem = () => {
+    if (products) {
+      return products.items.filter((_, index) => index < 4).map((product) => {
+        return <ProductCard key={product.id} product={product}/>
+      })
+    } else {
+      return null
+    }
   }
   
   return (
@@ -16,12 +22,7 @@ function ProductsItem({title, products}) {
         {title.toUpperCase()}
       </h2>
       <div className="category">
-        {
-          products.filter((_, index) => index < 4)
-            .map((product) => {
-              return <ProductCard key={product.id} product={product}/>
-            })
-        }
+        {renderedItem()}
       </div>
     </ProductsItemStyled>
   )

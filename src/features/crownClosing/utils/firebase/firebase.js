@@ -59,7 +59,6 @@ export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user)
         resolve()
       } else {
         reject()
