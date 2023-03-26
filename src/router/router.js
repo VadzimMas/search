@@ -1,6 +1,6 @@
 import {createBrowserRouter, createRoutesFromElements, Route} from 'react-router-dom'
 import App from '../app/App'
-import ErrorPage from '../app/components/error/Error-page'
+import ErrorPage from '../error-page/Error-page'
 import SearchUsers from '../features/searchUsers/SearchUsers'
 import Home from '../features/home/Home'
 import DirectoryList from '../features/crownClosing/components/directory-list/Directory-list'

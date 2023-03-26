@@ -1,20 +1,12 @@
-import {changeEmail, changeFirstName, changeLastName} from "../../../store";
+import {changeEmail, changeFirstName, changeLastName} from "../../store";
 import {useDispatch, useSelector} from "react-redux";
-import {useAddUserMutation} from "../../../store/api/userApi";
+import {useAddUserMutation} from "../../store/api/userApi";
 import "./userForm.scss"
 
 function UserForm() {
     const dispatch = useDispatch()
 
-    const {firstName, lastName, email} = useSelector((state) => {
-        return {
-            firstName: state.users.firstName,
-            lastName: state.users.lastName,
-            email: state.users.email,
-        }
-    })
-
-
+    const {firstName, lastName, email} = useSelector(state => state.users)
     const [addUser, result] = useAddUserMutation()
 
     const handleAddUser = (e) => {

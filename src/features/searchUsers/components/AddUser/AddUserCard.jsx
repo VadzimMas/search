@@ -7,12 +7,8 @@ import UserForm from "../UserForm/UserForm";
 function AddUserCard() {
     Modal.setAppElement("#root")
     const [isOpenModal, setIsOpenModal] = useState(false)
-    const openModal = () => {
-        setIsOpenModal(true)
-    }
-    const closeModal = () => {
-        setIsOpenModal(false)
-    }
+    const openModal = () => setIsOpenModal(true)
+    const closeModal = () => setIsOpenModal(false)
 
     return (
         <div className="addUserCard">

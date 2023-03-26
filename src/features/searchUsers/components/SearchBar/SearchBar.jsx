@@ -1,18 +1,13 @@
 import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import './searchBar.scss'
-import {changeSearchTerm, clearSearchTerm, toggleSort} from '../../../store'
+import {changeSearchTerm, clearSearchTerm, toggleSort} from '../../store'
 import {RiDeleteBack2Fill} from 'react-icons/ri'
 import {FaSortAlphaDown, FaSortAlphaUpAlt} from 'react-icons/fa'
 
 function SearchBar() {
   
-  const {searchTerm, sortOrder} = useSelector((state) => {
-    return {
-      searchTerm: state.users.searchTerm,
-      sortOrder: state.users.sortOrder,
-    }
-  })
+  const {searchTerm, sortOrder} = useSelector((state) => state.users)
   
   const dispatch = useDispatch()
   

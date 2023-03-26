@@ -1,6 +1,6 @@
 import React from 'react'
-import SearchBar from './searchBar/SearchBar'
-import UserList from './UserList/UserList'
+import SearchBar from './components/SearchBar/SearchBar'
+import UserList from './components/UserList/UserList'
 import './searchUsers.scss'
 
 function SearchUsers() {

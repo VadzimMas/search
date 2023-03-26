@@ -130,7 +130,7 @@ export const createUserInDB = async () => {
       await setDoc(userDocRef, {displayName, email, createdAt})
       console.log('3')
     } catch (error) {
-      console.log('error creating user', error)
+      console.log('error-page creating user', error)
     }
   } else {
     // else user exist in db return user data

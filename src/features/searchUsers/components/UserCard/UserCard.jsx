@@ -1,5 +1,5 @@
 import './userCard.scss'
-import {useAddDislikeMutation, useAddLikeMutation, useDeleteUserMutation} from '../../../store/api/userApi'
+import {useAddDislikeMutation, useAddLikeMutation, useDeleteUserMutation} from '../../store/api/userApi'
 import {GoThumbsup, GoThumbsdown, GoTrashcan} from 'react-icons/go'
 import {useSelector} from 'react-redux'
 import {BiUser} from 'react-icons/bi'
@@ -7,10 +7,10 @@ import {useState} from 'react'
 
 function UserCard({user}) {
   
-  const [deleteUser, deleteUserResult] = useDeleteUserMutation()
-  const [addLike, addLikeResult] = useAddLikeMutation()
-  const [addDislike, addDislikeResult] = useAddDislikeMutation()
-  const searchTerm = useSelector((state) => state.users.searchTerm)
+  const [deleteUser] = useDeleteUserMutation()
+  const [addLike] = useAddLikeMutation()
+  const [addDislike ] = useAddDislikeMutation()
+  const {searchTerm} = useSelector(state => state.users)
   const [avatarClassName, setAvatarClassName] = useState('avatar-invisible')
   const [biUserClassName, setBiUserClassName] = useState('avatar-visible')
   

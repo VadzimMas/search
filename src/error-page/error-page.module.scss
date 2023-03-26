@@ -1,4 +1,4 @@
-@import "src/styled/mixins";
+@import "../styled/mixins";
 
 .errorPage {
   width: 100vw;
@@ -40,7 +40,7 @@
       background-size: 100vw 100vh;
       background-position: center;
       background-repeat: no-repeat;
-      background-image: url('../../assets/nature.jpg');
+      background-image: url('../app/assets/nature.jpg');
     }
 
 

@@ -1,21 +1,16 @@
-import {useFetchUsersQuery} from '../../../store/api/userApi'
+import {useFetchUsersQuery} from '../../store/api/userApi'
 import UserCard from '../UserCard/UserCard'
 import './userList.scss'
 import {useSelector} from 'react-redux'
 import {GoSync} from 'react-icons/go'
 import AddUserCard from '../AddUser/AddUserCard'
-import useSortedData from './useSortedData'
+import useSortedData from '../../hooks/useSortedData'
 
 
 function UserList() {
   
   const {data: users = [], error, isLoading} = useFetchUsersQuery()
-  const {searchTerm, sortOrder} = useSelector((state) => {
-    return {
-      searchTerm: state.users.searchTerm,
-      sortOrder: state.users.sortOrder,
-    }
-  })
+  const {searchTerm, sortOrder} = useSelector(state => state.users)
   const sortedUsers = useSortedData(users, sortOrder)
   
   let userCards

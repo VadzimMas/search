@@ -1,7 +1,7 @@
 import {useNavigate, useRouteError} from 'react-router-dom'
-import {BackgroundImage} from '../../../features/crownClosing/components/background/Background.styled'
-import img from '../../assets/nature.jpg'
-import dude from '../../assets/dude.svg'
+import {BackgroundImage} from '../features/crownClosing/components/background/Background.styled'
+import img from '../app/assets/nature.jpg'
+import dude from '../app/assets/dude.svg'
 import {useEffect} from 'react'
 import s from './error-page.module.scss'
 
