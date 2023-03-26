@@ -4,12 +4,14 @@ import {auth, getCurrentUser} from '../utils/firebase/firebase'
 export const setCurrentUser = createAsyncThunk('user/set',
   async () => {
     console.log('setCurrentUser thunk')
-    await getCurrentUser()
-    const user = auth.currentUser
-    if (user) {
+    try {
+      await getCurrentUser()
+      const user = auth.currentUser
       const displayName = user.displayName
       const photoURL = user.photoURL
       return {displayName, photoURL}
+    } catch {
+      return null
     }
   })
 
