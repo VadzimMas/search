@@ -1,6 +1,6 @@
-import styled from 'styled-components'
 
-const AppStyled = styled.div`
+.app {
+
   display: grid;
 
   grid-template-columns:5% auto;
@@ -17,6 +17,4 @@ const AppStyled = styled.div`
       width: 100%;
     }
   }
-`
-
-export default AppStyled
+}
