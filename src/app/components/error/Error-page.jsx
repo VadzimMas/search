@@ -1,9 +1,9 @@
 import {useNavigate, useRouteError} from 'react-router-dom'
-import {Error, ErrorContainer, ErrorPageStyled, Image} from './Error-page.styled'
 import {BackgroundImage} from '../../../features/crownClosing/components/background/Background.styled'
 import img from '../../assets/nature.jpg'
 import dude from '../../assets/dude.svg'
 import {useEffect} from 'react'
+import s from './error-page.module.scss'
 
 function ErrorPage() {
   const error = useRouteError()
@@ -36,10 +36,10 @@ function ErrorPage() {
   
   
   return (
-    <ErrorPageStyled id="error-page">
+    <div className={s.errorPage} id="error-page">
       <BackgroundImage image={img}/>
-      <ErrorContainer>
-        <Error>
+      <div className={s.errorContainer}>
+        <div className={s.error}>
           <h1>Oops..!</h1>
           <h2>404</h2>
           <p>There’s Nothing here...</p>
@@ -47,12 +47,12 @@ function ErrorPage() {
             ...may be the page you’re looking for is not found or neverr existed.
           </p>
           <button onClick={() => goHome('/')}>Back to Home</button>
-        </Error>
-        <Image>
+        </div>
+        <div className={s.image}>
           <img src={dude} alt=""/>
-        </Image>
-      </ErrorContainer>
-    </ErrorPageStyled>
+        </div>
+      </div>
+    </div>
   )
 }
 

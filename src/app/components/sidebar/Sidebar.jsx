@@ -4,8 +4,8 @@ import {BsSearch} from 'react-icons/bs'
 import {TiThMenu} from 'react-icons/ti'
 import {FaCrown} from 'react-icons/fa'
 import useClickOutside from '../../../hooks/useClickOutside'
-import SidebarStyled from './Sidebar.styled'
 import useScroll from '../../../hooks/useScroll'
+import s from './sidebar.module.scss'
 
 function Sidebar() {
   const [ref, isMenuOpen, setIsMenuOpen] = useClickOutside('sidebar')
@@ -14,34 +14,33 @@ function Sidebar() {
       setIsMenuOpen(!isMenuOpen)
     }
   }
-  const isActive = ({isActive}) => isActive ? 'link active' : 'link'
-  const openMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+  const isActive = ({isActive}) => isActive ? `${s.link} ${s.active}` : s.link
+  const openMenu = () => setIsMenuOpen(!isMenuOpen)
   const [isScroll] = useScroll(1)
+  // isScroll={isScroll}
   return (
-    <SidebarStyled isScroll={isScroll}>
-      <div className="container" ref={ref}>
-        <TiThMenu className={isMenuOpen ? 'menu active' : 'menu'} onClick={openMenu}/>
-        <nav className={isMenuOpen ? 'nav active' : 'nav'}>
+    <div className={s.sidebar}>
+      <div className={s.container} ref={ref}>
+        <TiThMenu className={isMenuOpen ? `${s.menu} ${s.active}` : s.menu} onClick={openMenu} />
+        <nav className={isMenuOpen ? `${s.nav} ${s.active}` : s.nav}>
           <NavLink className={isActive} to={'/'} onClick={toggleClass}>
-            <span className="linkIcon"><IoLogoReact/></span>
-            <span className="linkTitle">Home</span>
+            <span className={s.linkIcon}><IoLogoReact /></span>
+            <span className={s.linkTitle}>Home</span>
           </NavLink>
           <NavLink className={isActive} to={'searchUsers'} onClick={toggleClass}>
-            <span className="linkIcon"><BsSearch/></span>
-            <span className="linkTitle">Search Users</span>
+            <span className={s.linkIcon}><BsSearch /></span>
+            <span className={s.linkTitle}>Search Users</span>
           </NavLink>
           <NavLink className={isActive} to={'crownClothing'} onClick={toggleClass}>
-            <span className="linkIcon"><FaCrown/></span>
-            <span className="linkTitle">Crown Clothing</span>
+            <span className={s.linkIcon}><FaCrown /></span>
+            <span className={s.linkTitle}>Crown Clothing</span>
           </NavLink>
           {/*<ImSun/>*/}
           {/*<BsMoonStars/>*/}
         </nav>
       </div>
     
-    </SidebarStyled>
+    </div>
   
   )
 }
