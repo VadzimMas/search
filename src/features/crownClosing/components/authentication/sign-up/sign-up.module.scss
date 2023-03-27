@@ -1,0 +1,16 @@
+
+@import "src/styled/mixins";
+.signUp{
+  width: 100%;
+  padding: adaptiveSize(50, 10);
+  color: var(--sidebar-text-color);
+
+  .title {
+    font-size: adaptiveSize(40, 25);
+
+  }
+
+  .subtitle {
+    font-size: adaptiveSize(30, 20);
+  }
+}

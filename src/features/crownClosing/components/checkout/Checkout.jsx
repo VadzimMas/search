@@ -7,12 +7,7 @@ import {setTotalOverAllPrice} from '../../redux/store'
 function Checkout() {
   
   const dispatch = useDispatch()
-  const {cartProducts, totalOverAllPrice} = useSelector(({cart}) => {
-    return {
-      cartProducts: cart.cartProducts,
-      totalOverAllPrice: cart.totalOverAllPrice
-    }
-  })
+  const {cartProducts, totalOverAllPrice} = useSelector(state => state.cart)
   
   useEffect(() => {
     dispatch(setTotalOverAllPrice())

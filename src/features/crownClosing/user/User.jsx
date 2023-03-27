@@ -6,14 +6,9 @@ import {setCurrentUser} from '../redux/user-slice'
 
 const User = () => {
   const dispatch = useDispatch()
-  const {userName, avatar} = useSelector((state) => {
-    return {
-      userName: state.user.name,
-      avatar: state.user.avatar
-    }
-  })
+  const {name, avatar} = useSelector(state =>state.user)
   
-  const userInitials = userName[0]
+  const userInitials = name[0]
   const userAvatar = avatar ? <img src={avatar} alt="user avatar"/> : <span>{userInitials}</span>
   
   const handleSignOut = async () => {

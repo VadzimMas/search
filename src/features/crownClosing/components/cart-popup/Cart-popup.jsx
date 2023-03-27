@@ -8,12 +8,7 @@ import {useEffect} from 'react'
 
 function CartPopup(props) {
   const dispatch = useDispatch()
-  const {cartProducts, totalOverAllPrice} = useSelector((state) => {
-    return {
-      cartProducts: state.cart.cartProducts,
-      totalOverAllPrice: state.cart.totalOverAllPrice
-    }
-  })
+  const {cartProducts, totalOverAllPrice} = useSelector(state => state.cart)
   
   useEffect(() => {
     dispatch(setTotalOverAllPrice())

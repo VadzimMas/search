@@ -1,6 +1,6 @@
 import SignIn from './sign-in/Sign-in'
 import SignUp from './sign-up/Sign-up'
-import AuthenticationStyled from './Authentication-styled'
+import s from'./authentication.module.scss'
 import {useSelector} from 'react-redux'
 import {Fragment, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
@@ -19,10 +19,10 @@ function Authentication() {
   const authForm = () => {
     if (!isUserExist) {
       return (
-        <AuthenticationStyled>
+        <div className={s.authentication}>
           <SignIn/>
           <SignUp/>
-        </AuthenticationStyled>
+        </div>
       )
     }
     

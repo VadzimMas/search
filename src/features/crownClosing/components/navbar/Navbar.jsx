@@ -10,7 +10,7 @@ import {useSelector} from 'react-redux'
 import User from '../../user/User'
 
 function Navbar() {
-  const cartProducts = useSelector(state => state.cart.cartProducts)
+  const {cartProducts} = useSelector(state => state.cart)
   const [ref, isMenuOpen, setIsMenuOpen] = useClickOutside('navbar')
   const isActive = ({isActive}) => isActive ? 'link active' : 'link'
   const showCart = () => setIsMenuOpen(!isMenuOpen)

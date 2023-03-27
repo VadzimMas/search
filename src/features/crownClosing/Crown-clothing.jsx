@@ -1,7 +1,7 @@
 import {Outlet} from 'react-router-dom'
 import {useEffect} from 'react'
 import Navbar from './components/navbar/Navbar'
-import CrownClothingStyled from './Crown-clothing.styled'
+import s from './crown-clothing.module.scss'
 import { useDispatch} from 'react-redux'
 import {getCategories} from './redux/categories-slice'
 import {getDirectories} from './redux/directories-slice'
@@ -17,10 +17,10 @@ function CrownClothing() {
   }, [dispatch])
   
   return (
-    <CrownClothingStyled>
+    <div className={s.crownClothing}>
       <Navbar/>
       <div id="detail"><Outlet/></div>
-    </CrownClothingStyled>
+    </div>
   
   )
 }

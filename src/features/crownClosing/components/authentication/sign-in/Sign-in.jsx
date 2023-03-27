@@ -2,7 +2,7 @@ import {signInUserEmailPassword, signInWithGooglePopup} from '../../../utils/fir
 import FormField from '../../formField/Form-field'
 import {useState} from 'react'
 import {BaseButton, GoogleButton} from '../../button/Button.styled'
-import SignInStyled from './Sign-in-styled'
+import s from './sign-in.module.scss'
 import {useDispatch} from 'react-redux'
 import {setCurrentUser} from '../../../redux/user-slice'
 
@@ -40,10 +40,10 @@ const SignIn = () => {
   }
   
   return (
-    <SignInStyled onSubmit={handleSubmit}>
-      <h2 className="title">I already have an account.</h2>
-      <h2 className="subtitle">Sign in with your credentials.</h2>
-      <div className="forms">
+    <form className={s.signIn} onSubmit={handleSubmit}>
+      <h2 className={s.title}>I already have an account.</h2>
+      <h2 className={s.subtitle}>Sign in with your credentials.</h2>
+      <div className={s.forms}>
         <FormField
           labelOptions={{
             options: {
@@ -77,11 +77,11 @@ const SignIn = () => {
           }}
         />
       </div>
-      <div className="buttons">
+      <div className={s.buttons}>
         <BaseButton type="submit">Sign in</BaseButton>
         <GoogleButton type="button" onClick={logGoogleUser}>Google Sign In</GoogleButton>
       </div>
-    </SignInStyled>
+    </form>
   )
 }
 
