@@ -47,6 +47,76 @@ const IndexStyled = createGlobalStyle`
     }
   }
 
+  button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 15px;
+    background-color: var(--body-background);
+    color: var(--sidebar-text-color);
+    border: 1px solid var(--sidebar-text-color);
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+    transition: .2s;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--sidebar-text-color);
+        color: var(--body-background);
+        border: 1px solid var(--body-background);
+      }
+    }
+
+    &:active {
+      background-color: deepskyblue;
+      color: black;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    &.google {
+      background-color: deepskyblue;
+      color: black;
+      @media (hover: hover) {
+        &:hover {
+          background-color: #0068fd;
+          color: white;
+        }
+      }
+
+      &:active {
+        background-color: red;
+        color: black;
+      }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    &.inverted {
+      background-color: var(--sidebar-text-color);
+      color: var(--body-background);
+      border: 1px solid var(--body-background);
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--body-background);
+          color: var(--sidebar-text-color);
+          border: 1px solid var(--sidebar-text-color);
+        }
+      }
+
+      &:active {
+        background-color: deepskyblue;
+        color: black;
+      }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+
+  }
+
 `
 
 export default IndexStyled

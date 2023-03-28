@@ -3,6 +3,7 @@ import CheckoutStyled from './Checkout-styled'
 import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
 import {setTotalOverAllPrice} from '../../redux/store'
+import Payment from './payment/Payment'
 
 function Checkout() {
   
@@ -14,7 +15,7 @@ function Checkout() {
   })
   
   const renderedProducts = cartProducts.map((product) => {
-    return <CheckoutItem product={product} key={product.id}/>
+    return <CheckoutItem product={product} key={product.id} />
   })
   
   return (
@@ -33,6 +34,8 @@ function Checkout() {
         <span>Total over all :</span>
         <span>{`$ ${totalOverAllPrice}`}</span>
       </div>
+      <Payment />
+    
     </CheckoutStyled>
   )
 }

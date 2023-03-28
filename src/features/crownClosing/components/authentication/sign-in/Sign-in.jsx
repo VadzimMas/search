@@ -1,7 +1,6 @@
 import {signInUserEmailPassword, signInWithGooglePopup} from '../../../utils/firebase/firebase'
 import FormField from '../../formField/Form-field'
 import {useState} from 'react'
-import {BaseButton, GoogleButton} from '../../button/Button.styled'
 import s from './sign-in.module.scss'
 import {useDispatch} from 'react-redux'
 import {setCurrentUser} from '../../../redux/user-slice'
@@ -9,7 +8,7 @@ import {setCurrentUser} from '../../../redux/user-slice'
 
 const SignIn = () => {
   const defaultFormFields = {
-    email: '',
+    email   : '',
     password: ''
   }
   
@@ -49,14 +48,14 @@ const SignIn = () => {
             options: {
               htmlFor: 'sign-in-email'
             },
-            label: 'Email'
+            label  : 'Email'
           }}
           inputOptions={{
-            id: 'sign-in-email',
-            type: 'email',
-            value: email,
+            id      : 'sign-in-email',
+            type    : 'email',
+            value   : email,
             onChange: handleChange,
-            name: 'email',
+            name    : 'email',
             required: true
           }}
         />
@@ -65,21 +64,21 @@ const SignIn = () => {
             options: {
               htmlFor: 'sign-in-password'
             },
-            label: 'Password'
+            label  : 'Password'
           }}
           inputOptions={{
-            type: 'password',
-            id: 'sign-in-password',
-            name: 'password',
-            value: password,
+            type    : 'password',
+            id      : 'sign-in-password',
+            name    : 'password',
+            value   : password,
             onChange: handleChange,
             required: true
           }}
         />
       </div>
       <div className={s.buttons}>
-        <BaseButton type="submit">Sign in</BaseButton>
-        <GoogleButton type="button" onClick={logGoogleUser}>Google Sign In</GoogleButton>
+        <button type="submit">Sign in</button>
+        <button className="google" type="button" onClick={logGoogleUser}>Google Sign In</button>
       </div>
     </form>
   )

@@ -1,6 +1,5 @@
 import CartItem from './cart-item/Cart-item'
 import {useNavigate} from 'react-router-dom'
-import {BaseButton} from '../button/Button.styled'
 import CartPopupStyled from './Cart-popup-styled'
 import {useDispatch, useSelector} from 'react-redux'
 import {setTotalOverAllPrice} from '../../redux/store'
@@ -17,7 +16,7 @@ function CartPopup(props) {
   const navigate = useNavigate()
   
   const renderedProducts = cartProducts.map((product) => {
-    return <CartItem product={product} key={product.id}/>
+    return <CartItem product={product} key={product.id} />
   })
   
   const goToCheckout = () => {
@@ -37,7 +36,7 @@ function CartPopup(props) {
           <span>Total overall :</span>
           <span>{`$ ${totalOverAllPrice}`}</span>
         </div>
-        <BaseButton onClick={goToCheckout}>Go to checkout</BaseButton>
+        <button onClick={goToCheckout}>Go to checkout</button>
       </div>
     </CartPopupStyled>
   )

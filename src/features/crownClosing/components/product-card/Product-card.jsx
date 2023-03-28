@@ -1,5 +1,4 @@
 import ProductCardStyled, {ButtonContainer, Footer, Img, Price, Title} from './Product-card-styled'
-import {BaseButton} from '../button/Button.styled'
 import {useDispatch} from 'react-redux'
 import {addProductToCart} from '../../redux/store'
 
@@ -10,13 +9,13 @@ function ProductCard({product}) {
   
   return (
     <ProductCardStyled>
-      <Img src={imageUrl} alt={name}/>
+      <Img src={imageUrl} alt={name} />
       <Footer>
         <Title>{name}</Title>
         <Price>{`$ ${price}`}</Price>
       </Footer>
       <ButtonContainer>
-        <BaseButton type="button" className="inverted" onClick={addToCart}>Add to cart</BaseButton>
+        <button className="inverted" type="button" onClick={addToCart}>Add to cart</button>
       </ButtonContainer>
     </ProductCardStyled>
   
