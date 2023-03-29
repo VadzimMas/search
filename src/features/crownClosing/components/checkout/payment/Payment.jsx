@@ -9,7 +9,6 @@ function Payment() {
   const amount = useSelector(state => state.cart.totalOverAllPrice)
   const currentUser = useSelector(state => state.user.user)
   const [isProcessingPayment, setIsProcessingPayment] = useState(false)
-  console.log(currentUser)
   
   const paymentHandler = async (e) => {
     e.preventDefault()
@@ -50,6 +49,10 @@ function Payment() {
     }
   }
   
+  
+  const root = document.querySelector(':root')
+  const rootVariable = getComputedStyle(root)
+  
   const cardStyle = {
     style: {
       base   : {
@@ -58,7 +61,7 @@ function Payment() {
         fontSmoothing  : 'antialiased',
         fontSize       : '30px',
         '::placeholder': {
-          color: '#32325d'
+          color: rootVariable.getPropertyValue('--sidebar-text-color')
         }
       },
       invalid: {
