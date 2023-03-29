@@ -4,6 +4,8 @@ import {Provider} from 'react-redux'
 import store from './features/searchUsers/store'
 import router from './router/router'
 import {RouterProvider} from 'react-router-dom'
+import './styled/index.scss'
+import './styled/reset.scss'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 

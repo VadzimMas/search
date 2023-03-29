@@ -18,9 +18,9 @@ function Navbar() {
   const [isScroll] = useScroll(1)
   const {isUserExist} = useSelector(state => state.user)
   
-  
+  // isScroll={isScroll}
   return (
-    <div className={s.navbar} isScroll={isScroll}>
+    <div className={s.navbar}>
       <NavLink className={s.logoContainer} to="/crownClothing">
         <FaCrown className={s.svg} />
       </NavLink>
