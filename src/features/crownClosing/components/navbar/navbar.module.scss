@@ -1,8 +1,6 @@
-import styled from 'styled-components'
-import {adaptiveSize} from '../../../../styled/mixins'
+@import "src/styled/mixins";
 
-
-export const NavbarStyled = styled.div`
+.navbar {
   position: sticky;
   top: 0;
   z-index: 1;
@@ -12,7 +10,7 @@ export const NavbarStyled = styled.div`
   backdrop-filter: blur(20px);
 
   @media (max-width: 768px) {
-    top: ${adaptiveSize(90, 35)};
+    top: adaptiveSize(90, 35);
     &:before {
       content: '';
       position: absolute;
@@ -23,17 +21,18 @@ export const NavbarStyled = styled.div`
       background-color: inherit;
     }
   }
+
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: ${adaptiveSize(20, 5)};
+  padding: adaptiveSize(20, 5);;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
 
-  .logo-container {
+  .logoContainer {
     color: inherit;
-    width: ${adaptiveSize(100, 40)};
-    height: ${adaptiveSize(100, 29)};
+    width: adaptiveSize(100, 40);
+    height: adaptiveSize(100, 29);
 
     .svg {
       width: 100%;
@@ -41,8 +40,8 @@ export const NavbarStyled = styled.div`
     }
   }
 
-  .links-container {
-    height: ${adaptiveSize(100, 50)};
+  .linksContainer {
+    height: adaptiveSize(100, 50);
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -50,7 +49,7 @@ export const NavbarStyled = styled.div`
 
     .link {
       color: inherit;
-      font-size: ${adaptiveSize(30, 15)};
+      font-size: adaptiveSize(30, 15);
       padding: 0.4rem 0.9rem;
       cursor: pointer;
       text-decoration: none;
@@ -71,14 +70,14 @@ export const NavbarStyled = styled.div`
       }
     }
 
-    .cart-container {
+    .cartContainer {
       position: relative;
-      width: ${adaptiveSize(60, 30)};
+      width: adaptiveSize(60, 30);
       aspect-ratio: 1/1;
       cursor: pointer;
       color: inherit;
 
-      .img-container {
+      .imgContainer {
         position: relative;
         z-index: 2;
         display: flex;
@@ -93,20 +92,21 @@ export const NavbarStyled = styled.div`
         .count {
           position: absolute;
           top: 25%;
-          font-size: ${adaptiveSize(30, 15)};
+          font-size: adaptiveSize(30, 15);
         }
       }
 
-      .cart-popup {
+      .cartPopup {
         position: absolute;
         z-index: 2;
         display: flex;
         flex-direction: column;
         top: 100%;
         right: 50%;
-        width: ${adaptiveSize(600, 300)};
+        width: adaptiveSize(600, 300);
       }
     }
   }
-`
+
+}
 

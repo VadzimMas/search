@@ -1,11 +1,10 @@
-import styled from 'styled-components'
-import {adaptiveSize} from '../../../../../styled/mixins'
+@import "src/styled/mixins";
 
-const CheckoutItemStyled = styled.div`
+.checkoutItem {
   color: var(--sidebar-text-color);
   border-top: 1px solid var(--sidebar-text-color);
   padding: 1% 0;
-  font-size: ${adaptiveSize(35, 15)};
+  font-size: adaptiveSize(35, 15);
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -30,7 +29,7 @@ const CheckoutItemStyled = styled.div`
   }
 
   .description {
-    font-size: ${adaptiveSize(50, 15)};
+    font-size: adaptiveSize(50, 15);
   }
 
   .quantity {
@@ -40,8 +39,8 @@ const CheckoutItemStyled = styled.div`
     align-items: center;
 
     .up {
-      width: ${adaptiveSize(60, 20)};
-      height: ${adaptiveSize(60, 20)};
+      width: adaptiveSize(60, 20);
+      height: adaptiveSize(60, 20);
 
       &:hover {
         color: red;
@@ -49,12 +48,12 @@ const CheckoutItemStyled = styled.div`
     }
 
     span {
-      font-size: ${adaptiveSize(50, 15)};
+      font-size: adaptiveSize(50, 15);
     }
 
     .down {
-      width: ${adaptiveSize(60, 20)};
-      height: ${adaptiveSize(60, 20)};
+      width: adaptiveSize(60, 20);
+      height: adaptiveSize(60, 20);
 
       &:hover {
         color: red;
@@ -67,14 +66,14 @@ const CheckoutItemStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    font-size: ${adaptiveSize(50, 15)};
+    font-size: adaptiveSize(50, 15);
 
   }
 
   .remove {
     svg {
-      width: ${adaptiveSize(100, 30)};
-      height: ${adaptiveSize(100, 30)};
+      width: adaptiveSize(100, 30);
+      height: adaptiveSize(100, 30);
 
       &:hover {
         color: red;
@@ -82,7 +81,4 @@ const CheckoutItemStyled = styled.div`
     }
 
   }
-
-`
-
-export default CheckoutItemStyled
+}

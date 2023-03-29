@@ -1,5 +1,4 @@
 import {useNavigate, useRouteError} from 'react-router-dom'
-import {BackgroundImage} from '../features/crownClosing/components/background/Background.styled'
 import img from '../app/assets/nature.jpg'
 import dude from '../app/assets/dude.svg'
 import {useEffect} from 'react'
@@ -37,7 +36,7 @@ function ErrorPage() {
   
   return (
     <div className={s.errorPage} id="error-page">
-      <BackgroundImage image={img}/>
+      <img src="../app/assets/nature.jpg" image={img} />
       <div className={s.errorContainer}>
         <div className={s.error}>
           <h1>Oops..!</h1>
@@ -49,7 +48,7 @@ function ErrorPage() {
           <button onClick={() => goHome('/')}>Back to Home</button>
         </div>
         <div className={s.image}>
-          <img src={dude} alt=""/>
+          <img src={dude} alt="" />
         </div>
       </div>
     </div>

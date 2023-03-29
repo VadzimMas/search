@@ -1,14 +1,12 @@
-import styled from 'styled-components'
-import {adaptiveSize} from '../../../../../styled/mixins'
+@import "src/styled/mixins";
 
-const CartItemStyled = styled.div`
-
+.cartItem {
   border: 1px solid var(--sidebar-text-color);
   background-color: var(--body-background);
   color: var(--sidebar-text-color);
   border-radius: 5px;
   margin: 0 0 1% 0;
-  font-size: ${adaptiveSize(35, 15)};
+  font-size: adaptiveSize(35, 15);
   padding: 1%;
   width: 100%;
 
@@ -75,7 +73,7 @@ const CartItemStyled = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: ${adaptiveSize(50, 15)};
+    font-size: adaptiveSize(50, 15);
 
     .delete {
       &:hover {
@@ -84,8 +82,6 @@ const CartItemStyled = styled.div`
     }
   }
 
+}
 
-`
-
-export default CartItemStyled
 

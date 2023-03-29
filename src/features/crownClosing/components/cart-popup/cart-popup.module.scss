@@ -1,8 +1,6 @@
-import styled from 'styled-components'
-import {adaptiveSize} from '../../../../styled/mixins'
+@import "src/styled/mixins";
 
-const CartPopupStyled = styled.div`
-
+.cartPopup {
   position: relative;
   z-index: 2;
   width: 100%;
@@ -26,7 +24,7 @@ const CartPopupStyled = styled.div`
     align-items: center;
 
     .empty {
-      font-size: ${adaptiveSize(40, 30)};
+      font-size: adaptiveSize(40, 30);
     }
   }
 
@@ -38,16 +36,13 @@ const CartPopupStyled = styled.div`
     .total {
       display: flex;
       justify-content: space-between;
-      font-size: ${adaptiveSize(50, 20)};
+      font-size: adaptiveSize(50, 20);
       font-weight: 900;
       padding: 1%;
     }
 
     button {
-      font-size: ${adaptiveSize(30, 15)};
+      font-size: adaptiveSize(30, 15);
     }
-
   }
-`
-
-export default CartPopupStyled
+}

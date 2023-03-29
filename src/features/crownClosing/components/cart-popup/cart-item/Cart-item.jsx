@@ -1,7 +1,7 @@
 import {RiArrowDownSLine, RiArrowUpSLine, RiDeleteBin5Line} from 'react-icons/ri'
-import CartItemStyled from './Cart-item-styled'
 import {useDispatch} from 'react-redux'
 import {deleteProductFromCart, downQuantity, upQuantity} from '../../../redux/store'
+import s from './cart-item.module.scss'
 
 
 function CartItem({product}) {
@@ -9,31 +9,31 @@ function CartItem({product}) {
   const {id, name, price, imageUrl, quantity} = product
   
   return (
-    <CartItemStyled key={id}>
-      <h2 className="name">{name}</h2>
-      <div className="info">
-        <img className="img" src={imageUrl} alt={name}/>
-        <div className="quantity">
-          <div className="price">
+    <div className={s.cartItem} key={id}>
+      <h2 className={s.name}>{name}</h2>
+      <div className={s.info}>
+        <img className={s.img} src={imageUrl} alt={name} />
+        <div className={s.quantity}>
+          <div className={s.price}>
             <span>Price : </span>
             <span>{`$ ${price}`}</span>
           </div>
-          <div className="count">
+          <div className={s.count}>
             <span>Pieces : </span>
-            <RiArrowUpSLine className="up" onClick={() => dispatch(upQuantity(id))}/>
+            <RiArrowUpSLine className={s.up} onClick={() => dispatch(upQuantity(id))} />
             <span>{quantity}</span>
-            <RiArrowDownSLine className="down" onClick={() => dispatch(downQuantity(id))}/>
+            <RiArrowDownSLine className={s.down} onClick={() => dispatch(downQuantity(id))} />
           </div>
         </div>
       </div>
-      <div className="total">
+      <div className={s.total}>
         <div>
           <span>Total : </span>
           <span>{`$ ${price * quantity}`}</span>
         </div>
-        <RiDeleteBin5Line className="delete" onClick={() => dispatch(deleteProductFromCart(id))}/>
+        <RiDeleteBin5Line className={s.delete} onClick={() => dispatch(deleteProductFromCart(id))} />
       </div>
-    </CartItemStyled>
+    </div>
   )
 }
 

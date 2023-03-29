@@ -1,0 +1,20 @@
+@import "src/styled/mixins";
+
+.paymentForm {
+  margin: 0 auto;
+  color: var(--sidebar-text-color);
+  width: adaptiveSize(1000, 300);
+
+  .title {
+    font-size: adaptiveSize(45, 20);
+    margin-bottom: 1vw;
+  }
+
+  .creditCard {
+    font-size: adaptiveSize(40, 20);
+    border: 1px solid var(--sidebar-text-color);
+    padding: 1vw;
+    border-radius: 5px;
+    margin-bottom: 1vw;
+  }
+}

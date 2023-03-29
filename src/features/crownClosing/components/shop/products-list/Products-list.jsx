@@ -1,7 +1,7 @@
 import ProductsItem from './products-item/Products-item'
-import ProductsListStyled from './Products-list-styled'
 import {useSelector} from 'react-redux'
 import LoadingSpinner from '../../loading-spiner/Loading-spinner'
+import s from './products-list.module.scss'
 
 
 function ProductsList() {
@@ -10,17 +10,17 @@ function ProductsList() {
   const renderedProducts = () => {
     if (categoriesData) {
       return categoriesData.map((category) => {
-        return <ProductsItem key={category.title} title={category.title} products={category}/>
+        return <ProductsItem key={category.title} title={category.title} products={category} />
       })
     } else {
-      return <LoadingSpinner/>
+      return <LoadingSpinner />
     }
   }
   
   return (
-    <ProductsListStyled>
+    <div className={s.productsList}>
       {renderedProducts()}
-    </ProductsListStyled>
+    </div>
   )
 }
 

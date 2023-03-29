@@ -1,11 +1,10 @@
-import styled from 'styled-components'
-import {adaptiveSize} from '../../../../styled/mixins'
+@import "src/styled/mixins";
 
-const CheckoutStyled = styled.div`
+.checkout {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-size: ${adaptiveSize(40, 15)};
+  font-size: adaptiveSize(40, 15);
   padding: 1%;
 
   .header {
@@ -32,16 +31,16 @@ const CheckoutStyled = styled.div`
     justify-content: flex-end;
     border-top: 1px solid var(--sidebar-text-color);
     padding: 1%;
-    font-size: ${adaptiveSize(50, 20)};
+    font-size: adaptiveSize(50, 20);
     color: var(--sidebar-text-color);
 
     span:nth-child(1) {
       margin-right: 1%;
     }
   }
-`
+}
 
-export default CheckoutStyled
+
 
 
 

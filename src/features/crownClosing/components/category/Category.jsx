@@ -1,14 +1,15 @@
 import {useParams} from 'react-router-dom'
 import ProductCard from '../product-card/Product-card'
-import CategoryStyled from './Category-styled'
 import {useSelector} from 'react-redux'
 import LoadingSpinner from '../loading-spiner/Loading-spinner'
+import s from './category.module.scss'
+
 
 function Category() {
   const {categoriesData} = useSelector(state => state.categories)
   const {id} = useParams()
   //future products but before fetching success show loading
-  let renderedProducts = <LoadingSpinner/>
+  let renderedProducts = <LoadingSpinner />
   //when categoriesData fetched successful start rendering
   if (categoriesData) {
     //getting current category of products
@@ -17,15 +18,15 @@ function Category() {
     })
     //rendering every product
     renderedProducts = getCurrentCategory[0].items.map((product) => {
-      return <ProductCard key={product.id} product={product}/>
+      return <ProductCard key={product.id} product={product} />
     })
   }
   
   return (
-    <CategoryStyled>
-      <h2 className="title">{id}</h2>
-      <div className="products">{renderedProducts}</div>
-    </CategoryStyled>
+    <div className={s.category}>
+      <h2 className={s.title}>{id}</h2>
+      <div className={s.products}>{renderedProducts}</div>
+    </div>
   )
 }
 

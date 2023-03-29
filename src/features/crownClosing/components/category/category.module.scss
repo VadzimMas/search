@@ -1,23 +1,13 @@
-import styled, {keyframes} from 'styled-components'
-import {adaptiveSize} from '../../../../styled/mixins'
+@import "src/styled/mixins";
 
 
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`
-
-const CategoryStyled = styled.div`
+.category {
   padding: 1%;
   display: flex;
   flex-direction: column;
 
   .title {
-    font-size: ${adaptiveSize(70, 30)};
+    font-size: adaptiveSize(70, 30);
     text-transform: capitalize;
     border-bottom: 1px solid var(--sidebar-text-color);
     border-top: 1px solid var(--sidebar-text-color);
@@ -28,7 +18,7 @@ const CategoryStyled = styled.div`
     justify-content: space-between;
 
     .loading {
-      animation: ${rotate} 1s linear infinite;
+      animation: rotate 1s linear infinite;
     }
   }
 
@@ -38,6 +28,12 @@ const CategoryStyled = styled.div`
     gap: 1vw;
   }
 }
-`
 
-export default CategoryStyled
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

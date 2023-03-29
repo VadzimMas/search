@@ -50,13 +50,33 @@ function Payment() {
     }
   }
   
+  const cardStyle = {
+    style: {
+      base   : {
+        color          : '#32325d',
+        fontFamily     : 'Arial, sans-serif',
+        fontSmoothing  : 'antialiased',
+        fontSize       : '30px',
+        '::placeholder': {
+          color: '#32325d'
+        }
+      },
+      invalid: {
+        fontFamily: 'Arial, sans-serif',
+        color     : '#fa755a',
+        iconColor : '#fa755a'
+      }
+    }
+  }
+  
   return (
     <form className={s.paymentForm} onSubmit={paymentHandler}>
-      <h2>Credit card payment: </h2>
-      <CardElement />
+      <h2 className={s.title}>Credit card payment: </h2>
+      <CardElement className={s.creditCard} options={cardStyle} />
       <button type="submit">Pay now</button>
     </form>
   )
 }
+
 
 export default Payment
