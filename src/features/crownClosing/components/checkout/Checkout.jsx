@@ -1,6 +1,6 @@
 import CheckoutItem from './checkout-item/Checkout-item'
 import {useDispatch, useSelector} from 'react-redux'
-import {useEffect} from 'react'
+import {Fragment, useEffect} from 'react'
 import {setTotalOverAllPrice} from '../../redux/store'
 import Payment from './payment/Payment'
 import s from './checkout.module.scss'
@@ -19,24 +19,25 @@ function Checkout() {
   })
   
   return (
-    <div className={s.checkout}>
-      <div className={s.header}>
-        <span>Product</span>
-        <span>Description</span>
-        <span>Quantity</span>
-        <span>Price</span>
-        <span>Remove</span>
-      </div>
-      <div className={s.renderedProducts}>
-        {renderedProducts}
-      </div>
-      <div className={s.total}>
-        <span>Total over all :</span>
-        <span>{`$ ${totalOverAllPrice}`}</span>
+    <Fragment>
+      <div className={s.checkout}>
+        <div className={s.header}>
+          <span>Product</span>
+          <span>Description</span>
+          <span>Quantity</span>
+          <span>Price</span>
+          <span>Remove</span>
+        </div>
+        <div className={s.renderedProducts}>
+          {renderedProducts}
+        </div>
+        <div className={s.total}>
+          <span>Total over all :</span>
+          <span>{`$ ${totalOverAllPrice}`}</span>
+        </div>
       </div>
       <Payment />
-    
-    </div>
+    </Fragment>
   )
 }
 

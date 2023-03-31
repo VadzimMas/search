@@ -1,27 +1,28 @@
 import SignIn from './sign-in/Sign-in'
 import SignUp from './sign-up/Sign-up'
-import s from'./authentication.module.scss'
-import {useSelector} from 'react-redux'
+import s from './authentication.module.scss'
 import {Fragment, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
+import {useFetchUserQuery} from '../../redux/api/user.api'
 
 function Authentication() {
-  const isUserExist = useSelector(state => state.user.isUserExist)
+  const {data} = useFetchUserQuery()
+  // const isUserExist = useSelector(state => state.user.isUserExist)
   const navigate = useNavigate()
   
   
   useEffect(() => {
-    if (isUserExist) {
+    if (data) {
       navigate('/crownClothing')
     }
-  }, [isUserExist, navigate])
+  }, [data, navigate])
   
   const authForm = () => {
-    if (!isUserExist) {
+    if (!data) {
       return (
         <div className={s.authentication}>
-          <SignIn/>
-          <SignUp/>
+          <SignIn />
+          <SignUp />
         </div>
       )
     }

@@ -1,29 +1,26 @@
 import {Outlet} from 'react-router-dom'
-import {useEffect} from 'react'
 import Navbar from '../navbar/Navbar'
 import s from './crown-clothing.module.scss'
-import {useDispatch} from 'react-redux'
-import {getCategories} from '../../redux/categories-slice'
-import {getDirectories} from '../../redux/directories-slice'
-import {setCurrentUser} from '../../redux/user-slice'
+import {useEffect} from 'react'
+import {onAuthStateChanged} from 'firebase/auth'
+import {auth} from '../../utils/firebase/firebase'
+import {useFetchUserQuery} from '../../redux/api/user.api'
 
 function CrownClothing() {
-  const dispatch = useDispatch()
+  
+  const {refetch} = useFetchUserQuery()
   
   useEffect(() => {
-    dispatch(setCurrentUser())
-    dispatch(getDirectories())
-    dispatch(getCategories())
-  }, [dispatch])
+    const unsubscribe = onAuthStateChanged(auth, (user) => refetch())
+    return () => unsubscribe()
+  }, [refetch])
   
   return (
     <div className={s.crownClothing}>
       <Navbar />
       <div id="detail"><Outlet /></div>
     </div>
-  
   )
 }
-
 
 export default CrownClothing

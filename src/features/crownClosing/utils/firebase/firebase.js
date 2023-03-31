@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import {initializeApp} from 'firebase/app'
 import {createUserWithEmailAndPassword, getAuth, getRedirectResult, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
-import {collection, doc, getDoc, getDocs, getFirestore, query, setDoc, writeBatch} from 'firebase/firestore'
+import {arrayUnion, collection, doc, getDoc, getDocs, getFirestore, query, setDoc, updateDoc, writeBatch} from 'firebase/firestore'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -29,7 +29,6 @@ export async function getCollection(collectionName) {
 export const createUser = async (email, password) => {
   try {
     await createUserWithEmailAndPassword(auth, email, password)
-    console.log('1')
   } catch (error) {
     console.log(error.code)
     console.log(error.message)
@@ -59,13 +58,56 @@ export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        resolve()
+        resolve(user)
       } else {
-        reject()
+        resolve(null)
       }
     })
   })
 }
+
+export const fetchCurrentUserDataFromDB = (user) => {
+  return new Promise(async (resolve, reject) => {
+    //getting user data from db
+    const userDocRef = doc(db, 'users', user.uid)
+    // look if user exists in db
+    const userSnapshot = await getDoc(userDocRef)
+    if (userSnapshot.exists()) {
+      resolve(userSnapshot.data())
+    } else {
+      console.log('No such document!')
+      resolve(null)
+    }
+  })
+}
+
+export const writeUserData = async (user, product) => {
+  
+  const docRef = doc(db, 'users', user.uid)
+  const docSnap = await getDoc(docRef)
+  
+  
+  await updateDoc(docRef, {products: arrayUnion(product)})
+  
+  
+  // if (docSnap.exists()) {
+  //   const userData = docSnap.data()
+  //   console.log(userData)
+  //   setDoc(docRef, {products: [product]}, {merge: true})
+  // }
+  
+  
+  // const userRef = doc(db, 'users', user.uid)
+  // const userDoc = await getDoc(userRef)
+  // console.log(userDoc)
+  // setDoc(userRef, product, {merge: true})
+  // await updateDoc(userRef, product)
+  
+  // const cityRef = doc(db, 'cities', 'BJ');
+  // setDoc(cityRef, { capital: true }, { merge: true });
+}
+
+
 //////////////////////////////////////////////////////////////////////////////
 
 
@@ -116,11 +158,9 @@ export const createUserInDB = async () => {
   const userDocRef = doc(db, 'users', user.uid)
   // look if user exists in db
   const userSnapshot = await getDoc(userDocRef)
-  
   //if user does not exist then create user
   if (!userSnapshot.exists()) {
-    
-    // destructure displayName and email from sign in google
+    // destructure displayName and email from google auth
     const {displayName, email} = user
     // getting date when user was created
     const createdAt = new Date()
@@ -128,7 +168,6 @@ export const createUserInDB = async () => {
     try {
       // write user data to db
       await setDoc(userDocRef, {displayName, email, createdAt})
-      console.log('3')
     } catch (error) {
       console.log('error-page creating user', error)
     }

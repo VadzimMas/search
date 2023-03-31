@@ -1,25 +1,27 @@
 import ProductsItem from './products-item/Products-item'
-import {useSelector} from 'react-redux'
 import LoadingSpinner from '../../loading-spiner/Loading-spinner'
 import s from './products-list.module.scss'
+import {useFetchCategoriesQuery} from '../../../redux/api/categories.api'
 
 
 function ProductsList() {
-  const {categoriesData} = useSelector(state => state.categories)
+  const {data, error, isLoading} = useFetchCategoriesQuery()
   
-  const renderedProducts = () => {
-    if (categoriesData) {
-      return categoriesData.map((category) => {
+  const renderedCategories = () => {
+    if (isLoading) {
+      return <LoadingSpinner />
+    } else if (error) {
+      return error
+    } else {
+      return data.map((category) => {
         return <ProductsItem key={category.title} title={category.title} products={category} />
       })
-    } else {
-      return <LoadingSpinner />
     }
   }
   
   return (
     <div className={s.productsList}>
-      {renderedProducts()}
+      {renderedCategories()}
     </div>
   )
 }

@@ -2,23 +2,20 @@ import {useState} from 'react'
 import FormField from '../../formField/Form-field'
 import {createUser, createUserInDB, updateUserProfile} from '../../../utils/firebase/firebase'
 import s from './sign-up.module.scss'
-import {useDispatch} from 'react-redux'
-import {setCurrentUser} from '../../../redux/user-slice'
 
 
 function SignUp() {
   
   
   const defaultFormFields = {
-    displayName    : '',
-    email          : '',
-    password       : '',
+    displayName: '',
+    email: '',
+    password: '',
     confirmPassword: ''
   }
   
   const [formFields, setFormFields] = useState(defaultFormFields)
   const {displayName, email, password, confirmPassword} = formFields
-  const dispatch = useDispatch()
   
   const handleChange = (event) => {
     const {name, value} = event.target
@@ -41,8 +38,6 @@ function SignUp() {
       await createUser(email, password)
       await updateUserProfile({displayName})
       await createUserInDB()
-      console.log('4')
-      dispatch(setCurrentUser())
       resetFormFields()
     } catch (error) {
       switch (error.code) {
@@ -68,14 +63,14 @@ function SignUp() {
           options: {
             htmlFor: 'sign-up-name'
           },
-          label  : 'Name'
+          label: 'Name'
         }}
         inputOptions={{
-          type    : 'text',
-          id      : 'sign-up-name',
+          type: 'text',
+          id: 'sign-up-name',
           onChange: handleChange,
-          name    : 'displayName',
-          value   : displayName,
+          name: 'displayName',
+          value: displayName,
           required: true
         }}
       />
@@ -84,14 +79,14 @@ function SignUp() {
           options: {
             htmlFor: 'sign-up-email'
           },
-          label  : 'Email'
+          label: 'Email'
         }}
         inputOptions={{
-          type    : 'email',
-          id      : 'sign-up-email',
+          type: 'email',
+          id: 'sign-up-email',
           onChange: handleChange,
-          name    : 'email',
-          value   : email,
+          name: 'email',
+          value: email,
           required: true
         }}
       />
@@ -100,14 +95,14 @@ function SignUp() {
           options: {
             htmlFor: 'sign-up-password'
           },
-          label  : 'Password'
+          label: 'Password'
         }}
         inputOptions={{
-          type    : 'password',
-          id      : 'sign-up-password',
+          type: 'password',
+          id: 'sign-up-password',
           onChange: handleChange,
-          name    : 'password',
-          value   : password,
+          name: 'password',
+          value: password,
           required: true
         }}
       />
@@ -116,14 +111,14 @@ function SignUp() {
           options: {
             htmlFor: 'sign-up-confirm-password'
           },
-          label  : 'Password'
+          label: 'Password'
         }}
         inputOptions={{
-          type    : 'password',
-          id      : 'sign-up-confirm-password',
+          type: 'password',
+          id: 'sign-up-confirm-password',
           onChange: handleChange,
-          name    : 'confirmPassword',
-          value   : confirmPassword,
+          name: 'confirmPassword',
+          value: confirmPassword,
           required: true
         }}
       />

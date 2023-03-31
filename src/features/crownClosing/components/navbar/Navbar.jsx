@@ -8,6 +8,7 @@ import {BsBag} from 'react-icons/bs'
 import {useSelector} from 'react-redux'
 import User from '../../user/User'
 import s from './navbar.module.scss'
+import {useFetchUserQuery} from '../../redux/api/user.api'
 
 
 function Navbar() {
@@ -16,7 +17,7 @@ function Navbar() {
   const isActive = ({isActive}) => isActive ? `${s.link} ${s.active}` : `${s.link}`
   const showCart = () => setIsMenuOpen(!isMenuOpen)
   const [isScroll] = useScroll(1)
-  const {isUserExist} = useSelector(state => state.user)
+  const {data} = useFetchUserQuery()
   
   // isScroll={isScroll}
   return (
@@ -27,7 +28,7 @@ function Navbar() {
       <div className={s.linksContainer}>
         <NavLink className={isActive} to="shop">Shop</NavLink>
         {
-          !isUserExist && <NavLink className={isActive} to="auth">Sign in</NavLink>
+          !data && <NavLink className={isActive} to="auth">Sign in</NavLink>
         }
         <div className={s.cartContainer} ref={ref}>
           <div className={s.imgContainer} onClick={showCart}>
@@ -42,7 +43,7 @@ function Navbar() {
             </div>
           }
         </div>
-        {isUserExist && <User />}
+        {data && <User />}
       </div>
     </div>
   )

@@ -2,23 +2,19 @@ import {signInUserEmailPassword, signInWithGooglePopup} from '../../../utils/fir
 import FormField from '../../formField/Form-field'
 import {useState} from 'react'
 import s from './sign-in.module.scss'
-import {useDispatch} from 'react-redux'
-import {setCurrentUser} from '../../../redux/user-slice'
 
 
 const SignIn = () => {
   const defaultFormFields = {
-    email   : '',
+    email: '',
     password: ''
   }
   
   const [formFields, setFormFields] = useState(defaultFormFields)
   const {email, password} = formFields
-  const dispatch = useDispatch()
   
-  const logGoogleUser = async () => {
+  const signInWithGoogle = async () => {
     await signInWithGooglePopup()
-    dispatch(setCurrentUser())
   }
   
   const handleChange = (event) => {
@@ -31,15 +27,14 @@ const SignIn = () => {
     setFormFields(defaultFormFields)
   }
   
-  const handleSubmit = async (event) => {
+  const signInWithEmailAndPassword = async (event) => {
     event.preventDefault()
     await signInUserEmailPassword(email, password)
     resetFormFields()
-    dispatch(setCurrentUser())
   }
   
   return (
-    <form className={s.signIn} onSubmit={handleSubmit}>
+    <form className={s.signIn} onSubmit={signInWithEmailAndPassword}>
       <h2 className={s.title}>I already have an account.</h2>
       <h2 className={s.subtitle}>Sign in with your credentials.</h2>
       <div className={s.forms}>
@@ -48,14 +43,14 @@ const SignIn = () => {
             options: {
               htmlFor: 'sign-in-email'
             },
-            label  : 'Email'
+            label: 'Email'
           }}
           inputOptions={{
-            id      : 'sign-in-email',
-            type    : 'email',
-            value   : email,
+            id: 'sign-in-email',
+            type: 'email',
+            value: email,
             onChange: handleChange,
-            name    : 'email',
+            name: 'email',
             required: true
           }}
         />
@@ -64,13 +59,13 @@ const SignIn = () => {
             options: {
               htmlFor: 'sign-in-password'
             },
-            label  : 'Password'
+            label: 'Password'
           }}
           inputOptions={{
-            type    : 'password',
-            id      : 'sign-in-password',
-            name    : 'password',
-            value   : password,
+            type: 'password',
+            id: 'sign-in-password',
+            name: 'password',
+            value: password,
             onChange: handleChange,
             required: true
           }}
@@ -78,7 +73,7 @@ const SignIn = () => {
       </div>
       <div className={s.buttons}>
         <button type="submit">Sign in</button>
-        <button className="google" type="button" onClick={logGoogleUser}>Google Sign In</button>
+        <button className="google" type="button" onClick={signInWithGoogle}>Google Sign In</button>
       </div>
     </form>
   )
