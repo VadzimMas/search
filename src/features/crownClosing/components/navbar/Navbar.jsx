@@ -5,7 +5,6 @@ import useClickOutside from '../../../../hooks/useClickOutside'
 import useScroll from '../../../../hooks/useScroll'
 import {FaCrown} from 'react-icons/fa'
 import {BsBag} from 'react-icons/bs'
-import {useSelector} from 'react-redux'
 import User from '../../user/User'
 import s from './navbar.module.scss'
 import {useFetchUserQuery} from '../../redux/api/user.api'
@@ -13,7 +12,6 @@ import {useFetchCartQuery} from '../../redux/api/cart.api'
 
 
 function Navbar() {
-  const {cartProducts} = useSelector(state => state.cart)
   const [ref, isMenuOpen, setIsMenuOpen] = useClickOutside('navbar')
   const isActive = ({isActive}) => isActive ? `${s.link} ${s.active}` : `${s.link}`
   const showCart = () => setIsMenuOpen(!isMenuOpen)
