@@ -8,7 +8,6 @@ import {stripePromise} from './utils/stripe/stripe'
 
 function Index() {
   
-  
   return (
     <Fragment>
       <Provider store={store}>

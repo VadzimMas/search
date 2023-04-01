@@ -1,6 +1,5 @@
 import {createApi, fakeBaseQuery} from '@reduxjs/toolkit/query/react'
-import {collection, getDocs} from 'firebase/firestore'
-import {db} from '../../utils/firebase/firebase'
+import {getCategories} from '../../utils/firebase/getCategories'
 
 const categoriesApi = createApi({
   reducerPath: 'categories',
@@ -8,15 +7,8 @@ const categoriesApi = createApi({
   endpoints: (builder) => ({
     fetchCategories: builder.query({
       async queryFn() {
-        try {
-          const collectionRef = collection(db, 'categories')
-          const collectionSnapshot = await getDocs(collectionRef)
-          const collectionData = collectionSnapshot.docs.map(doc => doc.data())
-          return {data: collectionData}
-        } catch (error) {
-          console.error(error.message)
-          return {error: error.message}
-        }
+        const categories = await getCategories()
+        return {data: categories}
       }
     })
   })

@@ -7,9 +7,7 @@ import {useFetchUserQuery} from '../../redux/api/user.api'
 
 function Authentication() {
   const {data} = useFetchUserQuery()
-  // const isUserExist = useSelector(state => state.user.isUserExist)
   const navigate = useNavigate()
-  
   
   useEffect(() => {
     if (data) {
@@ -26,7 +24,6 @@ function Authentication() {
         </div>
       )
     }
-    
   }
   
   return (

@@ -1,33 +1,35 @@
 import s from './category.module.scss'
+import {useFetchCategoriesQuery} from '../../redux/api/categories.api'
+import {useParams} from 'react-router-dom'
+import LoadingSpinner from '../loading-spiner/Loading-spinner'
+import ProductCard from '../product-card/Product-card'
 
 
 function Category() {
-  // const {data, error, isLoading} = useFetchCategoriesQuery()
-  // if (!isLoading) {
-  //   console.log(data)
-  // }
+  const {data, error, isLoading} = useFetchCategoriesQuery()
+  const {id} = useParams()
   
-  // const {categoriesData} = useSelector(state => state.categories)
-  // const {id} = useParams()
-  // //future products but before fetching success show loading
-  // let renderedProducts = <LoadingSpinner />
-  // //when categoriesData fetched successful start rendering
-  // if (categoriesData) {
-  //   //getting current category of products
-  //   const getCurrentCategory = categoriesData.filter((category) => {
-  //     return category.title.toLowerCase() === id.toLowerCase()
-  //   })
-  //   //rendering every product
-  //   renderedProducts = getCurrentCategory[0].items.map((product) => {
-  //     return <ProductCard key={product.id} product={product} />
-  //   })
-  // }
-  
+  const renderedProducts = () => {
+    if (isLoading) {
+      return <LoadingSpinner />
+    } else if (error) {
+      return error
+    } else {
+      //getting current category of products
+      const getCurrentCategory = data.filter((category) => {
+        return category.title.toLowerCase() === id.toLowerCase()
+      })
+      //rendering every product
+      return getCurrentCategory[0].items.map((product) => {
+        return <ProductCard key={product.id} product={product} />
+      })
+    }
+  }
   
   return (
     <div className={s.category}>
-      {/*<h2 className={s.title}>{id}</h2>*/}
-      {/*<div className={s.products}>{renderedProducts}</div>*/}
+      <h2 className={s.title}>{id}</h2>
+      <div className={s.products}>{renderedProducts()}</div>
     </div>
   )
 }

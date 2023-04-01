@@ -1,5 +1,7 @@
 import {createApi, fakeBaseQuery} from '@reduxjs/toolkit/query/react'
-import {auth, getCurrentUser, writeUserData} from '../../utils/firebase/firebase'
+import {auth} from '../../utils/firebase/firebase'
+import {writeUserProductInDB} from '../../utils/firebase/writeUserProductInDB'
+import {fetchCurrentUserDataFromDB} from '../../utils/firebase/fetchCurrentUserDataFromDB'
 
 const userApi = createApi({
   reducerPath: 'users',
@@ -8,26 +10,26 @@ const userApi = createApi({
     fetchUser: builder.query({
       async queryFn() {
         const user = auth.currentUser
-        if (user) {
-          // console.log('User exist')
-          const displayName = user.displayName
-          const photoURL = user.photoURL
+        const userData = await fetchCurrentUserDataFromDB(user)
+        if (userData) {
+          console.log('User exist')
+          const displayName = userData.displayName
+          const photoURL = userData.photoURL
           return {data: {displayName, photoURL}}
         } else {
-          // console.log('User does not exist')
+          console.log('User does not exist')
           return {data: null}
         }
       }
     }),
     addProductToUser: builder.mutation({
       async queryFn(product) {
-        const user = await getCurrentUser()
+        const user = auth.currentUser
         if (user) {
-          // console.log(product)
-          writeUserData(user, product)
+          await writeUserProductInDB(user, product)
         } else {
-        
         }
+        return {}
       }
     })
   })

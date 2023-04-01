@@ -5,8 +5,16 @@ import {useFetchUserQuery} from '../redux/api/user.api'
 
 const User = () => {
   const {data} = useFetchUserQuery()
-  const userInitials = data.displayName[0]
-  const userAvatar = data.photoURL ? <img src={data.photoURL} alt="user avatar" /> : <span>{userInitials}</span>
+  
+  const userAvatar = () => {
+    if (data) {
+      const userInitials = data.displayName && data.displayName[0]
+      return data.photoURL ? <img src={data.photoURL} alt="user avatar" /> : <span>{userInitials}</span>
+    } else {
+      return null
+    }
+  }
+  
   
   const handleSignOut = async () => {
     await signOutUser()
@@ -14,7 +22,7 @@ const User = () => {
   
   return (
     <div className={s.user} onClick={handleSignOut}>
-      {userAvatar}
+      {userAvatar()}
     </div>
   )
   

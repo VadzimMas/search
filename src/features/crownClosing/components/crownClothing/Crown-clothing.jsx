@@ -1,20 +1,11 @@
 import {Outlet} from 'react-router-dom'
 import Navbar from '../navbar/Navbar'
 import s from './crown-clothing.module.scss'
-import {useEffect} from 'react'
-import {onAuthStateChanged} from 'firebase/auth'
-import {auth} from '../../utils/firebase/firebase'
-import {useFetchUserQuery} from '../../redux/api/user.api'
+import useUserProvider from '../hooks/useUserProvider'
+
 
 function CrownClothing() {
-  
-  const {refetch} = useFetchUserQuery()
-  
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => refetch())
-    return () => unsubscribe()
-  }, [refetch])
-  
+  useUserProvider()
   return (
     <div className={s.crownClothing}>
       <Navbar />

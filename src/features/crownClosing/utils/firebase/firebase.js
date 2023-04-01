@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import {initializeApp} from 'firebase/app'
-import {createUserWithEmailAndPassword, getAuth, getRedirectResult, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
-import {arrayUnion, collection, doc, getDoc, getDocs, getFirestore, query, setDoc, updateDoc, writeBatch} from 'firebase/firestore'
+import {createUserWithEmailAndPassword, getAuth, getRedirectResult, GoogleAuthProvider, signInWithEmailAndPassword, signOut, updateProfile} from 'firebase/auth'
+import {collection, doc, getDoc, getDocs, getFirestore, query, setDoc, writeBatch} from 'firebase/firestore'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,6 +16,12 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig)
 export const db = getFirestore(firebaseApp)
 export const auth = getAuth(firebaseApp)
+export const googleProvider = new GoogleAuthProvider()
+
+googleProvider.setCustomParameters({
+  prompt: 'select_account'
+})
+
 
 //getting collections
 export async function getCollection(collectionName) {
@@ -25,15 +31,15 @@ export async function getCollection(collectionName) {
   return collectionData
 }
 
-// creating user with email and password
-export const createUser = async (email, password) => {
-  try {
-    await createUserWithEmailAndPassword(auth, email, password)
-  } catch (error) {
-    console.log(error.code)
-    console.log(error.message)
-  }
-}
+// // creating user with email and password
+// export const createUser = async (email, password) => {
+//   try {
+//     await createUserWithEmailAndPassword(auth, email, password)
+//   } catch (error) {
+//     console.log(error.code)
+//     console.log(error.message)
+//   }
+// }
 
 export const updateUserProfile = async (rest) => {
   try {
@@ -54,71 +60,10 @@ export const signInUserEmailPassword = async (email, password) => {
   }
 }
 
-export const getCurrentUser = () => {
-  return new Promise((resolve, reject) => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        resolve(user)
-      } else {
-        resolve(null)
-      }
-    })
-  })
-}
-
-export const fetchCurrentUserDataFromDB = (user) => {
-  return new Promise(async (resolve, reject) => {
-    //getting user data from db
-    const userDocRef = doc(db, 'users', user.uid)
-    // look if user exists in db
-    const userSnapshot = await getDoc(userDocRef)
-    if (userSnapshot.exists()) {
-      resolve(userSnapshot.data())
-    } else {
-      console.log('No such document!')
-      resolve(null)
-    }
-  })
-}
-
-export const writeUserData = async (user, product) => {
-  
-  const docRef = doc(db, 'users', user.uid)
-  const docSnap = await getDoc(docRef)
-  
-  
-  await updateDoc(docRef, {products: arrayUnion(product)})
-  
-  
-  // if (docSnap.exists()) {
-  //   const userData = docSnap.data()
-  //   console.log(userData)
-  //   setDoc(docRef, {products: [product]}, {merge: true})
-  // }
-  
-  
-  // const userRef = doc(db, 'users', user.uid)
-  // const userDoc = await getDoc(userRef)
-  // console.log(userDoc)
-  // setDoc(userRef, product, {merge: true})
-  // await updateDoc(userRef, product)
-  
-  // const cityRef = doc(db, 'cities', 'BJ');
-  // setDoc(cityRef, { capital: true }, { merge: true });
-}
-
 
 //////////////////////////////////////////////////////////////////////////////
 
 
-const googleProvider = new GoogleAuthProvider()
-
-googleProvider.setCustomParameters({
-  prompt: 'select_account'
-})
-
-
-export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider)
 // export const signInWithGooglePopup = () => createUserWithEmailAndPassword(auth, googleProvider)
 
 

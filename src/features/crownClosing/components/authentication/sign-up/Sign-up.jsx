@@ -1,21 +1,22 @@
 import {useState} from 'react'
 import FormField from '../../formField/Form-field'
-import {createUser, createUserInDB, updateUserProfile} from '../../../utils/firebase/firebase'
+import {updateUserProfile} from '../../../utils/firebase/firebase'
 import s from './sign-up.module.scss'
+import {writeUserDataInDB} from '../../../utils/firebase/writeUserInDB'
+import {createUserEmailAndPassword} from '../../../utils/firebase/createUserEmailAndPassword'
+import {useFetchUserQuery} from '../../../redux/api/user.api'
 
 
 function SignUp() {
-  
-  
   const defaultFormFields = {
     displayName: '',
     email: '',
     password: '',
     confirmPassword: ''
   }
-  
   const [formFields, setFormFields] = useState(defaultFormFields)
   const {displayName, email, password, confirmPassword} = formFields
+  const {refetch} = useFetchUserQuery()
   
   const handleChange = (event) => {
     const {name, value} = event.target
@@ -26,36 +27,22 @@ function SignUp() {
     setFormFields(defaultFormFields)
   }
   
-  
-  const handleSubmit = async (event) => {
+  const createUser = async (event) => {
     event.preventDefault()
     if (password !== confirmPassword) {
       alert('password incorrect')
       return
     }
-    
-    try {
-      await createUser(email, password)
-      await updateUserProfile({displayName})
-      await createUserInDB()
-      resetFormFields()
-    } catch (error) {
-      switch (error.code) {
-        case ('auth/email-already-in-use'): {
-          alert(`you already have an account, sign in instead...`)
-          resetFormFields()
-          break
-        }
-        default: {
-          alert(`creating user failed... ${error}`)
-        }
-      }
-    }
+    await createUserEmailAndPassword(email, password)
+    await updateUserProfile({displayName})
+    await writeUserDataInDB()
+    resetFormFields()
+    refetch()
   }
   
   
   return (
-    <form className={s.signUp} onSubmit={handleSubmit}>
+    <form className={s.signUp} onSubmit={createUser}>
       <h2 className={s.title}>Don't have an account?</h2>
       <h2 className={s.subtitle}>Sign up with your credentials.</h2>
       <FormField

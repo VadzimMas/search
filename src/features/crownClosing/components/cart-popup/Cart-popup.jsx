@@ -1,18 +1,23 @@
 import CartItem from './cart-item/Cart-item'
 import {useNavigate} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
-import {setTotalOverAllPrice} from '../../redux/store'
+import {setCartProducts, setTotalOverAllPrice} from '../../redux/store'
 import {useEffect} from 'react'
 import s from './cart-popup.module.scss'
+import {useFetchCartQuery} from '../../redux/api/cart.api'
 
 
 function CartPopup(props) {
   const dispatch = useDispatch()
   const {cartProducts, totalOverAllPrice} = useSelector(state => state.cart)
+  const {data} = useFetchCartQuery()
   
   useEffect(() => {
-    dispatch(setTotalOverAllPrice())
-  })
+    if (data) {
+      dispatch(setCartProducts(data))
+      dispatch(setTotalOverAllPrice())
+    }
+  }, [data])
   
   const navigate = useNavigate()
   

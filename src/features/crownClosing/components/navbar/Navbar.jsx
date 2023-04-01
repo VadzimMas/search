@@ -9,6 +9,7 @@ import {useSelector} from 'react-redux'
 import User from '../../user/User'
 import s from './navbar.module.scss'
 import {useFetchUserQuery} from '../../redux/api/user.api'
+import {useFetchCartQuery} from '../../redux/api/cart.api'
 
 
 function Navbar() {
@@ -17,9 +18,9 @@ function Navbar() {
   const isActive = ({isActive}) => isActive ? `${s.link} ${s.active}` : `${s.link}`
   const showCart = () => setIsMenuOpen(!isMenuOpen)
   const [isScroll] = useScroll(1)
-  const {data} = useFetchUserQuery()
+  const {data: userData} = useFetchUserQuery()
+  const {data: cartData} = useFetchCartQuery()
   
-  // isScroll={isScroll}
   return (
     <div className={s.navbar}>
       <NavLink className={s.logoContainer} to="/crownClothing">
@@ -28,12 +29,12 @@ function Navbar() {
       <div className={s.linksContainer}>
         <NavLink className={isActive} to="shop">Shop</NavLink>
         {
-          !data && <NavLink className={isActive} to="auth">Sign in</NavLink>
+          !userData && <NavLink className={isActive} to="auth">Sign in</NavLink>
         }
         <div className={s.cartContainer} ref={ref}>
           <div className={s.imgContainer} onClick={showCart}>
             <BsBag />
-            <span className={s.count}>{cartProducts.length}</span>
+            <span className={s.count}>{cartData ? cartData.length : 0}</span>
           </div>
           {
             isMenuOpen
@@ -43,7 +44,7 @@ function Navbar() {
             </div>
           }
         </div>
-        {data && <User />}
+        {userData && <User />}
       </div>
     </div>
   )

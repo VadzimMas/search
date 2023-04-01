@@ -54,16 +54,21 @@ const cartSlice = createSlice({
       }
       
       state.totalOverAllPrice = temp
+    },
+    setCartProducts: (state, action) => {
+      console.log(action.payload)
+      state.cartProducts = [...action.payload]
     }
   }
 })
 
 
 export const {
-  addProductToCart,
-  upQuantity,
-  downQuantity,
-  deleteProductFromCart,
-  setTotalOverAllPrice
-} = cartSlice.actions
+               addProductToCart,
+               upQuantity,
+               downQuantity,
+               deleteProductFromCart,
+               setTotalOverAllPrice,
+               setCartProducts
+             } = cartSlice.actions
 export default cartSlice.reducer
