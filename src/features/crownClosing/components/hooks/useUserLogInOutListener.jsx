@@ -30,7 +30,6 @@ const useUserLogInOutListener = () => {
     return () => {
       unsubscribeLogInOutListener()
       unsubscribeUserDataChangeListener && unsubscribeUserDataChangeListener()
-      refetchCart()
     }
   }, [refetchUser, refetchCart])
 }

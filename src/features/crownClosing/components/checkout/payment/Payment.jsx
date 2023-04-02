@@ -2,13 +2,31 @@ import {CardElement, useElements, useStripe} from '@stripe/react-stripe-js'
 import s from './payment.module.scss'
 import {useState} from 'react'
 import {useSelector} from 'react-redux'
+import {useFetchCartQuery} from '../../../store/api/cart.api'
+import CheckoutItem from '../checkout-item/Checkout-item'
+import {auth} from '../../../utils/firebase'
 
 function Payment() {
   const stripe = useStripe()
   const elements = useElements()
-  const amount = useSelector(state => state.cart.totalOverAllPrice)
-  const currentUser = useSelector(state => state.user.user)
+  const currentUser = auth.currentUser
   const [isProcessingPayment, setIsProcessingPayment] = useState(false)
+  
+  const {data: cartData} = useFetchCartQuery()
+  
+  const totalOverAllPrice = () => {
+    if (cartData) {
+      let temp = 0
+      for (const product of cartData) {
+        temp += product.price * product.quantity
+      }
+      return temp
+    } else {
+      return 0
+    }
+  }
+  
+  
   
   const paymentHandler = async (e) => {
     e.preventDefault()
@@ -21,7 +39,7 @@ function Payment() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body   : JSON.stringify({amount: amount * 100})
+      body   : JSON.stringify({amount: totalOverAllPrice() * 100})
     })
       .then((res) => {
         return res.json()

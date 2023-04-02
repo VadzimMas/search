@@ -6,7 +6,7 @@ import {useFetchCartQuery} from '../../store/api/cart.api'
 
 function Checkout() {
   const {data: cartData} = useFetchCartQuery()
-  
+
   const renderedProducts = () => {
     if (cartData && cartData.length > 0) {
       return cartData.map((product) => {
@@ -16,8 +16,9 @@ function Checkout() {
       return <h2 className={s.empty}>No products yet</h2>
     }
   }
+  
   const totalOverAllPrice = () => {
-    if (cartData && cartData.length > 0) {
+    if (cartData) {
       let temp = 0
       for (const product of cartData) {
         temp += product.price * product.quantity
@@ -27,6 +28,7 @@ function Checkout() {
       return 0
     }
   }
+ 
   
   return (
     <Fragment>
