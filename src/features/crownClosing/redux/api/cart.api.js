@@ -1,6 +1,7 @@
 import {createApi, fakeBaseQuery} from '@reduxjs/toolkit/query/react'
-import {fetchCurrentUserDataFromDB} from '../../utils/firebase/fetchCurrentUserDataFromDB'
-import removeUserProductFromDB from '../../utils/firebase/removeUserProductFromDB'
+import removeProductFromUserCartDB from '../../utils/firebase/userCart/removeProductFromUserCartDB'
+import fetchCurrentUserDataFromDB from '../../utils/firebase/user/fetchCurrentUserDataFromDB'
+import {auth} from '../../utils/firebase'
 
 const cartApi = createApi({
   reducerPath: 'cartApi',
@@ -9,11 +10,17 @@ const cartApi = createApi({
     ///////////////////////////////////////////////////////////////
     fetchCart: builder.query({
       async queryFn() {
-        const {products} = await fetchCurrentUserDataFromDB()
-        if (products) {
-          return {data: products}
+        const user = auth.currentUser
+        if (user) {
+          const data = await fetchCurrentUserDataFromDB()
+          if (data) {
+            return {data: data.products}
+          } else {
+            console.log('cartApi : user does not have any products')
+            return {data: null}
+          }
         } else {
-          console.log('cartApi : user does not have any products')
+          console.log('User does not exist')
           return {data: null}
         }
       }
@@ -21,7 +28,7 @@ const cartApi = createApi({
     ///////////////////////////////////////////////////////////////
     removeCartItem: builder.mutation({
       async queryFn(product) {
-        await removeUserProductFromDB(product)
+        await removeProductFromUserCartDB(product)
         return {data: null}
       }
     })

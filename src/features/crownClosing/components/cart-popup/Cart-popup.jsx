@@ -3,13 +3,11 @@ import {useNavigate} from 'react-router-dom'
 import s from './cart-popup.module.scss'
 import {useFetchCartQuery} from '../../redux/api/cart.api'
 
-
 function CartPopup(props) {
   const {data: cartData} = useFetchCartQuery()
   const navigate = useNavigate()
   const renderedProducts = () => {
     if (cartData && cartData.length > 0) {
-      console.log(cartData)
       return cartData.map((product) => {
         return <CartItem product={product} key={product.id} />
       })

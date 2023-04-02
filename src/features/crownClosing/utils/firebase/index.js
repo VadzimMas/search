@@ -23,14 +23,6 @@ googleProvider.setCustomParameters({
 })
 
 
-//getting collections
-export async function getCollection(collectionName) {
-  const collectionRef = collection(db, collectionName)
-  const collectionSnapshot = await getDocs(collectionRef)
-  const collectionData = collectionSnapshot.docs.map(doc => doc.data())
-  return collectionData
-}
-
 // // creating user with email and password
 // export const createUser = async (email, password) => {
 //   try {
@@ -42,12 +34,15 @@ export async function getCollection(collectionName) {
 // }
 
 export const updateUserProfile = async (rest) => {
-  try {
-    await updateProfile(auth.currentUser, {...rest})
-    console.log('2')
-  } catch (error) {
-    console.log('updateProfile', error)
-  }
+  new Promise(async (resolve, reject) => {
+    try {
+      console.log('trying update user profile')
+      await updateProfile(auth.currentUser, {...rest})
+      resolve(true)
+    } catch (error) {
+      console.log('updateProfile', error)
+    }
+  })
 }
 // sign in user with email and password
 export const signInUserEmailPassword = async (email, password) => {

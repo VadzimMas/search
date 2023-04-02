@@ -1,7 +1,7 @@
 import {doc, getDoc, setDoc} from 'firebase/firestore'
-import {auth, db} from './firebase'
+import {auth, db} from '../index'
 
-const removeUserProductFromDB = async (product) => {
+const removeProductFromUserCartDB = async (product) => {
   const docRef = doc(db, 'users', auth.currentUser.uid)
   const docSnap = await getDoc(docRef)
   
@@ -21,4 +21,4 @@ const removeUserProductFromDB = async (product) => {
   }
 }
 
-export default removeUserProductFromDB
+export default removeProductFromUserCartDB

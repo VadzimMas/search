@@ -1,7 +1,7 @@
 import {doc, getDoc, setDoc} from 'firebase/firestore'
-import {db} from './firebase'
+import {db} from '../index'
 
-export const writeUserProductInDB = async (user, product) => {
+const increaseQuantityOfProductInUserCartDB = async (user, product) => {
   const docRef = doc(db, 'users', user.uid)
   const docSnap = await getDoc(docRef)
   
@@ -24,23 +24,26 @@ export const writeUserProductInDB = async (user, product) => {
     
     // if product not exist in db and no db.products array empty => create array and first product
     if (!isProduct && !docData.products) {
-      console.log('no product and no  db.products array ')
+      console.log('no product and no  db.products array => adding...')
       docData.products = [{...product, quantity: 1}]
       await setDoc(docRef, {...docData, products: docData.products})
     }
     // if product not exist in db and db.products array already exist => add new product
     else if (!isProduct && docData.products) {
-      console.log('product does not exist')
+      console.log('product does not exist => adding...')
       docData.products = [...docData.products, {...product, quantity: 1}]
       await setDoc(docRef, {...docData, products: docData.products})
     }
     // if exist product in db and db.products array already exist => add new product
     else if (isProduct && docData.products) {
-      console.log('product exist')
+      console.log('product exist => increase quantity')
       docData.products = [...docData.products]
       await setDoc(docRef, {...docData, products: docData.products})
     }
   } else {
-    console.log('user not exists in db')
+    console.log('user not exists in db => breaking...')
   }
 }
+
+
+export default increaseQuantityOfProductInUserCartDB

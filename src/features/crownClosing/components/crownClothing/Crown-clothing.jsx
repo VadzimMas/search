@@ -1,16 +1,12 @@
 import {Outlet} from 'react-router-dom'
 import Navbar from '../navbar/Navbar'
 import s from './crown-clothing.module.scss'
-import useUserProvider from '../hooks/useUserProvider'
-import useUserCartProvider from '../hooks/useUserCartProvider'
-
+import useUserLogInOutListener from '../hooks/useUserLogInOutListener'
 
 function CrownClothing() {
   
-  // listen to change cartData on server
-  useUserCartProvider()
   // listen to user login logout
-  useUserProvider()
+  useUserLogInOutListener()
   
   return (
     <div className={s.crownClothing}>

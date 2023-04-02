@@ -8,7 +8,6 @@ import {useFetchUserQuery} from '../../redux/api/user.api'
 function Authentication() {
   const {data} = useFetchUserQuery()
   const navigate = useNavigate()
-  
   useEffect(() => {
     if (data) {
       navigate('/crownClothing')

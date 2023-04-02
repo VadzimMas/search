@@ -1,12 +1,13 @@
 import {useState} from 'react'
 import FormField from '../../formField/Form-field'
-import {updateUserProfile} from '../../../utils/firebase/firebase'
 import s from './sign-up.module.scss'
-import {writeUserDataInDB} from '../../../utils/firebase/writeUserInDB'
-import {createUserEmailAndPassword} from '../../../utils/firebase/createUserEmailAndPassword'
-
+import createUserDataInDB from '../../../utils/firebase/authentication/createUserInDB'
+import createUserEmailAndPassword from '../../../utils/firebase/authentication/createUserEmailAndPassword'
+import {useFetchUserQuery} from '../../../redux/api/user.api'
 
 function SignUp() {
+  const {refetch: refetchUser} = useFetchUserQuery()
+  
   const defaultFormFields = {
     displayName: '',
     email: '',
@@ -32,8 +33,8 @@ function SignUp() {
       return
     }
     await createUserEmailAndPassword(email, password)
-    await updateUserProfile({displayName})
-    await writeUserDataInDB()
+    await createUserDataInDB({displayName})
+    refetchUser()
     resetFormFields()
   }
   

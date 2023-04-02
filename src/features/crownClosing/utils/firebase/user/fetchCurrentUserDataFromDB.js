@@ -1,7 +1,7 @@
 import {doc, getDoc} from 'firebase/firestore'
-import {auth, db} from './firebase'
+import {auth, db} from '../index'
 
-export const fetchCurrentUserDataFromDB = () => {
+const fetchCurrentUserDataFromDB = () => {
   if (auth.currentUser) {
     return new Promise(async (resolve, reject) => {
       //getting user data from db
@@ -12,8 +12,13 @@ export const fetchCurrentUserDataFromDB = () => {
         resolve(userSnapshot.data())
       } else {
         console.log('No such document!')
-        resolve(null)
+        resolve()
       }
     })
+  } else {
+    return {data: null}
   }
 }
+
+
+export default fetchCurrentUserDataFromDB

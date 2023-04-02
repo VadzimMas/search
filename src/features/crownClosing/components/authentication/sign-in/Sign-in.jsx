@@ -1,12 +1,15 @@
-import {signInUserEmailPassword} from '../../../utils/firebase/firebase'
+import {signInUserEmailPassword} from '../../../utils/firebase'
 import FormField from '../../formField/Form-field'
 import {useState} from 'react'
 import s from './sign-in.module.scss'
-import {writeUserDataInDB} from '../../../utils/firebase/writeUserInDB'
-import {signInWithGooglePopup} from '../../../utils/firebase/signInWithGooglePopup'
+import createUserDataInDB from '../../../utils/firebase/authentication/createUserInDB'
+import signInWithGooglePopup from '../../../utils/firebase/authentication/signInWithGooglePopup'
+import {useFetchUserQuery} from '../../../redux/api/user.api'
 
 
 const SignIn = () => {
+  const {refetch: userRefetch} = useFetchUserQuery()
+  
   const defaultFormFields = {
     email: '',
     password: ''
@@ -17,7 +20,8 @@ const SignIn = () => {
   
   const signInWithGoogle = async () => {
     await signInWithGooglePopup()
-    await writeUserDataInDB()
+    await createUserDataInDB()
+    userRefetch()
   }
   
   const handleChange = (event) => {

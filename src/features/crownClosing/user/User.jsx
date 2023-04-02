@@ -1,4 +1,4 @@
-import {signOutUser} from '../utils/firebase/firebase'
+import {signOutUser} from '../utils/firebase'
 import React from 'react'
 import s from './User.module.scss'
 import {useFetchUserQuery} from '../redux/api/user.api'
