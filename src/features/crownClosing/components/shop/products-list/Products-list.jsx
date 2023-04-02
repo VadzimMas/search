@@ -2,6 +2,7 @@ import ProductsItem from './products-item/Products-item'
 import LoadingSpinner from '../../loading-spiner/Loading-spinner'
 import s from './products-list.module.scss'
 import {useFetchCategoriesQuery} from '../../../store/api/categories.api'
+import {faker} from '@faker-js/faker'
 
 
 function ProductsList() {
@@ -18,6 +19,12 @@ function ProductsList() {
       })
     }
   }
+  
+  
+  
+  
+  const fakerProducts = faker.image.unsplash
+  console.log(fakerProducts)
   
   return (
     <div className={s.productsList}>

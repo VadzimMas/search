@@ -28,7 +28,6 @@ function Checkout() {
       return 0
     }
   }
- 
   
   return (
     <Fragment>
@@ -48,7 +47,7 @@ function Checkout() {
           <span>{`$ ${totalOverAllPrice()}`}</span>
         </div>
       </div>
-      {cartData && cartData.length > 0 ? <Payment /> : null}
+      {/*{cartData && cartData.length > 0 ? <Payment /> : null}*/}
     </Fragment>
   )
 }

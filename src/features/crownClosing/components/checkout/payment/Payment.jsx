@@ -1,9 +1,7 @@
 import {CardElement, useElements, useStripe} from '@stripe/react-stripe-js'
 import s from './payment.module.scss'
 import {useState} from 'react'
-import {useSelector} from 'react-redux'
 import {useFetchCartQuery} from '../../../store/api/cart.api'
-import CheckoutItem from '../checkout-item/Checkout-item'
 import {auth} from '../../../utils/firebase'
 
 function Payment() {
@@ -77,7 +75,7 @@ function Payment() {
         color          : '#32325d',
         fontFamily     : 'Arial, sans-serif',
         fontSmoothing  : 'antialiased',
-        fontSize       : '30px',
+        fontSize       : '20px',
         '::placeholder': {
           color: rootVariable.getPropertyValue('--sidebar-text-color')
         }
@@ -93,7 +91,7 @@ function Payment() {
   return (
     <form className={s.paymentForm} onSubmit={paymentHandler}>
       <h2 className={s.title}>Credit card payment: </h2>
-      <CardElement className={s.creditCard} options={cardStyle} />
+      <CardElement className={s.creditCard}  />
       <button type="submit">Pay now</button>
     </form>
   )
