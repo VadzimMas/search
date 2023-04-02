@@ -1,6 +1,4 @@
 import {configureStore} from '@reduxjs/toolkit'
-import cartReducer, {addProductToCart, downQuantity, setCartProducts, setTotalOverAllPrice, upQuantity} from './slices/cart-slice'
-import userReducer from './slices/user-slice'
 import directoriesApi from './api/directories.api'
 import {setupListeners} from '@reduxjs/toolkit/query'
 import categoriesApi from './api/categories.api'
@@ -10,8 +8,6 @@ import cartApi from './api/cart.api'
 
 const store = configureStore({
   reducer: {
-    cart: cartReducer,
-    user: userReducer,
     [directoriesApi.reducerPath]: directoriesApi.reducer,
     [categoriesApi.reducerPath]: categoriesApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
@@ -30,11 +26,3 @@ const store = configureStore({
 setupListeners(store.dispatch)
 
 export default store
-export {
-  addProductToCart,
-  upQuantity,
-  downQuantity,
-  // deleteProductFromCart,
-  setTotalOverAllPrice,
-  setCartProducts
-}

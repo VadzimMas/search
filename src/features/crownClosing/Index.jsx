@@ -1,7 +1,7 @@
 import {Fragment} from 'react'
 import CrownClothing from './components/crownClothing/Crown-clothing'
 import {Provider} from 'react-redux'
-import store from './redux/store'
+import store from './store/insex'
 import {Elements} from '@stripe/react-stripe-js'
 import {stripePromise} from './utils/stripe/stripe'
 

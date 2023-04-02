@@ -1,8 +1,8 @@
-import {useFetchUserQuery} from '../../redux/api/user.api'
+import {useFetchUserQuery} from '../../store/api/user.api'
 import {useEffect} from 'react'
 import {onAuthStateChanged} from 'firebase/auth'
 import {auth, db} from '../../utils/firebase'
-import {useFetchCartQuery} from '../../redux/api/cart.api'
+import {useFetchCartQuery} from '../../store/api/cart.api'
 import {doc, onSnapshot} from 'firebase/firestore'
 
 const useUserLogInOutListener = () => {

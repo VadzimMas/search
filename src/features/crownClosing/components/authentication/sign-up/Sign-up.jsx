@@ -3,7 +3,7 @@ import FormField from '../../formField/Form-field'
 import s from './sign-up.module.scss'
 import createUserDataInDB from '../../../utils/firebase/authentication/createUserInDB'
 import createUserEmailAndPassword from '../../../utils/firebase/authentication/createUserEmailAndPassword'
-import {useFetchUserQuery} from '../../../redux/api/user.api'
+import {useFetchUserQuery} from '../../../store/api/user.api'
 
 function SignUp() {
   const {refetch: refetchUser} = useFetchUserQuery()

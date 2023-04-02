@@ -1,7 +1,7 @@
 import {doc, getDoc, setDoc} from 'firebase/firestore'
 import {auth, db} from '../index'
 
-const increaseQuantityOfProductInUserCartDB = async (id) => {
+const decreaseQuantityOfProductInUserCartDB = async (id) => {
   const docRef = doc(db, 'users', auth.currentUser.uid)
   const docSnap = await getDoc(docRef)
   
@@ -14,7 +14,7 @@ const increaseQuantityOfProductInUserCartDB = async (id) => {
       docData.products = docData.products.map((el) => {
         // if exist increment quantity
         if (el.id === id) {
-          el.quantity++
+          el.quantity--
         }
         return el
       })
@@ -28,4 +28,4 @@ const increaseQuantityOfProductInUserCartDB = async (id) => {
 }
 
 
-export default increaseQuantityOfProductInUserCartDB
+export default decreaseQuantityOfProductInUserCartDB

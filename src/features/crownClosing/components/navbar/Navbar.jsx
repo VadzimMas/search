@@ -7,8 +7,8 @@ import {FaCrown} from 'react-icons/fa'
 import {BsBag} from 'react-icons/bs'
 import User from '../../user/User'
 import s from './navbar.module.scss'
-import {useFetchUserQuery} from '../../redux/api/user.api'
-import {useFetchCartQuery} from '../../redux/api/cart.api'
+import {useFetchUserQuery} from '../../store/api/user.api'
+import {useFetchCartQuery} from '../../store/api/cart.api'
 
 
 function Navbar() {

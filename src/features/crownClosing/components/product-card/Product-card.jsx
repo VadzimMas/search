@@ -1,5 +1,5 @@
 import s from './product-card.module.scss'
-import {useAddProductToUserMutation} from '../../redux/api/user.api'
+import {useAddProductToUserMutation} from '../../store/api/user.api'
 
 function ProductCard({product}) {
   const [setAddProductToUser, result] = useAddProductToUserMutation()

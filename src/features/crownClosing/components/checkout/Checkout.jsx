@@ -2,7 +2,7 @@ import CheckoutItem from './checkout-item/Checkout-item'
 import {Fragment} from 'react'
 import Payment from './payment/Payment'
 import s from './checkout.module.scss'
-import {useFetchCartQuery} from '../../redux/api/cart.api'
+import {useFetchCartQuery} from '../../store/api/cart.api'
 
 function Checkout() {
   const {data: cartData} = useFetchCartQuery()

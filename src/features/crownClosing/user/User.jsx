@@ -1,7 +1,7 @@
 import {signOutUser} from '../utils/firebase'
 import React from 'react'
 import s from './User.module.scss'
-import {useFetchUserQuery} from '../redux/api/user.api'
+import {useFetchUserQuery} from '../store/api/user.api'
 
 const User = () => {
   const {data} = useFetchUserQuery()

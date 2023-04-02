@@ -2,7 +2,7 @@ import DirectoryItem from './directory-item/Directory-item'
 import LoadingSpinner from '../loading-spiner/Loading-spinner'
 import s from './directory-list.module.scss'
 import {Fragment} from 'react'
-import {useFetchDirectoriesQuery} from '../../redux/api/directories.api'
+import {useFetchDirectoriesQuery} from '../../store/api/directories.api'
 
 function DirectoryList() {
   

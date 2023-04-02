@@ -1,7 +1,7 @@
 import ProductsItem from './products-item/Products-item'
 import LoadingSpinner from '../../loading-spiner/Loading-spinner'
 import s from './products-list.module.scss'
-import {useFetchCategoriesQuery} from '../../../redux/api/categories.api'
+import {useFetchCategoriesQuery} from '../../../store/api/categories.api'
 
 
 function ProductsList() {

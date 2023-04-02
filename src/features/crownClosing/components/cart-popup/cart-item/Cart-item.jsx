@@ -1,14 +1,15 @@
 import {RiArrowDownSLine, RiArrowUpSLine, RiDeleteBin5Line} from 'react-icons/ri'
 import {useDispatch} from 'react-redux'
-import {downQuantity, upQuantity} from '../../../redux/store'
 import s from './cart-item.module.scss'
-import {useRemoveCartItemMutation} from '../../../redux/api/cart.api'
+import {useDecreaseQuantityInCartItemMutation, useIncreaseQuantityInCartItemMutation, useRemoveCartItemMutation} from '../../../store/api/cart.api'
 
 
 function CartItem({product}) {
   const dispatch = useDispatch()
   const {id, name, price, imageUrl, quantity} = product
-  const [removeCartItem, result] = useRemoveCartItemMutation()
+  const [removeCartItem] = useRemoveCartItemMutation()
+  const [increaseQuantity] = useIncreaseQuantityInCartItemMutation()
+  const [decreaseQuantity] = useDecreaseQuantityInCartItemMutation()
   
   return (
     <div className={s.cartItem} key={id}>
@@ -22,9 +23,9 @@ function CartItem({product}) {
           </div>
           <div className={s.count}>
             <span>Pieces : </span>
-            <RiArrowUpSLine className={s.up} onClick={() => dispatch(upQuantity(id))} />
+            <RiArrowUpSLine className={s.up} onClick={() => increaseQuantity(id)} />
             <span>{quantity}</span>
-            <RiArrowDownSLine className={s.down} onClick={() => dispatch(downQuantity(id))} />
+            <RiArrowDownSLine className={s.down} onClick={() => decreaseQuantity(id)} />
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import s from './category.module.scss'
-import {useFetchCategoriesQuery} from '../../redux/api/categories.api'
+import {useFetchCategoriesQuery} from '../../store/api/categories.api'
 import {useParams} from 'react-router-dom'
 import LoadingSpinner from '../loading-spiner/Loading-spinner'
 import ProductCard from '../product-card/Product-card'

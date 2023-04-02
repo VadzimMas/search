@@ -4,7 +4,7 @@ import {useState} from 'react'
 import s from './sign-in.module.scss'
 import createUserDataInDB from '../../../utils/firebase/authentication/createUserInDB'
 import signInWithGooglePopup from '../../../utils/firebase/authentication/signInWithGooglePopup'
-import {useFetchUserQuery} from '../../../redux/api/user.api'
+import {useFetchUserQuery} from '../../../store/api/user.api'
 
 
 const SignIn = () => {

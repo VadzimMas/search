@@ -3,7 +3,7 @@ import SignUp from './sign-up/Sign-up'
 import s from './authentication.module.scss'
 import {Fragment, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
-import {useFetchUserQuery} from '../../redux/api/user.api'
+import {useFetchUserQuery} from '../../store/api/user.api'
 
 function Authentication() {
   const {data} = useFetchUserQuery()

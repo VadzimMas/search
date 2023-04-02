@@ -1,11 +1,12 @@
 import CartItem from './cart-item/Cart-item'
 import {useNavigate} from 'react-router-dom'
 import s from './cart-popup.module.scss'
-import {useFetchCartQuery} from '../../redux/api/cart.api'
+import {useFetchCartQuery} from '../../store/api/cart.api'
 
 function CartPopup(props) {
   const {data: cartData} = useFetchCartQuery()
   const navigate = useNavigate()
+  
   const renderedProducts = () => {
     if (cartData && cartData.length > 0) {
       return cartData.map((product) => {
@@ -15,6 +16,7 @@ function CartPopup(props) {
       return <h2 className={s.empty}>No products yet</h2>
     }
   }
+  
   const totalOverAllPrice = () => {
     if (cartData) {
       let temp = 0
@@ -26,6 +28,7 @@ function CartPopup(props) {
       return 0
     }
   }
+  
   const goToCheckout = () => {
     props.showCart()
     navigate('checkout')
