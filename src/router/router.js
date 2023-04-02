@@ -10,59 +10,7 @@ import Checkout from '../features/crownClosing/components/checkout/Checkout'
 import ProductsList from '../features/crownClosing/components/shop/products-list/Products-list'
 import Category from '../features/crownClosing/components/category/Category'
 import Index from '../features/crownClosing/Index'
-
-
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <App/>,
-//     errorElement: <ErrorPage/>,
-//     children: [
-//       {
-//         index: true,
-//         element: <Home/>,
-//       },
-//       {
-//         path: 'searchUsers',
-//         element: <SearchUsers/>,
-//       },
-//       // Crown Clothing
-//       {
-//         path: 'crownClothing',
-//         element: <CrownClothing/>,
-//         children: [
-//           {
-//             index: true,
-//             element: <DirectoryList/>,
-//           },
-//           {
-//             path: 'shop',
-//             element: <Shop/>,
-//             children: [
-//               {
-//                 index: true,
-//                 element: <ProductsList/>,
-//               },
-//               {
-//                 path: ':id',
-//                 element: <Category/>,
-//               },
-//             ],
-//           },
-//           {
-//             path: 'auth',
-//             element: <Authentication/>,
-//           },
-//           {
-//             path: 'checkout',
-//             element: <Checkout/>,
-//           },
-//         ],
-//       },
-//     ],
-//   },
-// ])
-
+import Order from '../features/crownClosing/components/checkout/order/Order'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -77,6 +25,7 @@ const router = createBrowserRouter(
         </Route>
         <Route path="auth" element={<Authentication/>}/>
         <Route path="checkout" element={<Checkout/>}/>
+        <Route path="order" element={<Order/>}/>
       </Route>
     </Route>
   ))
