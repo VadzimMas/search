@@ -3,24 +3,21 @@ import {Fragment} from 'react'
 import Payment from './payment/Payment'
 import s from './checkout.module.scss'
 import {useFetchCartQuery} from '../../redux/api/cart.api'
-import LoadingSpinner from '../loading-spiner/Loading-spinner'
 
 function Checkout() {
   const {data: cartData} = useFetchCartQuery()
   
-  
   const renderedProducts = () => {
-    if (cartData) {
+    if (cartData && cartData.length > 0) {
       return cartData.map((product) => {
         return <CheckoutItem product={product} key={product.id} />
       })
     } else {
-      return <LoadingSpinner />
+      return <h2 className={s.empty}>No products yet</h2>
     }
   }
-  
   const totalOverAllPrice = () => {
-    if (cartData) {
+    if (cartData && cartData.length > 0) {
       let temp = 0
       for (const product of cartData) {
         temp += product.price * product.quantity
@@ -30,7 +27,6 @@ function Checkout() {
       return 0
     }
   }
-  
   
   return (
     <Fragment>
@@ -42,15 +38,15 @@ function Checkout() {
           <span>Price</span>
           <span>Remove</span>
         </div>
-        <div className={s.renderedProducts}>
+        <div className={s.products}>
           {renderedProducts()}
         </div>
         <div className={s.total}>
-          <span>Total over all :</span>
+          <span>Total overall :</span>
           <span>{`$ ${totalOverAllPrice()}`}</span>
         </div>
       </div>
-      <Payment />
+      {cartData && cartData.length > 0 ? <Payment /> : null}
     </Fragment>
   )
 }

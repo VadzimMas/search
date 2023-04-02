@@ -1,12 +1,14 @@
 import {RiArrowDownSLine, RiArrowUpSLine, RiDeleteBin5Line} from 'react-icons/ri'
 import {useDispatch} from 'react-redux'
-import {deleteProductFromCart, downQuantity, upQuantity} from '../../../redux/store'
+import {downQuantity, upQuantity} from '../../../redux/store'
 import s from './cart-item.module.scss'
+import {useRemoveCartItemMutation} from '../../../redux/api/cart.api'
 
 
 function CartItem({product}) {
   const dispatch = useDispatch()
   const {id, name, price, imageUrl, quantity} = product
+  const [removeCartItem, result] = useRemoveCartItemMutation()
   
   return (
     <div className={s.cartItem} key={id}>
@@ -31,7 +33,7 @@ function CartItem({product}) {
           <span>Total : </span>
           <span>{`$ ${price * quantity}`}</span>
         </div>
-        <RiDeleteBin5Line className={s.delete} onClick={() => dispatch(deleteProductFromCart(id))} />
+        <RiDeleteBin5Line className={s.delete} onClick={() => removeCartItem(product)} />
       </div>
     </div>
   )

@@ -6,23 +6,23 @@
   justify-content: space-between;
   font-size: adaptiveSize(40, 15);
   padding: 1%;
+  color: var(--sidebar-text-color);
 
   .header {
     display: flex;
     justify-content: space-between;
-    color: var(--sidebar-text-color);
-    //border-bottom: 1px solid var(--sidebar-text-color);
-
 
     > * {
       width: 25%;
       text-align: center;
     }
-
   }
 
-  .renderedProducts {
-
+  .products {
+    .empty {
+      text-align: center;
+      font-size: adaptiveSize(50, 20);
+    }
   }
 
   .total {

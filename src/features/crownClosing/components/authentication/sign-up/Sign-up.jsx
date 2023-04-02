@@ -4,7 +4,6 @@ import {updateUserProfile} from '../../../utils/firebase/firebase'
 import s from './sign-up.module.scss'
 import {writeUserDataInDB} from '../../../utils/firebase/writeUserInDB'
 import {createUserEmailAndPassword} from '../../../utils/firebase/createUserEmailAndPassword'
-import {useFetchUserQuery} from '../../../redux/api/user.api'
 
 
 function SignUp() {
@@ -16,7 +15,6 @@ function SignUp() {
   }
   const [formFields, setFormFields] = useState(defaultFormFields)
   const {displayName, email, password, confirmPassword} = formFields
-  const {refetch} = useFetchUserQuery()
   
   const handleChange = (event) => {
     const {name, value} = event.target
@@ -37,9 +35,7 @@ function SignUp() {
     await updateUserProfile({displayName})
     await writeUserDataInDB()
     resetFormFields()
-    refetch()
   }
-  
   
   return (
     <form className={s.signUp} onSubmit={createUser}>

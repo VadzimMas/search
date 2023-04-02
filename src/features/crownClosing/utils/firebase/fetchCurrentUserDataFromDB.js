@@ -1,11 +1,11 @@
 import {doc, getDoc} from 'firebase/firestore'
-import {db} from './firebase'
+import {auth, db} from './firebase'
 
-export const fetchCurrentUserDataFromDB = (user) => {
-  if (user) {
+export const fetchCurrentUserDataFromDB = () => {
+  if (auth.currentUser) {
     return new Promise(async (resolve, reject) => {
       //getting user data from db
-      const userDocRef = doc(db, 'users', user.uid)
+      const userDocRef = doc(db, 'users', auth.currentUser.uid)
       // look if user exists in db
       const userSnapshot = await getDoc(userDocRef)
       if (userSnapshot.exists()) {

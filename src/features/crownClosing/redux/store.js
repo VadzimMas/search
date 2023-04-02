@@ -1,5 +1,5 @@
 import {configureStore} from '@reduxjs/toolkit'
-import cartReducer, {addProductToCart, deleteProductFromCart, downQuantity, setCartProducts, setTotalOverAllPrice, upQuantity} from './slices/cart-slice'
+import cartReducer, {addProductToCart, downQuantity, setCartProducts, setTotalOverAllPrice, upQuantity} from './slices/cart-slice'
 import userReducer from './slices/user-slice'
 import directoriesApi from './api/directories.api'
 import {setupListeners} from '@reduxjs/toolkit/query'
@@ -34,7 +34,7 @@ export {
   addProductToCart,
   upQuantity,
   downQuantity,
-  deleteProductFromCart,
+  // deleteProductFromCart,
   setTotalOverAllPrice,
   setCartProducts
 }

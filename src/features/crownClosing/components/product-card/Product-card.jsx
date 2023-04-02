@@ -1,14 +1,10 @@
-import {useDispatch} from 'react-redux'
-import {addProductToCart} from '../../redux/store'
 import s from './product-card.module.scss'
 import {useAddProductToUserMutation} from '../../redux/api/user.api'
 
 function ProductCard({product}) {
   const [setAddProductToUser, result] = useAddProductToUserMutation()
   const {name, imageUrl, price} = product
-  const dispatch = useDispatch()
   const addToCart = () => {
-    dispatch(addProductToCart(product))
     setAddProductToUser(product)
   }
   

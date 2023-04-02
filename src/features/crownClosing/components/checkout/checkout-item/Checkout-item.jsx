@@ -2,12 +2,13 @@ import {RiArrowDownSLine, RiArrowUpSLine, RiDeleteBin5Line} from 'react-icons/ri
 import {useDispatch} from 'react-redux'
 import {deleteProductFromCart, downQuantity, upQuantity} from '../../../redux/store'
 import s from './checkout-item.module.scss'
+import {useRemoveCartItemMutation} from '../../../redux/api/cart.api'
 
 
 function CheckoutItem({product}) {
   const {id, name, price, imageUrl, quantity} = product
   const dispatch = useDispatch()
-  
+  const [removeCartItem] = useRemoveCartItemMutation()
   
   return (
     <div className={s.checkoutItem} key={id}>
@@ -35,7 +36,7 @@ function CheckoutItem({product}) {
       </div>
       
       <div className={`${s.remove} ${s.flexItem}`}>
-        <RiDeleteBin5Line onClick={() => dispatch(deleteProductFromCart(id))} />
+        <RiDeleteBin5Line onClick={() => removeCartItem(product)} />
       </div>
     
     </div>
