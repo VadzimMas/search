@@ -22,11 +22,11 @@ function FakePayment() {
       <img className={s.logo} src={Meastro} alt="" />
       
       <div className={s.fields}>
-          <div className={s.bankNmae}>{faker.commerce.productName()+" Bank"}</div>
+          <div >{faker.commerce.productName()+" Bank"}</div>
           <div className={s.fieldsContainer}>
             <div className={s.name}>
-               <span className={s.fullName}>{data?.displayName}</span>
-               <span className={s.expiration}>exp: 04/30</span>
+               <span>{data?.displayName}</span>
+               <span>exp: 04/30</span>
             </div>
             <div className={s.cardNumber}>
               <span>1234 4567 8910 9876</span>
