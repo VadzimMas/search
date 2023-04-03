@@ -8,14 +8,9 @@
 
   & > * {
     width: 20%;
-    border-right: 0.2vw solid var(--sidebar-text-color);
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  & span:last-child {
-    border-right: unset;
   }
 
   .title {
@@ -24,7 +19,7 @@
   }
 
   .img {
-    width: 100%;
+    width: 50%;
     padding: 0 1vw;
 
     img {

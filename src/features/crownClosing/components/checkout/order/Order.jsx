@@ -72,7 +72,6 @@ function Order() {
         <span>Total</span>
       </div>
       <div className={s.products}>
-        
         {renderedProducts()}
       </div>
     </div>
