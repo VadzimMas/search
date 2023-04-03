@@ -4,6 +4,7 @@ import fetchCurrentUserDataFromDB from '../../utils/firebase/user/fetchCurrentUs
 import {auth} from '../../utils/firebase'
 import increaseQuantityOfProductInUserCartDB from '../../utils/firebase/userCart/iccreaseQuantityOfProductInUserCartDB'
 import decreaseQuantityOfProductInUserCartDB from '../../utils/firebase/userCart/decreaseQuantityOfProductInUserCartDB'
+import clearUserCartDB from '../../utils/firebase/userCart/clearUserCartDB'
 
 const cartApi = createApi({
   reducerPath: 'cartApi',
@@ -35,6 +36,13 @@ const cartApi = createApi({
       }
     }),
     ///////////////////////////////////////////////////////////////
+    clearCart: builder.mutation({
+      async queryFn() {
+        await clearUserCartDB()
+        return {data: null}
+      }
+    }),
+    ///////////////////////////////////////////////////////////////
     increaseQuantityInCartItem: builder.mutation({
       async queryFn(id) {
         await increaseQuantityOfProductInUserCartDB(id)
@@ -55,6 +63,7 @@ const cartApi = createApi({
 export const {
                useFetchCartQuery,
                useRemoveCartItemMutation,
+               useClearCartMutation,
                useIncreaseQuantityInCartItemMutation,
                useDecreaseQuantityInCartItemMutation
              } = cartApi

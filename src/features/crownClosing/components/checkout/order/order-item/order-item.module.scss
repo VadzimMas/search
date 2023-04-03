@@ -19,11 +19,9 @@
   }
 
   .img {
-    width: 50%;
-    padding: 0 1vw;
-
     img {
-      width: 100%;
+      width: adaptiveSize(100, 50);
+      aspect-ratio: 1/1.5;
       object-fit: cover;
     }
   }

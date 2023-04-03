@@ -5,6 +5,7 @@ import s from './order.module.scss'
 import {useFetchUserQuery} from '../../../store/api/user.api'
 import {faker} from '@faker-js/faker'
 import {FaCrown} from 'react-icons/fa'
+import {AiOutlineCopyrightCircle} from 'react-icons/ai'
 
 
 function Order() {
@@ -18,6 +19,18 @@ function Order() {
       })
     } else {
       return <LoadingSpinner />
+    }
+  }
+  
+  const totalOverAllPrice = () => {
+    if (cartData) {
+      let temp = 0
+      for (const product of cartData) {
+        temp += product.price * product.quantity
+      }
+      return temp
+    } else {
+      return 0
     }
   }
   
@@ -38,12 +51,28 @@ function Order() {
     return `${street}, ${sity}, ${country}, ${zip}`
   }
   
+  const isOneItemInCart = () => {
+    // if cart has only one position and one item => item
+    if (cartData?.length === 1 && cartData[0].quantity === 1) {
+      console.log(cartData)
+      return 'item'
+    }
+    // otherwise => items
+    return 'items'
+  }
+  
+  const subtotal = Number(Number(totalOverAllPrice()).toFixed(2))
+  const shipping = Number(Number(totalOverAllPrice() / 100).toFixed(2))
+  const taxes = Number(Number(totalOverAllPrice() / 100 * 6).toFixed(2))
+  const discount = Number(Number(totalOverAllPrice() / 100 * 3).toFixed(2))
+  console.log(typeof subtotal)
+  const total = Number(subtotal + shipping + taxes - discount).toFixed(2)
   return (
     <div className={s.order}>
-      <div className={s.logo}>
+      <header className={s.logo}>
         <FaCrown className={s.logoImg} />
         <h2 className={s.logoTitle}>Crown Clothing</h2>
-      </div>
+      </header>
       <div className={s.titleContainer}>
         <h2 className={s.title}>Your order confirmed!</h2>
         <h3 className={s.subtitle}>
@@ -74,6 +103,52 @@ function Order() {
       <div className={s.products}>
         {renderedProducts()}
       </div>
+      <div className={s.totalContainer}>
+        <div>
+          <span>Subtotal</span>
+          <span>$ {subtotal}</span>
+        </div>
+        <div>
+          <span>Express shipping</span>
+          <span>$ {shipping}</span>
+        </div>
+        <div>
+          <span>Taxes</span>
+          <span>$ {taxes}</span>
+        </div>
+        <div>
+          <span>Discount</span>
+          <span>-3% ($ {discount})</span>
+        </div>
+        <div>
+          <span>Total</span>
+          <span>$ {total}</span>
+        </div>
+      </div>
+      <div className={s.massage}>
+        <p>
+          {`We will send you shipping confirmation when your ${isOneItemInCart()} are one the way!
+        We appreciate you business, and hope you enjoy you purchase.`}
+        </p>
+        <div className={s.thanks}>
+          <span>Thank you.</span>
+          <div className={s.thanksLogo}>
+            <FaCrown className={s.thanksLogoImg} />
+            <span className={s.thanksLogoTitle}>Crown Clothing :)</span>
+          </div>
+        </div>
+      </div>
+      <footer className={s.footer}>
+        <span className={s.footerText}>Questions? Contact our Customer Support</span>
+        <span className={s.copyright}>
+          <AiOutlineCopyrightCircle className={s.copyrightImg} />
+          <span className={s.year}>{new Date().getFullYear()}</span>
+           <span className={s.footerLogo}>
+            <FaCrown className={s.footerLogoImg} />
+            <span className={s.footerLogoTitle}>Crown Clothing</span>
+           </span>
+        </span>
+      </footer>
     </div>
   )
 }

@@ -4,13 +4,16 @@ import {useFetchUserQuery} from '../../../store/api/user.api'
 import {faker} from '@faker-js/faker'
 import {useNavigate} from 'react-router-dom'
 import {CgSmartphoneChip} from 'react-icons/cg'
+import {useClearCartMutation} from '../../../store/api/cart.api'
 
 function FakePayment() {
   const navigate = useNavigate()
   const {data} = useFetchUserQuery()
+  const [clearCart] = useClearCartMutation()
   
   const handlePayment = () => {
     navigate('/crownClothing/order')
+    clearCart()
   }
   
   return (
