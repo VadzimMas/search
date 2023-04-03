@@ -1,6 +1,35 @@
 @import "src/styled/mixins";
 
 
-.orderItem{
-  width: adaptiveSize(500,300);
+.orderItem {
+  display: flex;
+  padding: 1vw 0;
+  border-bottom: 0.2vw solid var(--sidebar-text-color);
+
+  & > * {
+    width: 20%;
+    border-right: 0.2vw solid var(--sidebar-text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & span:last-child {
+    border-right: unset;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+  }
+
+  .img {
+    width: 100%;
+    padding: 0 1vw;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
 }

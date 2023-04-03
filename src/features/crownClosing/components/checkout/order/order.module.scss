@@ -1,1 +1,130 @@
 @import "src/styled/mixins";
+
+.order {
+  color: var(--sidebar-text-color);
+  padding: 1vw;
+  font-size: adaptiveSize(35, 16);
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 0.2vw solid var(--sidebar-text-color);
+    padding: 1vw;
+
+    .logoImg {
+      margin-right: adaptiveSize(20, 10);
+      font-size: adaptiveSize(120, 50);
+    }
+
+    .logoTitle {
+      font-size: adaptiveSize(60, 30);
+    }
+  }
+
+  .titleContainer {
+    border-bottom: 0.2vw solid var(--sidebar-text-color);
+    padding: 1vw 0;
+
+    .title {
+      font-size: adaptiveSize(50, 25);
+    }
+
+    .subtitle {
+      font-size: adaptiveSize(35, 16);
+    }
+  }
+
+  .shippingInfo {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.2vw solid var(--sidebar-text-color);
+    padding: 1vw 0;
+
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      border-left: 0.2vw solid var(--sidebar-text-color);
+      padding-left: 1vw;
+
+      & span:nth-child(1) {
+        font-size: adaptiveSize(40, 20);
+        white-space: nowrap;
+      }
+
+      &:nth-child(1) {
+        border-left: unset;
+        padding-left: unset;
+        width: 20%;
+      }
+
+      &:nth-child(2) {
+        width: 20%;
+      }
+
+      &:nth-child(3) {
+        width: 60%;
+      }
+    }
+
+
+    @media (max-width: 425px) {
+      flex-direction: column;
+      align-items: flex-start;
+      .item {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        border-left: unset;
+        padding-left: unset;
+
+        & span:nth-child(1) {
+          font-size: adaptiveSize(40, 20);
+          white-space: nowrap;
+          margin-right: 5px;
+          align-self: flex-start;
+        }
+
+        &:nth-child(1) {
+          border-left: unset;
+          padding-left: unset;
+          width: unset;
+        }
+
+        &:nth-child(2) {
+          width: unset;
+        }
+
+        &:nth-child(3) {
+          width: unset;
+        }
+      }
+    }
+
+
+  }
+
+  .productTitles {
+    display: flex;
+    align-items: center;
+    padding: 1vw 0;
+    border-bottom: 0.2vw solid var(--sidebar-text-color);
+
+    & > * {
+      text-align: center;
+      width: 20%;
+      border-right: 0.2vw solid var(--sidebar-text-color);
+    }
+
+    span:last-child {
+      border-right: unset;
+    }
+  }
+
+  .products {
+
+
+  }
+}

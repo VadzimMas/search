@@ -7,10 +7,9 @@ function ProductsItem({title, products}) {
   const navigateToCategory = () => navigate(title)
   const renderedItem = () => {
     if (products) {
-      return products.items.filter((_, index) => index < 4)
-                     .map((product) => {
-                       return <ProductCard key={product.id} product={product} />
-                     })
+      return products.items.filter((_, index) => index < 4).map((product) => {
+        return <ProductCard key={product.id} product={product} />
+      })
     } else {
       return null
     }

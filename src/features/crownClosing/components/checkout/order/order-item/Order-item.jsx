@@ -5,7 +5,11 @@ function OrderItem({product}) {
   console.log(product)
   return (
     <div className={s.orderItem}>
-      {product.imageUrl}
+      <span><img className={s.img} src={product.imageUrl} alt="" /></span>
+      <span>{product.name}</span>
+      <span>{product.quantity}</span>
+      <span>{product.price}</span>
+      <span>{product.price * product.quantity}</span>
     </div>
   )
 }
