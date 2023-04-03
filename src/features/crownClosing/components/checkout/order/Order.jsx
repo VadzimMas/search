@@ -6,11 +6,16 @@ import {useFetchUserQuery} from '../../../store/api/user.api'
 import {faker} from '@faker-js/faker'
 import {FaCrown} from 'react-icons/fa'
 import {AiOutlineCopyrightCircle} from 'react-icons/ai'
+import {useMemo} from 'react'
 
 
 function Order() {
-  const {data: cartData} = useFetchCartQuery()
-  const {data: userData} = useFetchUserQuery()
+  const {data: cdata} = useFetchCartQuery()
+  const {data: uData} = useFetchUserQuery()
+  
+  const cartData = useMemo(() => cdata, [])
+  const userData = useMemo(() => uData, [])
+  console.log(cartData)
   
   const renderedProducts = () => {
     if (cartData) {
