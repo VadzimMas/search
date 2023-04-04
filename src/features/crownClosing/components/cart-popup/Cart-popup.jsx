@@ -2,9 +2,11 @@ import CartItem from './cart-item/Cart-item'
 import {useNavigate} from 'react-router-dom'
 import s from './cart-popup.module.scss'
 import {useFetchCartQuery} from '../../store/api/cart.api'
+import {auth} from '../../utils/firebase'
 
 function CartPopup(props) {
   const {data: cartData} = useFetchCartQuery()
+  const user = auth.currentUser
   const navigate = useNavigate()
   
   const renderedProducts = () => {
@@ -33,6 +35,18 @@ function CartPopup(props) {
     props.showCart()
     navigate('checkout')
   }
+  const goToAuth = () => {
+    props.showCart()
+    navigate('auth')
+  }
+  
+  const chooseButton = () => {
+    if (user) {
+      return <button onClick={goToCheckout}>Go to checkout</button>
+    } else {
+      return <button onClick={goToAuth}>Sign in</button>
+    }
+  }
   
   return (
     <div className={s.cartPopup}>
@@ -42,7 +56,7 @@ function CartPopup(props) {
           <span>Total overall :</span>
           <span>{`$ ${totalOverAllPrice()}`}</span>
         </div>
-        <button onClick={goToCheckout}>Go to checkout</button>
+        {chooseButton()}
       </div>
     </div>
   )

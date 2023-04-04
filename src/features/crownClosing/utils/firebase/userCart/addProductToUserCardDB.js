@@ -1,8 +1,17 @@
 import {doc, getDoc, setDoc} from 'firebase/firestore'
-import {db} from '../index'
+import {auth, db} from '../index'
+import getIP from '../../../../../hooks/getIP'
 
-const addProductToUserCardDB = async (user, product) => {
-  const docRef = doc(db, 'users', user.uid)
+const addProductToUserCardDB = async (product) => {
+  let user
+  if (auth.currentUser) {
+    user = auth.currentUser.uid
+  } else {
+    user = await getIP()
+  }
+  
+  
+  const docRef = doc(db, auth.currentUser ? 'users' : 'guest', user)
   const docSnap = await getDoc(docRef)
   
   if (docSnap.exists()) {

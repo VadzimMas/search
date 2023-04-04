@@ -1,14 +1,14 @@
 import {createApi, fakeBaseQuery} from '@reduxjs/toolkit/query/react'
 import {auth} from '../../utils/firebase'
 import fetchCurrentUserDataFromDB from '../../utils/firebase/user/fetchCurrentUserDataFromDB'
-import addProductToUserCardDB from '../../utils/firebase/userCart/addProductToUserCardDB'
+import createGuestDB from '../../utils/firebase/guest/createGuestDB'
 
-const userApi = createApi({
-  reducerPath: 'users',
+const guestApi = createApi({
+  reducerPath: 'guest',
   baseQuery: fakeBaseQuery(),
   endpoints: (builder) => ({
     /////////////////////////////////////////////////////////////////////////
-    fetchUser: builder.query({
+    fetchGuest: builder.query({
       async queryFn() {
         const user = auth.currentUser
         if (user) {
@@ -29,9 +29,9 @@ const userApi = createApi({
       }
     }),
     /////////////////////////////////////////////////////////////////////////
-    addProductToUser: builder.mutation({
+    createGuest: builder.mutation({
       async queryFn(product) {
-        await addProductToUserCardDB(product)
+        await createGuestDB()
         return {}
       }
     })
@@ -40,6 +40,10 @@ const userApi = createApi({
   })
 })
 
-export const {useFetchUserQuery, useAddProductToUserMutation} = userApi
+export const {
+               useFetchGuestQuery,
+               useAddProductToGuestMutation,
+               useCreateGuestMutation
+             } = guestApi
 
-export default userApi
+export default guestApi

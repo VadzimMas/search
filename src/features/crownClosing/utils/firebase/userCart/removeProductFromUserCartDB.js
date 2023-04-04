@@ -1,8 +1,16 @@
 import {doc, getDoc, setDoc} from 'firebase/firestore'
 import {auth, db} from '../index'
+import getIP from '../../../../../hooks/getIP'
 
 const removeProductFromUserCartDB = async (product) => {
-  const docRef = doc(db, 'users', auth.currentUser.uid)
+  let user
+  if (auth.currentUser) {
+    user = auth.currentUser.uid
+  } else {
+    user = await getIP()
+  }
+  
+  const docRef = doc(db, auth.currentUser ? 'users' : 'guest', user)
   const docSnap = await getDoc(docRef)
   
   if (docSnap.exists()) {

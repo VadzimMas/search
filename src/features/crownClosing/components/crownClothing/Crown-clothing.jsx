@@ -4,7 +4,6 @@ import s from './crown-clothing.module.scss'
 import useUserLogInOutListener from '../hooks/useUserLogInOutListener'
 
 function CrownClothing() {
-  
   // listen to user login logout
   useUserLogInOutListener()
   

@@ -1,7 +1,6 @@
 import {createApi, fakeBaseQuery} from '@reduxjs/toolkit/query/react'
 import removeProductFromUserCartDB from '../../utils/firebase/userCart/removeProductFromUserCartDB'
 import fetchCurrentUserDataFromDB from '../../utils/firebase/user/fetchCurrentUserDataFromDB'
-import {auth} from '../../utils/firebase'
 import increaseQuantityOfProductInUserCartDB from '../../utils/firebase/userCart/iccreaseQuantityOfProductInUserCartDB'
 import decreaseQuantityOfProductInUserCartDB from '../../utils/firebase/userCart/decreaseQuantityOfProductInUserCartDB'
 import clearUserCartDB from '../../utils/firebase/userCart/clearUserCartDB'
@@ -13,17 +12,11 @@ const cartApi = createApi({
     ///////////////////////////////////////////////////////////////
     fetchCart: builder.query({
       async queryFn() {
-        const user = auth.currentUser
-        if (user) {
-          const data = await fetchCurrentUserDataFromDB()
-          if (data) {
-            return {data: data.products}
-          } else {
-            console.log('cartApi : user does not have any products')
-            return {data: null}
-          }
+        const data = await fetchCurrentUserDataFromDB()
+        if (data) {
+          return {data: data.products}
         } else {
-          console.log('User does not exist')
+          console.log('cartApi : user does not have any products')
           return {data: null}
         }
       }
