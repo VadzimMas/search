@@ -21,7 +21,8 @@
   .category {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1vw;
+    gap: adaptiveSize(20, 10);
+    padding: adaptiveSize(10, 5);
   }
 
   &:nth-child(1) {

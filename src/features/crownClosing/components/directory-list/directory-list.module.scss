@@ -1,3 +1,5 @@
+@import "src/styled/mixins";
+
 .directoryList {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -5,8 +7,8 @@
   grid-template-areas:
 "a a b b c c"
 "d d d f f f";
-  gap: 1vw;
-  padding: 1.2vw 1vw;
+  gap: adaptiveSize(20, 10);
+  padding: adaptiveSize(20, 10);
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(4, 1fr);
