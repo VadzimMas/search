@@ -20,7 +20,7 @@ function Category() {
         return category.title.toLowerCase() === id.toLowerCase()
       })
       //rendering every product
-      return getCurrentCategory[0].items.map((product) => {
+      return getCurrentCategory[0]?.items.map((product) => {
         return <ProductCard key={product.id} product={product} />
       })
     }

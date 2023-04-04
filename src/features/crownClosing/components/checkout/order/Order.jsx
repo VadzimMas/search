@@ -6,16 +6,23 @@ import {useFetchUserQuery} from '../../../store/api/user.api'
 import {faker} from '@faker-js/faker'
 import {FaCrown} from 'react-icons/fa'
 import {AiOutlineCopyrightCircle} from 'react-icons/ai'
-import {useMemo} from 'react'
+import {useEffect, useMemo} from 'react'
+import {useNavigate} from 'react-router-dom'
 
 
 function Order() {
+  const navigate = useNavigate()
   const {data: cdata} = useFetchCartQuery()
   const {data: uData} = useFetchUserQuery()
-  
   const cartData = useMemo(() => cdata, [])
   const userData = useMemo(() => uData, [])
-  console.log(cartData)
+  
+  //do not show this page when user not purchase yet, and reload page
+  useEffect(() => {
+    if (!cartData?.length) {
+      navigate('/crownClothing')
+    }
+  })
   
   const renderedProducts = () => {
     if (cartData) {
@@ -59,7 +66,6 @@ function Order() {
   const isOneItemInCart = () => {
     // if cart has only one position and one item => item
     if (cartData?.length === 1 && cartData[0].quantity === 1) {
-      console.log(cartData)
       return 'item'
     }
     // otherwise => items
@@ -70,8 +76,8 @@ function Order() {
   const shipping = Number(Number(totalOverAllPrice() / 100).toFixed(2))
   const taxes = Number(Number(totalOverAllPrice() / 100 * 6).toFixed(2))
   const discount = Number(Number(totalOverAllPrice() / 100 * 3).toFixed(2))
-  console.log(typeof subtotal)
   const total = Number(subtotal + shipping + taxes - discount).toFixed(2)
+  
   return (
     <div className={s.order}>
       <header className={s.logo}>

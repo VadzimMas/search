@@ -9,7 +9,6 @@ const clearUserCartDB = async (product) => {
     let docData = docSnap.data()
     // if products array exist and something inside
     docData.products = []
-    console.log(docData)
     // write updated document
     await setDoc(docRef, {...docData})
     
