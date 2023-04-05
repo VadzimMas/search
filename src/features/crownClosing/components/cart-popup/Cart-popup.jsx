@@ -5,13 +5,14 @@ import {useFetchCartQuery} from '../../store/api/cart.api'
 import {auth} from '../../utils/firebase'
 
 function CartPopup(props) {
-  const {data: cartData} = useFetchCartQuery()
+  const {data: cartApi} = useFetchCartQuery()
+  
   const user = auth.currentUser
   const navigate = useNavigate()
   
   const renderedProducts = () => {
-    if (cartData && cartData.length > 0) {
-      return cartData.map((product) => {
+    if (cartApi && cartApi.length > 0) {
+      return cartApi.map((product) => {
         return <CartItem product={product} key={product.id} />
       })
     } else {
@@ -20,9 +21,9 @@ function CartPopup(props) {
   }
   
   const totalOverAllPrice = () => {
-    if (cartData) {
+    if (cartApi) {
       let temp = 0
-      for (const product of cartData) {
+      for (const product of cartApi) {
         temp += product.price * product.quantity
       }
       return temp

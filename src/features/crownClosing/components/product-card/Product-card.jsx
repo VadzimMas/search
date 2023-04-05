@@ -1,11 +1,11 @@
 import s from './product-card.module.scss'
-import {useAddProductToUserMutation} from '../../store/api/user.api'
+import {useAddProductToCartMutation} from '../../store/api/cart.api'
 
 function ProductCard({product}) {
-  const [setAddProductToUser, result] = useAddProductToUserMutation()
+  const [addProductToCartDB] = useAddProductToCartMutation()
   const {name, imageUrl, price} = product
   const addToCart = () => {
-    setAddProductToUser(product)
+    addProductToCartDB(product)
   }
   
   return (

@@ -39,6 +39,8 @@ const createUserDataInDB = async (userData) => {
       } else {
         console.log('user exists in DB')
       }
+    } else {
+      console.log('user does not exist')
     }
   })
 }

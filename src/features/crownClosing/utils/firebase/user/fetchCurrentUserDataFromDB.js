@@ -1,22 +1,12 @@
 import {doc, getDoc} from 'firebase/firestore'
 import {auth, db} from '../index'
-import getIP from '../../../../../hooks/getIP'
 
 const fetchCurrentUserDataFromDB = async () => {
-  
-  
-  let user
-  if (auth.currentUser) {
-    user = auth.currentUser.uid
-  } else {
-    user = await getIP()
-  }
-  
-  
+  const user = auth.currentUser
   if (user) {
     return new Promise(async (resolve, reject) => {
       //getting user data from db
-      const userDocRef = doc(db, auth.currentUser ? 'users' : 'guest', user)
+      const userDocRef = doc(db, 'users', user.uid)
       // look if user exists in db
       const userSnapshot = await getDoc(userDocRef)
       if (userSnapshot.exists()) {

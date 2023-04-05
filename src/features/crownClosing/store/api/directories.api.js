@@ -2,7 +2,7 @@ import {createApi, fakeBaseQuery} from '@reduxjs/toolkit/query/react'
 import getCollection from '../../utils/firebase/fetchAppData/getCollection'
 
 const directoriesApi = createApi({
-  reducerPath: 'directories',
+  reducerPath: 'directoriesApi',
   baseQuery: fakeBaseQuery(),
   endpoints: (builder) => ({
     ////////////////////////////////////////////////////////////////////////

@@ -4,15 +4,12 @@ import {setupListeners} from '@reduxjs/toolkit/query'
 import categoriesApi from './api/categories.api'
 import userApi from './api/user.api'
 import cartApi from './api/cart.api'
-import guestApi from './api/guest.api'
-
 
 const store = configureStore({
   reducer: {
     [directoriesApi.reducerPath]: directoriesApi.reducer,
     [categoriesApi.reducerPath]: categoriesApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
-    [guestApi.reducerPath]: guestApi.reducer,
     [cartApi.reducerPath]: cartApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
@@ -21,7 +18,6 @@ const store = configureStore({
       .concat(directoriesApi.middleware)
       .concat(userApi.middleware)
       .concat(cartApi.middleware)
-      .concat(guestApi.middleware)
 })
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors
