@@ -1,13 +1,12 @@
 import CheckoutItem from './checkout-item/Checkout-item'
 import {Fragment} from 'react'
-import Payment from './stripePayment/Payment'
 import s from './checkout.module.scss'
 import {useFetchCartQuery} from '../../store/api/cart.api'
 import FakePayment from './fakePament/FakePayment'
 
 function Checkout() {
   const {data: cartData} = useFetchCartQuery()
-
+  
   const renderedProducts = () => {
     if (cartData && cartData.length > 0) {
       return cartData.map((product) => {
@@ -30,6 +29,10 @@ function Checkout() {
     }
   }
   
+  const fakePayment = () => {
+    return cartData && cartData.length > 0 && <FakePayment />
+  }
+  
   return (
     <Fragment>
       <div className={s.checkout}>
@@ -49,7 +52,7 @@ function Checkout() {
         </div>
       </div>
       {/*{cartData && cartData.length > 0 ? <Payment /> : null}*/}
-      {cartData && cartData.length > 0 ? <FakePayment /> : null}
+      {fakePayment()}
     </Fragment>
   )
 }

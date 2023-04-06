@@ -14,9 +14,10 @@ const useUserLogInOutListener = async () => {
     
     const unsubscribeLogInOutListener = onAuthStateChanged(auth, async (user) => {
       console.log('useUserLogInOutListener')
-      refetchUser()
+      
       if (user) {
         console.log('user exist')
+        refetchUser()
         unsubscribeUserDataChangeListener = onSnapshot(doc(db, 'users', user.uid),
           (doc) => {
             // console.log('Current data: ', doc.data())
@@ -24,7 +25,8 @@ const useUserLogInOutListener = async () => {
             refetchCart()
           })
       } else {
-      
+        refetchUser()
+        refetchCart()
       }
     })
     

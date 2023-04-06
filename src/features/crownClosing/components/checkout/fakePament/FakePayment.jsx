@@ -15,6 +15,10 @@ function FakePayment() {
     navigate('/crownClothing/order')
     clearCart()
   }
+  //
+  // const bankName = () => {
+  //   return <div>{faker.commerce.productName() + ' Bank'}</div>
+  // }
   
   return (
     <div className={s.fakePayment}>

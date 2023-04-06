@@ -15,7 +15,7 @@ const decreaseQuantityOfProductInUserCartDB = async (id) => {
         // go through all products check if new product already exist
         docData.products = docData.products.map((el) => {
           // if exist increment quantity
-          if (el.id === id) {
+          if (el.id === id && el.quantity > 0) {
             el.quantity--
           }
           return el
