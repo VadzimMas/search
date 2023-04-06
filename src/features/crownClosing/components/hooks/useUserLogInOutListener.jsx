@@ -32,7 +32,7 @@ const useUserLogInOutListener = async () => {
     
     return () => {
       unsubscribeLogInOutListener()
-      unsubscribeUserDataChangeListener()
+      unsubscribeUserDataChangeListener && unsubscribeUserDataChangeListener()
     }
   }, [refetchUser, refetchCart])
 }
