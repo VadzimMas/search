@@ -5,8 +5,7 @@ html {
   overflow: scroll;
   overscroll-behavior: contain;
 
-
-  //main page theme
+  //main page theme auto-detect by system
   @media (prefers-color-scheme: dark) {
     --sidebar-bg-color: rgba(17, 16, 23, 0.90);
     --sidebar-active-bg-color: rgba(245, 222, 179, 0.80);
@@ -26,6 +25,24 @@ html {
   }
 }
 
+//main page theme user choice
+.dark-mode {
+  --sidebar-bg-color: rgba(17, 16, 23, 0.90);
+  --sidebar-active-bg-color: rgba(245, 222, 179, 0.80);
+  --sidebar-text-color: wheat;
+  --sidebar-active-text-color: rgba(17, 16, 23, 0.90);
+  --sidebar-border-color: wheat;
+  --body-background: rgba(17, 16, 23, 0.90);
+}
+
+.light-mode {
+  --sidebar-bg-color: rgba(245, 222, 179, 0.90);
+  --sidebar-active-bg-color: rgba(17, 16, 23, 0.90);
+  --sidebar-text-color: rgba(17, 16, 23, 0.90);
+  --sidebar-active-text-color: rgba(245, 222, 179, 0.90);
+  --sidebar-border-color: rgba(17, 16, 23, 0.90);
+  --body-background: rgba(245, 222, 179, 0.90);
+}
 
 body {
   width: 100vw;

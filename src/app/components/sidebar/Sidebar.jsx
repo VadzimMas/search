@@ -1,11 +1,13 @@
 import {NavLink} from 'react-router-dom'
 import {IoLogoReact} from 'react-icons/io5'
-import {BsSearch} from 'react-icons/bs'
+import {BsMoonStars, BsSearch} from 'react-icons/bs'
 import {TiThMenu} from 'react-icons/ti'
 import {FaCrown} from 'react-icons/fa'
 import useClickOutside from '../../../hooks/useClickOutside'
 import useScroll from '../../../hooks/useScroll'
 import s from './sidebar.module.scss'
+import {ImSun} from 'react-icons/im'
+import {useEffect, useState} from 'react'
 
 function Sidebar() {
   const [ref, isMenuOpen, setIsMenuOpen] = useClickOutside('sidebar')
@@ -16,8 +18,35 @@ function Sidebar() {
   }
   const isActive = ({isActive}) => isActive ? `${s.link} ${s.active}` : s.link
   const openMenu = () => setIsMenuOpen(!isMenuOpen)
+  const [theme, setTheme] = useState('')
   const [isScroll] = useScroll(1)
   // isScroll={isScroll}
+  
+  
+  useEffect(() => {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setTheme('dark-mode')
+    } else {
+      setTheme('light-mode')
+    }
+  }, [])
+  
+  const themeIcon = () => {
+    if (theme === 'light-mode') {
+      return <BsMoonStars onClick={() => changeTheme('dark-mode')} />
+    } else {
+      return <ImSun onClick={() => changeTheme('light-mode')} />
+    }
+  }
+  
+  const changeTheme = (themeMode) => {
+    setTheme(themeMode)
+    document.querySelector('body').classList.remove('light-mode')
+    document.querySelector('body').classList.remove('dark-mode')
+    document.querySelector('body').classList.add(themeMode)
+  }
+  
+  
   return (
     <div className={s.sidebar}>
       <div className={s.container} ref={ref}>
@@ -35,9 +64,9 @@ function Sidebar() {
             <span className={s.linkIcon}><FaCrown /></span>
             <span className={s.linkTitle}>Crown Clothing</span>
           </NavLink>
-          {/*<ImSun/>*/}
-          {/*<BsMoonStars/>*/}
         </nav>
+        
+        <div className={s.theme}>{themeIcon()}</div>
       </div>
     
     </div>

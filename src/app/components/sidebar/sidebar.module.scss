@@ -88,6 +88,24 @@
             }
           }
         }
+
+        .theme {
+          margin-top: auto;
+          color: var(--sidebar-text-color);
+          background: var(--sidebar-bg-color);
+          font-size: adaptiveSize(40, 20);
+
+        }
+
+      }
+
+      .theme {
+        position: absolute;
+        bottom: adaptiveSize(6, 6);
+        left: adaptiveSize(27, 0);
+        color: var(--sidebar-text-color);
+        background: var(--sidebar-bg-color);
+        font-size: adaptiveSize(50, 15);
       }
     }
   }
@@ -178,6 +196,16 @@
             border: clamp(0.5px, 0.1vw, 5px) solid var(--sidebar-border-color);
           }
         }
+
+      }
+
+      .theme {
+        position: absolute;
+        top: adaptiveSize(12, 6);
+        right: adaptiveSize(12, 6);
+        color: var(--sidebar-text-color);
+        background: var(--sidebar-bg-color);
+        font-size: adaptiveSize(40, 20);
       }
     }
   }
