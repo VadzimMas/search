@@ -10,6 +10,7 @@
     z-index: 5;
     top: 0;
     left: 0;
+    transition: .1s;
 
     .container {
       display: flex;
@@ -26,7 +27,6 @@
         padding: 0 adaptiveSize(10, 1);
         //background: var(--bg-color-light);
         background: wheat;
-
         cursor: pointer;
         transition: .2s;
         margin: 0;
