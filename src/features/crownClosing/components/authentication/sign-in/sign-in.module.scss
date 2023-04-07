@@ -1,9 +1,9 @@
 @import "src/styled/mixins";
 
-.signIn{
+.signIn {
   width: 100%;
   padding: adaptiveSize(50, 10);
-  color: var(--sidebar-text-color);
+  color: var(--text-color-light);
 
   .title {
     font-size: adaptiveSize(40, 25);

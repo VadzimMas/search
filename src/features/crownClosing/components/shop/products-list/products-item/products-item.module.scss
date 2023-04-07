@@ -3,16 +3,16 @@
 .productsItem {
   .title {
     font-size: adaptiveSize(70, 30);
-    border-bottom: 1px solid var(--sidebar-text-color);
-    border-top: 1px solid var(--sidebar-text-color);
-    color: var(--sidebar-text-color);
+    border-bottom: 1px solid var(--text-color-light);
+    border-top: 1px solid var(--text-color-light);
+    color: var(--text-color-light);
     margin: 2% 0;
     cursor: pointer;
 
     @media (hover: hover) {
       &:hover {
-        background-color: var(--sidebar-border-color);
-        color: var(--sidebar-active-text-color);
+        background-color: var(--border-color-dark);
+        color: var(--text-color-dark);
       }
     }
 

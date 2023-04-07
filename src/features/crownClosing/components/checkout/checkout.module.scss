@@ -6,7 +6,7 @@
   justify-content: space-between;
   font-size: adaptiveSize(40, 15);
   padding: 1%;
-  color: var(--sidebar-text-color);
+  color: var(--text-color-light);
 
   .header {
     display: flex;
@@ -29,10 +29,10 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    border-top: 1px solid var(--sidebar-text-color);
+    border-top: 1px solid var(--text-color-light);
     padding: 1%;
     font-size: adaptiveSize(50, 20);
-    color: var(--sidebar-text-color);
+    color: var(--text-color-light);
 
     span:nth-child(1) {
       margin-right: 1%;

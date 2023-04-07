@@ -5,8 +5,8 @@
   top: 0;
   z-index: 1;
   transition: .3s;
-  color: var(--sidebar-active-bg-color);
-  background-color: var(--sidebar-bg-color);
+  color: var(--bg-color-dark);
+  background-color: var(--bg-color-light);
   backdrop-filter: blur(20px);
 
   @media (max-width: 768px) {
@@ -55,18 +55,18 @@
       text-decoration: none;
       white-space: nowrap;
       border-radius: 5px;
-      border: clamp(0.5px, 0.1vw, 5px) solid var(--sidebar-active-bg-color);
+      border: clamp(0.5px, 0.1vw, 5px) solid var(--bg-color-dark);
 
       @media (hover: hover) {
         &:hover {
-          background-color: var(--sidebar-active-bg-color);
-          color: var(--sidebar-active-text-color);
+          background-color: var(--bg-color-dark);
+          color: var(--text-color-dark);
         }
       }
 
       &.active {
-        background-color: var(--sidebar-active-bg-color);
-        color: var(--sidebar-active-text-color);
+        background-color: var(--bg-color-dark);
+        color: var(--text-color-dark);
       }
     }
 

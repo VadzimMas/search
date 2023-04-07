@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
 
+//setup intensity how much scroll from 1 to ...
 const useScroll = (scrollY) => {
 // when window scrolling isScroll became true
   const [isScroll, setIsScroll] = useState(false)
@@ -18,7 +19,8 @@ const useScroll = (scrollY) => {
     
     //clear event
     return () => window.removeEventListener('scroll', changeBackground)
-  }, [isScroll])
+  }, [changeBackground, isScroll])
+  
   return [isScroll]
 }
 

@@ -1,3 +1,10 @@
+:root {
+  // color setup to change browser header color through js in HTML document->head->meta tags
+  --browser-header-light: rgba(245, 222, 179);
+  --browser-header-dark: rgba(17, 16, 23);
+
+}
+
 html {
   // prevents drain screen when scroll
   width: 100vw;
@@ -7,40 +14,42 @@ html {
 
   //main page theme auto-detect by system
   @media (prefers-color-scheme: dark) {
-    --sidebar-bg-color: rgba(17, 16, 23, 0.90);
-    --sidebar-active-bg-color: rgba(245, 222, 179, 0.80);
-    --sidebar-text-color: wheat;
-    --sidebar-active-text-color: rgba(17, 16, 23, 0.90);
-    --sidebar-border-color: wheat;
+    --bg-color-light: rgba(17, 16, 23, 0.90);
+    --bg-color-dark: rgba(245, 222, 179, 0.80);
+    --text-color-light: wheat;
+    --text-color-dark: rgba(17, 16, 23, 0.90);
+    --border-color-dark: wheat;
     --body-background: rgba(17, 16, 23, 0.90);
+
   }
 
   @media (prefers-color-scheme: light) {
-    --sidebar-bg-color: rgba(245, 222, 179, 0.90);
-    --sidebar-active-bg-color: rgba(17, 16, 23, 0.90);
-    --sidebar-text-color: rgba(17, 16, 23, 0.90);
-    --sidebar-active-text-color: rgba(245, 222, 179, 0.90);
-    --sidebar-border-color: rgba(17, 16, 23, 0.90);
+    --bg-color-light: rgba(245, 222, 179, 0.90);
+    --bg-color-dark: rgba(17, 16, 23, 0.90);
+    --text-color-light: rgba(17, 16, 23, 0.90);
+    --text-color-dark: rgba(245, 222, 179, 0.90);
+    --border-color-dark: rgba(17, 16, 23, 0.90);
     --body-background: rgba(245, 222, 179, 0.90);
+
   }
 }
 
 //main page theme user choice
 .dark-mode {
-  --sidebar-bg-color: rgba(17, 16, 23, 0.90);
-  --sidebar-active-bg-color: rgba(245, 222, 179, 0.80);
-  --sidebar-text-color: wheat;
-  --sidebar-active-text-color: rgba(17, 16, 23, 0.90);
-  --sidebar-border-color: wheat;
+  --bg-color-light: rgba(17, 16, 23, 0.90);
+  --bg-color-dark: rgba(245, 222, 179, 0.80);
+  --text-color-light: wheat;
+  --text-color-dark: rgba(17, 16, 23, 0.90);
+  --border-color-dark: wheat;
   --body-background: rgba(17, 16, 23, 0.90);
 }
 
 .light-mode {
-  --sidebar-bg-color: rgba(245, 222, 179, 0.90);
-  --sidebar-active-bg-color: rgba(17, 16, 23, 0.90);
-  --sidebar-text-color: rgba(17, 16, 23, 0.90);
-  --sidebar-active-text-color: rgba(245, 222, 179, 0.90);
-  --sidebar-border-color: rgba(17, 16, 23, 0.90);
+  --bg-color-light: rgba(245, 222, 179, 0.90);
+  --bg-color-dark: rgba(17, 16, 23, 0.90);
+  --text-color-light: rgba(17, 16, 23, 0.90);
+  --text-color-dark: rgba(245, 222, 179, 0.90);
+  --border-color-dark: rgba(17, 16, 23, 0.90);
   --body-background: rgba(245, 222, 179, 0.90);
 }
 
@@ -63,8 +72,8 @@ button {
   padding: 0.5rem 1rem;
   font-size: 15px;
   background-color: var(--body-background);
-  color: var(--sidebar-text-color);
-  border: 1px solid var(--sidebar-text-color);
+  color: var(--text-color-light);
+  border: 1px solid var(--text-color-light);
   border-radius: 5px;
   text-transform: uppercase;
   font-weight: bolder;
@@ -76,7 +85,7 @@ button {
 
   @media (hover: hover) {
     &:hover {
-      background-color: var(--sidebar-text-color);
+      background-color: var(--text-color-light);
       color: var(--body-background);
       border: 1px solid var(--body-background);
     }
@@ -106,15 +115,15 @@ button {
 
   ////////////////////////////////////////////////////////////////////////////
   &.inverted {
-    background-color: var(--sidebar-text-color);
+    background-color: var(--text-color-light);
     color: var(--body-background);
     border: 1px solid var(--body-background);
 
     @media (hover: hover) {
       &:hover {
         background-color: var(--body-background);
-        color: var(--sidebar-text-color);
-        border: 1px solid var(--sidebar-text-color);
+        color: var(--text-color-light);
+        border: 1px solid var(--text-color-light);
       }
     }
 

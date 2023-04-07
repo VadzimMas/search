@@ -4,7 +4,7 @@
 .orderItem {
   display: flex;
   padding: 1vw 0;
-  border-bottom: 0.2vw solid var(--sidebar-text-color);
+  border-bottom: 0.2vw solid var(--text-color-light);
 
   & > * {
     width: 20%;

@@ -1,8 +1,8 @@
 @import "src/styled/mixins";
 
 .checkoutItem {
-  color: var(--sidebar-text-color);
-  border-top: 1px solid var(--sidebar-text-color);
+  color: var(--text-color-light);
+  border-top: 1px solid var(--text-color-light);
   padding: 1% 0;
   font-size: adaptiveSize(35, 15);
   width: 100%;

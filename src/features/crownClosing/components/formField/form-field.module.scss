@@ -6,14 +6,14 @@
 
   .formInput {
     background-color: var(--body-background);
-    color: var(--sidebar-text-color);
+    color: var(--text-color-light);
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
     width: 100%;
     border: none;
     border-radius: 5px;
-    border-bottom: 1px solid var(--sidebar-text-color);
+    border-bottom: 1px solid var(--text-color-light);
     margin: 25px 0;
 
     &:focus {
@@ -23,7 +23,7 @@
     &:focus ~ .formInputLabel {
       top: -14px;
       font-size: adaptiveSize(20, 12);
-      color: var(--sidebar-text-color);
+      color: var(--text-color-light);
     }
   }
 
@@ -32,7 +32,7 @@
   }
 
   .formInputLabel {
-    color: var(--sidebar-text-color);
+    color: var(--text-color-light);
     font-size: adaptiveSize(25, 15);
     font-weight: normal;
     position: absolute;
@@ -45,7 +45,7 @@
   .shrink {
     top: -14px;
     font-size: adaptiveSize(20, 12);
-    color: var(--sidebar-text-color);
+    color: var(--text-color-light);
   }
 }
 

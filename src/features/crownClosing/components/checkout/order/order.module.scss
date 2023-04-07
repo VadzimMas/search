@@ -1,7 +1,7 @@
 @import "src/styled/mixins";
 
 .order {
-  color: var(--sidebar-text-color);
+  color: var(--text-color-light);
   padding: 1vw;
   font-size: adaptiveSize(35, 16);
   border: 1px solid rgba(9, 3, 32, 0.21);
@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    border-bottom: 0.2vw solid var(--sidebar-text-color);
+    border-bottom: 0.2vw solid var(--text-color-light);
     background-color: rgba(9, 3, 32, 0.21);
     padding: 1vw;
 
@@ -27,7 +27,7 @@
   }
 
   .titleContainer {
-    border-bottom: 0.2vw solid var(--sidebar-text-color);
+    border-bottom: 0.2vw solid var(--text-color-light);
     padding: 1vw;
 
     .title {
@@ -42,13 +42,13 @@
   .shippingInfo {
     display: flex;
     justify-content: space-between;
-    border-bottom: 0.2vw solid var(--sidebar-text-color);
+    border-bottom: 0.2vw solid var(--text-color-light);
     padding: 1vw;
 
     .item {
       display: flex;
       flex-direction: column;
-      border-left: 0.2vw solid var(--sidebar-text-color);
+      border-left: 0.2vw solid var(--text-color-light);
       padding-left: 1vw;
 
       & span:nth-child(1) {
@@ -112,12 +112,12 @@
     display: flex;
     align-items: center;
     padding: 1vw;
-    border-bottom: 0.2vw solid var(--sidebar-text-color);
+    border-bottom: 0.2vw solid var(--text-color-light);
 
     & > * {
       text-align: center;
       width: 20%;
-      border-right: 0.2vw solid var(--sidebar-text-color);
+      border-right: 0.2vw solid var(--text-color-light);
     }
 
     span:last-child {
@@ -141,8 +141,8 @@
     }
 
     & div:last-child {
-      border-bottom: 0.2vw solid var(--sidebar-text-color);
-      border-top: 0.2vw solid var(--sidebar-text-color);
+      border-bottom: 0.2vw solid var(--text-color-light);
+      border-top: 0.2vw solid var(--text-color-light);
     }
 
   }

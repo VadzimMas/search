@@ -24,7 +24,7 @@
         flex-direction: column;
         align-items: center;
         padding: 0 adaptiveSize(10, 1);
-        background: var(--sidebar-bg-color);
+        background: var(--bg-color-light);
         backdrop-filter: blur(20px);
         cursor: pointer;
         transition: .2s;
@@ -39,7 +39,7 @@
           text-decoration: none;
           padding: adaptiveSize(10, 1);
           border: clamp(0.5px, 0.1vw, 5px) solid transparent;
-          color: var(--sidebar-text-color);
+          color: var(--text-color-light);
           margin: clamp(5px, 0.5vw, 20px) 0 0 0;
 
           .linkIcon {
@@ -62,14 +62,27 @@
 
           &:hover {
             border-radius: 5px;
-            border: clamp(0.5px, 0.1vw, 5px) solid var(--sidebar-border-color);
+            border: clamp(0.5px, 0.1vw, 5px) solid var(--border-color-dark);
           }
 
           &.active {
-            background-color: var(--sidebar-active-bg-color);
-            color: var(--sidebar-active-text-color);
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
             border-radius: 5px;
-            border: clamp(0.5px, 0.1vw, 5px) solid var(--sidebar-border-color);
+            border: clamp(0.5px, 0.1vw, 5px) solid var(--border-color-dark);
+          }
+        }
+
+
+        .theme {
+          margin-top: auto;
+          margin-bottom: 1vw;
+          color: var(--text-color-light);
+          width: adaptiveSize(75, 15);
+
+          svg {
+            width: 100%;
+            height: 100%;
           }
         }
 
@@ -88,24 +101,6 @@
             }
           }
         }
-
-        .theme {
-          margin-top: auto;
-          color: var(--sidebar-text-color);
-          background: var(--sidebar-bg-color);
-          font-size: adaptiveSize(40, 20);
-
-        }
-
-      }
-
-      .theme {
-        position: absolute;
-        bottom: adaptiveSize(6, 6);
-        left: adaptiveSize(27, 0);
-        color: var(--sidebar-text-color);
-        background: var(--sidebar-bg-color);
-        font-size: adaptiveSize(50, 15);
       }
     }
   }
@@ -120,8 +115,7 @@
     left: 0;
     width: 100%;
     height: unset;
-    background: var(--sidebar-bg-color);
-    backdrop-filter: blur(20px);
+    background: var(--bg-color-light);
 
     .container {
       .menu {
@@ -130,7 +124,7 @@
         height: clamp(35px, 10vw, 50px);
         transition: .2s;
         cursor: pointer;
-        color: var(--sidebar-active-bg-color);
+        color: var(--bg-color-dark);
 
         &.active {
           transform: rotate(90deg);
@@ -142,7 +136,8 @@
         flex-direction: column;
         align-items: center;
         padding: 0 adaptiveSize(10, 1);
-        background: var(--sidebar-bg-color);
+        background: var(--bg-color-light);
+
         cursor: pointer;
         transition: .2s;
         margin: 0;
@@ -163,7 +158,7 @@
           text-decoration: none;
           padding: adaptiveSize(10, 1);
           border: clamp(0.5px, 0.1vw, 5px) solid transparent;
-          color: var(--sidebar-text-color);
+          color: var(--text-color-light);
           margin: clamp(5px, 0.5vw, 20px) 0 0 0;
           gap: adaptiveSize(30, 10);
 
@@ -186,26 +181,30 @@
 
           &:hover {
             border-radius: 5px;
-            border: clamp(0.5px, 0.1vw, 5px) solid var(--sidebar-border-color);
+            border: clamp(0.5px, 0.1vw, 5px) solid var(--border-color-dark);
           }
 
           &.active {
-            background-color: var(--sidebar-active-bg-color);
-            color: var(--sidebar-active-text-color);
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
             border-radius: 5px;
-            border: clamp(0.5px, 0.1vw, 5px) solid var(--sidebar-border-color);
+            border: clamp(0.5px, 0.1vw, 5px) solid var(--border-color-dark);
           }
         }
 
-      }
+        .theme {
+          position: fixed;
+          top: 1vw;
+          right: 1vw;
+          color: var(--text-color-light);
+          width: adaptiveSize(55, 30);
+          height: adaptiveSize(55, 30);
 
-      .theme {
-        position: absolute;
-        top: adaptiveSize(12, 6);
-        right: adaptiveSize(12, 6);
-        color: var(--sidebar-text-color);
-        background: var(--sidebar-bg-color);
-        font-size: adaptiveSize(40, 20);
+          svg {
+            width: 100%;
+            height: 100%;
+          }
+        }
       }
     }
   }

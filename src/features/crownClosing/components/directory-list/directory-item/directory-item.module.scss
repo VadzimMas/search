@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 1px solid var(--sidebar-text-color);
+  border: 1px solid var(--text-color-light);
   border-radius: 5px;
 
   &:hover {
@@ -34,7 +34,7 @@
     padding-bottom: adaptiveSize(20, 5);
     padding-left: adaptiveSize(30, 10);
     padding-right: adaptiveSize(30, 10);
-    border: 1px solid var(--sidebar-text-color);
+    border: 1px solid var(--text-color-light);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -44,7 +44,7 @@
     opacity: 0.7;
     position: absolute;
     font-size: adaptiveSize(30, 13);
-    color: var(--sidebar-text-color);
+    color: var(--text-color-light);
     text-transform: capitalize;
 
     .title {
