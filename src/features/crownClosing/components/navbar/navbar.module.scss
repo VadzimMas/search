@@ -1,112 +1,218 @@
 @import "src/styled/mixins";
 
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  transition: .3s;
-  color: var(--bg-color-dark);
-  background-color: var(--bg-color-light);
-  backdrop-filter: blur(20px);
-
-  @media (max-width: 768px) {
-    top: adaptiveSize(90, 35);
-    &:before {
-      content: '';
-      position: absolute;
-      top: -100%;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: inherit;
+@media (min-width: 769px) {
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    transition: .3s;
+    color: var(--bg-color-dark);
+    background-color: var(--bg-color-light);
+    backdrop-filter: blur(10px);
+    @media (max-width: 768px) {
+      top: adaptiveSize(90, 35);
     }
-  }
 
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: adaptiveSize(20, 5);;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
-
-  .logoContainer {
-    color: inherit;
-    width: adaptiveSize(100, 40);
-    height: adaptiveSize(100, 29);
-
-    .svg {
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  .linksContainer {
-    height: adaptiveSize(100, 50);
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    gap: 1vw;
+    justify-content: space-between;
+    padding: adaptiveSize(20, 5);;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
 
-    .link {
+    .logoContainer {
       color: inherit;
-      font-size: adaptiveSize(30, 15);
-      padding: 0.4rem 0.9rem;
-      cursor: pointer;
-      text-decoration: none;
-      white-space: nowrap;
-      border-radius: 5px;
-      border: clamp(0.5px, 0.1vw, 5px) solid var(--bg-color-dark);
+      width: adaptiveSize(100, 40);
+      height: adaptiveSize(100, 29);
 
-      @media (hover: hover) {
-        &:hover {
+      .svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .linksContainer {
+      height: adaptiveSize(100, 50);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1vw;
+
+      .link {
+        color: inherit;
+        font-size: adaptiveSize(30, 15);
+        padding: 0.4rem 0.9rem;
+        cursor: pointer;
+        text-decoration: none;
+        white-space: nowrap;
+        border-radius: 5px;
+        border: clamp(0.5px, 0.1vw, 5px) solid var(--bg-color-dark);
+
+        @media (hover: hover) {
+          &:hover {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+          }
+        }
+
+        &.active {
           background-color: var(--bg-color-dark);
           color: var(--text-color-dark);
         }
       }
 
-      &.active {
-        background-color: var(--bg-color-dark);
-        color: var(--text-color-dark);
-      }
-    }
-
-    .cartContainer {
-      position: relative;
-      width: adaptiveSize(60, 30);
-      aspect-ratio: 1/1;
-      cursor: pointer;
-      color: inherit;
-
-      .imgContainer {
+      .cartContainer {
         position: relative;
-        z-index: 2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        width: adaptiveSize(60, 30);
+        aspect-ratio: 1/1;
+        cursor: pointer;
+        color: inherit;
 
-        svg {
-          width: 100%;
-          height: 100%;
+        .imgContainer {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          svg {
+            width: 100%;
+            height: 100%;
+          }
+
+          .count {
+            position: absolute;
+            top: 25%;
+            font-size: adaptiveSize(30, 15);
+          }
         }
 
-        .count {
+        .cartPopup {
           position: absolute;
-          top: 25%;
-          font-size: adaptiveSize(30, 15);
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          top: 100%;
+          right: 50%;
+          width: adaptiveSize(600, 300);
         }
-      }
-
-      .cartPopup {
-        position: absolute;
-        z-index: 2;
-        display: flex;
-        flex-direction: column;
-        top: 100%;
-        right: 50%;
-        width: adaptiveSize(600, 300);
       }
     }
-  }
 
+  }
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    transition: .3s;
+    color: var(--bg-color-dark);
+    //background-color: var(--bg-color-light);
+    //backdrop-filter: blur(10px);
+    @media (max-width: 768px) {
+      top: adaptiveSize(90, 35);
+      &:before {
+        content: '';
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: adaptiveSize(280, 120);
+        background-color: var(--bg-color-light);
+        backdrop-filter: blur(10px);
+        z-index: -1;
+      }
+    }
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: adaptiveSize(20, 5);;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+
+    .logoContainer {
+      color: inherit;
+      width: adaptiveSize(100, 40);
+      height: adaptiveSize(100, 29);
+
+      .svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .linksContainer {
+      height: adaptiveSize(100, 50);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1vw;
+
+      .link {
+        color: inherit;
+        font-size: adaptiveSize(30, 15);
+        padding: 0.4rem 0.9rem;
+        cursor: pointer;
+        text-decoration: none;
+        white-space: nowrap;
+        border-radius: 5px;
+        border: clamp(0.5px, 0.1vw, 5px) solid var(--bg-color-dark);
+
+        @media (hover: hover) {
+          &:hover {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+          }
+        }
+
+        &.active {
+          background-color: var(--bg-color-dark);
+          color: var(--text-color-dark);
+        }
+      }
+
+      .cartContainer {
+        position: relative;
+        width: adaptiveSize(60, 30);
+        aspect-ratio: 1/1;
+        cursor: pointer;
+        color: inherit;
+
+        .imgContainer {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          svg {
+            width: 100%;
+            height: 100%;
+          }
+
+          .count {
+            position: absolute;
+            top: 25%;
+            font-size: adaptiveSize(30, 15);
+          }
+        }
+
+        .cartPopup {
+          position: absolute;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          top: 100%;
+          right: 50%;
+          width: adaptiveSize(600, 300);
+        }
+      }
+    }
+
+  }
+}
+
 

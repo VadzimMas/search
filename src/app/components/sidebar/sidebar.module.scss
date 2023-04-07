@@ -11,6 +11,7 @@
     top: 0;
     left: 0;
     transition: .1s;
+    background: var(--bg-color-light);
 
     .container {
       display: flex;
@@ -25,8 +26,7 @@
         flex-direction: column;
         align-items: center;
         padding: 0 adaptiveSize(10, 1);
-        //background: var(--bg-color-light);
-        background: wheat;
+        background: var(--bg-color-light);
         cursor: pointer;
         transition: .2s;
         margin: 0;
@@ -117,7 +117,8 @@
     left: 0;
     width: 100%;
     height: unset;
-    background: var(--bg-color-light);
+    //background: var(--bg-color-light);
+    //backdrop-filter: blur(10px);
 
     .container {
       .menu {
