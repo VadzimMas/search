@@ -3,15 +3,6 @@
   --browser-header-light: rgba(245, 222, 179);
   --browser-header-dark: rgba(17, 16, 23);
 
-}
-
-html {
-  // prevents drain screen when scroll
-  width: 100vw;
-  height: 100vh;
-  overflow: scroll;
-  overscroll-behavior: contain;
-
   //main page theme auto-detect by system
   @media (prefers-color-scheme: dark) {
     --bg-color-light: rgba(17, 16, 23, 0.90);
@@ -19,8 +10,7 @@ html {
     --text-color-light: wheat;
     --text-color-dark: rgba(17, 16, 23, 0.90);
     --border-color-dark: wheat;
-    --body-background: rgba(17, 16, 23, 0.90);
-
+    --body-background: rgba(17, 16, 23, 100);
   }
 
   @media (prefers-color-scheme: light) {
@@ -29,33 +19,40 @@ html {
     --text-color-light: rgba(17, 16, 23, 0.90);
     --text-color-dark: rgba(245, 222, 179, 0.90);
     --border-color-dark: rgba(17, 16, 23, 0.90);
-    --body-background: rgba(245, 222, 179, 0.90);
+    --body-background: rgba(245, 222, 179, 100);
+  }
 
+  //main page theme user choice
+  .dark-mode {
+    --bg-color-light: rgba(17, 16, 23, 0.90);
+    --bg-color-dark: rgba(245, 222, 179, 0.80);
+    --text-color-light: wheat;
+    --text-color-dark: rgba(17, 16, 23, 0.90);
+    --border-color-dark: wheat;
+    --body-background: rgba(17, 16, 23, 100);
+  }
+
+  .light-mode {
+    --bg-color-light: rgba(245, 222, 179, 0.90);
+    --bg-color-dark: rgba(17, 16, 23, 0.90);
+    --text-color-light: rgba(17, 16, 23, 0.90);
+    --text-color-dark: rgba(245, 222, 179, 0.90);
+    --border-color-dark: rgba(17, 16, 23, 0.90);
+    --body-background: rgba(245, 222, 179, 100);
   }
 }
 
-//main page theme user choice
-.dark-mode {
-  --bg-color-light: rgba(17, 16, 23, 0.90);
-  --bg-color-dark: rgba(245, 222, 179, 0.80);
-  --text-color-light: wheat;
-  --text-color-dark: rgba(17, 16, 23, 0.90);
-  --border-color-dark: wheat;
-  --body-background: rgba(17, 16, 23, 0.90);
-}
-
-.light-mode {
-  --bg-color-light: rgba(245, 222, 179, 0.90);
-  --bg-color-dark: rgba(17, 16, 23, 0.90);
-  --text-color-light: rgba(17, 16, 23, 0.90);
-  --text-color-dark: rgba(245, 222, 179, 0.90);
-  --border-color-dark: rgba(17, 16, 23, 0.90);
-  --body-background: rgba(245, 222, 179, 0.90);
+html {
+  // prevents drain screen when scroll
+  //width: 100vw;
+  //height: 100vh;
+  //overflow: scroll;
+  //overscroll-behavior: contain;
 }
 
 body {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   font-family: 'Ubuntu Condensed', sans-serif;
