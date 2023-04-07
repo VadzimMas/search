@@ -42,8 +42,12 @@ function Sidebar() {
             <span className={s.linkIcon}><FaCrown /></span>
             <span className={s.linkTitle}>Crown Clothing</span>
           </NavLink>
-          <div className={s.theme}>{themeIcon()}</div>
+          <div className={s.navTheme}>
+            
+            {themeIcon()}
+          </div>
         </nav>
+        <div className={s.sidebarTheme}>{themeIcon()}</div>
       </div>
     </div>
   

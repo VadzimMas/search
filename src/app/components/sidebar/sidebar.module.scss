@@ -76,7 +76,7 @@
         }
 
 
-        .theme {
+        .navTheme {
           margin-top: auto;
           margin-bottom: 1vw;
           color: var(--text-color-light);
@@ -103,6 +103,10 @@
             }
           }
         }
+      }
+
+      .sidebarTheme {
+        display: none;
       }
     }
   }
@@ -195,18 +199,22 @@
           }
         }
 
-        .theme {
-          position: fixed;
-          top: 1vw;
-          right: 1vw;
-          color: var(--text-color-light);
-          width: adaptiveSize(55, 30);
-          height: adaptiveSize(55, 30);
+        .navTheme {
+          display: none;
+        }
+      }
 
-          svg {
-            width: 100%;
-            height: 100%;
-          }
+      .sidebarTheme {
+        position: absolute;
+        top: 1vw;
+        right: 1vw;
+        color: var(--text-color-light);
+        width: adaptiveSize(55, 30);
+        height: adaptiveSize(55, 30);
+
+        svg {
+          width: 100%;
+          height: 100%;
         }
       }
     }
