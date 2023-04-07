@@ -19,8 +19,10 @@ function Navbar() {
   const {data: userData} = useFetchUserQuery()
   const {data: cartData} = useFetchCartQuery()
   
+  const navbarClass = isScroll ? `${s.navbar} ${s.shadow}` : s.navbar
+  
   return (
-    <div className={s.navbar}>
+    <div className={navbarClass}>
       <NavLink className={s.logoContainer} to="/crownClothing">
         <FaCrown className={s.svg} />
       </NavLink>

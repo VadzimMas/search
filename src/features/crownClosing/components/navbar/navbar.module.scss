@@ -1,6 +1,7 @@
 @import "src/styled/mixins";
 
 @media (min-width: 769px) {
+
   .navbar {
     position: sticky;
     top: 0;
@@ -9,16 +10,15 @@
     color: var(--bg-color-dark);
     background-color: var(--bg-color-light);
     backdrop-filter: blur(10px);
-    @media (max-width: 768px) {
-      top: adaptiveSize(90, 35);
-    }
-
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: adaptiveSize(20, 5);;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+
+    &.shadow {
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    }
 
     .logoContainer {
       color: inherit;
@@ -105,25 +105,21 @@
 @media (max-width: 768px) {
   .navbar {
     position: sticky;
-    top: 0;
     z-index: 1;
     transition: .3s;
     color: var(--bg-color-dark);
-    //background-color: var(--bg-color-light);
-    //backdrop-filter: blur(10px);
-    @media (max-width: 768px) {
-      top: adaptiveSize(90, 35);
-      &:before {
-        content: '';
-        position: absolute;
-        top: -100%;
-        left: 0;
-        width: 100%;
-        height: adaptiveSize(280, 120);
-        background-color: var(--bg-color-light);
-        backdrop-filter: blur(10px);
-        z-index: -1;
-      }
+    top: adaptiveSize(90, 37);
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: adaptiveSize(280, 120);
+      background-color: var(--bg-color-light);
+      backdrop-filter: blur(10px);
+      z-index: -1;
     }
 
     width: 100%;
@@ -131,7 +127,10 @@
     align-items: center;
     justify-content: space-between;
     padding: adaptiveSize(20, 5);;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+
+    &.shadow {
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    }
 
     .logoContainer {
       color: inherit;
