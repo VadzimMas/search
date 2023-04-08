@@ -1,3 +1,6 @@
+@import "mixins";
+
+
 :root {
   // color setup to change browser header color through js in HTML document->head->meta tags
   --browser-header-light: rgba(245, 222, 179);
@@ -7,17 +10,17 @@
   @media (prefers-color-scheme: dark) {
     --bg-color-light: rgba(17, 16, 23, 0.90);
     --bg-color-dark: rgba(245, 222, 179, 0.80);
-    --text-color-light: wheat;
+    --text-color-light: rgba(245, 222, 179, 0.80);
     --text-color-dark: rgba(17, 16, 23, 0.90);
-    --border-color-dark: wheat;
+    --border-color-dark: rgba(245, 222, 179, 0.80);
     --body-background: rgba(17, 16, 23, 100);
   }
 
   @media (prefers-color-scheme: light) {
-    --bg-color-light: rgba(245, 222, 179, 0.90);
+    --bg-color-light: rgba(245, 222, 179, 0.80);
     --bg-color-dark: rgba(17, 16, 23, 0.90);
     --text-color-light: rgba(17, 16, 23, 0.90);
-    --text-color-dark: rgba(245, 222, 179, 0.90);
+    --text-color-dark: rgba(245, 222, 179, 0.80);
     --border-color-dark: rgba(17, 16, 23, 0.90);
     --body-background: rgba(245, 222, 179, 100);
   }
@@ -26,17 +29,17 @@
   .dark-mode {
     --bg-color-light: rgba(17, 16, 23, 0.90);
     --bg-color-dark: rgba(245, 222, 179, 0.80);
-    --text-color-light: wheat;
+    --text-color-light: rgba(245, 222, 179, 0.80);
     --text-color-dark: rgba(17, 16, 23, 0.90);
-    --border-color-dark: wheat;
+    --border-color-dark: rgba(245, 222, 179, 0.80);
     --body-background: rgba(17, 16, 23, 100);
   }
 
   .light-mode {
-    --bg-color-light: rgba(245, 222, 179, 0.90);
+    --bg-color-light: rgba(245, 222, 179, 0.80);
     --bg-color-dark: rgba(17, 16, 23, 0.90);
     --text-color-light: rgba(17, 16, 23, 0.90);
-    --text-color-dark: rgba(245, 222, 179, 0.90);
+    --text-color-dark: rgba(245, 222, 179, 0.80);
     --border-color-dark: rgba(17, 16, 23, 0.90);
     --body-background: rgba(245, 222, 179, 100);
   }

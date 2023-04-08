@@ -176,8 +176,8 @@
         }
 
         .text {
-          color: var(--bg-color-dark);
-          font-size: adaptiveSize(50, 30);
+          color: var(--text-color-light);
+          font-size: adaptiveSize(50, 25);
           margin-left: 10px;
         }
       }
