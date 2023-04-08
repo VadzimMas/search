@@ -123,6 +123,11 @@
     height: unset;
 
     .container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
       .menu {
         position: relative;
         width: adaptiveSize(70, 40);
@@ -209,16 +214,16 @@
       }
 
       .sidebarTheme {
-        position: absolute;
-        top: 1vw;
-        right: 1vw;
         color: var(--text-color-light);
-        width: adaptiveSize(55, 30);
-        height: adaptiveSize(55, 30);
+        width: adaptiveSize(70, 40);
+        height: adaptiveSize(70, 40);
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         svg {
-          width: 100%;
-          height: 100%;
+          width: 75%;
+          height: 75%;
         }
       }
     }
