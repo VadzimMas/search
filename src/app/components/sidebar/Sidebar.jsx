@@ -7,7 +7,7 @@ import useClickOutside from '../../../hooks/useClickOutside'
 import s from './sidebar.module.scss'
 import useTheme from '../../../hooks/useTheme'
 import useScroll from '../../../hooks/useScroll'
-
+import VMWebLogo from '../../assets/VM-Web-Logo.jpeg'
 
 function Sidebar() {
   const [ref, isMenuOpen, setIsMenuOpen] = useClickOutside('sidebar')
@@ -29,6 +29,10 @@ function Sidebar() {
     <div className={s.sidebar}>
       <div className={s.container} ref={ref}>
         <TiThMenu className={isMenuOpen ? `${s.menu} ${s.active}` : s.menu} onClick={openMenu} />
+        <div className={s.logoContainer}>
+          <img className={s.logo} src={VMWebLogo} alt="" />
+          <span className={s.text}>VM Dev</span>
+        </div>
         <nav className={isMenuOpen ? `${s.nav} ${s.active}` : s.nav}>
           <NavLink className={isActive} to={'/'} onClick={toggleClass}>
             <span className={s.linkIcon}><IoLogoReact /></span>
@@ -43,7 +47,6 @@ function Sidebar() {
             <span className={s.linkTitle}>Crown Clothing</span>
           </NavLink>
           <div className={s.navTheme}>
-            
             {themeIcon()}
           </div>
         </nav>

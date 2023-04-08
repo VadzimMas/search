@@ -6,6 +6,7 @@ function Home() {
     <div className="home">
       <div className="backgraund"></div>
       HomePage
+      <video src=""></video>
     </div>
   )
 }
